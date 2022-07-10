@@ -17,6 +17,7 @@
 		B1A36ADC287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ADB287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift */; };
 		B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; };
 		B1A36B74287AAA0D00DE64C8 /* FoorunKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1A36B78287AACE200DE64C8 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B77287AACE200DE64C8 /* Logger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +170,9 @@
 			dependencies = (
 			);
 			name = Foorun;
+			packageProductDependencies = (
+				B1A36B77287AACE200DE64C8 /* Logger */,
+			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +245,9 @@
 				Base,
 			);
 			mainGroup = B1A36AAC287AA26A00DE64C8;
+			packageReferences = (
+				B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */,
+			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -612,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BoilerSwift/Logger";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1A36B77287AACE200DE64C8 /* Logger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */;
+			productName = Logger;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1A36AAD287AA26A00DE64C8 /* Project object */;
 }
