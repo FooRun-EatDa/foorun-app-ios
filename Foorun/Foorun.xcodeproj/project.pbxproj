@@ -18,6 +18,8 @@
 		B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; };
 		B1A36B74287AAA0D00DE64C8 /* FoorunKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1A36B78287AACE200DE64C8 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B77287AACE200DE64C8 /* Logger */; };
+		B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7A287AB01400DE64C8 /* SnapKit */; };
+		B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7D287AB04D00DE64C8 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
 				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
+				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +176,8 @@
 			name = Foorun;
 			packageProductDependencies = (
 				B1A36B77287AACE200DE64C8 /* Logger */,
+				B1A36B7A287AB01400DE64C8 /* SnapKit */,
+				B1A36B7D287AB04D00DE64C8 /* Then */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -247,6 +253,8 @@
 			mainGroup = B1A36AAC287AA26A00DE64C8;
 			packageReferences = (
 				B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */,
+				B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
@@ -630,6 +638,22 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -637,6 +661,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */;
 			productName = Logger;
+		};
+		B1A36B7A287AB01400DE64C8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B1A36B7D287AB04D00DE64C8 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

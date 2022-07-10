@@ -7,6 +7,7 @@
 
 import UIKit
 import FoorunKey
+import Logger
 
 class ViewController: UIViewController {
 
@@ -14,7 +15,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
-
 }
 
