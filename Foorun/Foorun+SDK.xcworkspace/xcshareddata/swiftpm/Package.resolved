@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "ReferenceKit",
+        "repositoryURL": "https://github.com/BoilerSwift/ReferenceKit",
+        "state": {
+          "branch": null,
+          "revision": "48c5a4bbf1b26c8b13d5ec6b229a367f511dc2ec",
+          "version": "1.0.4"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {
