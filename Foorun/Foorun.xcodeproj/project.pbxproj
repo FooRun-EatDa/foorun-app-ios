@@ -21,6 +21,10 @@
 		B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7A287AB01400DE64C8 /* SnapKit */; };
 		B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7D287AB04D00DE64C8 /* Then */; };
 		FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2534287AB36C008E9E24 /* MapViewController.swift */; };
+		FD7E2537287AB650008E9E24 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2536287AB650008E9E24 /* MapView.swift */; };
+		FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E253D287AC775008E9E24 /* Annotation.swift */; };
+		FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* AnnotationView.swift */; };
+		FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E254B287BBA14008E9E24 /* NSObject+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		B1A36ADB287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoorunUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoorunKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7E2534287AB36C008E9E24 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FD7E2536287AB650008E9E24 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		FD7E253D287AC775008E9E24 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		FD7E2548287BB842008E9E24 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		FD7E254B287BBA14008E9E24 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +132,11 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
-				FD7E2533287AB363008E9E24 /* Map */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				B1A36ABC287AA26A00DE64C8 /* ViewController.swift */,
+				FD7E2533287AB363008E9E24 /* Map */,
+				FD7E254A287BB9F7008E9E24 /* Extension */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
@@ -164,8 +173,35 @@
 			isa = PBXGroup;
 			children = (
 				FD7E2534287AB36C008E9E24 /* MapViewController.swift */,
+				FD7E2541287AD10F008E9E24 /* Views */,
+				FD7E2542287AD134008E9E24 /* Annotation */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		FD7E2541287AD10F008E9E24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E2536287AB650008E9E24 /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD7E2542287AD134008E9E24 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E253D287AC775008E9E24 /* Annotation.swift */,
+				FD7E2548287BB842008E9E24 /* AnnotationView.swift */,
+			);
+			name = Annotation;
+			sourceTree = "<group>";
+		};
+		FD7E254A287BB9F7008E9E24 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,7 +347,11 @@
 			files = (
 				B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
+				FD7E2537287AB650008E9E24 /* MapView.swift in Sources */,
+				FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
+				FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */,
+				FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */,
 				FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SQ5T25W9V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -509,6 +550,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SQ5T25W9V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
