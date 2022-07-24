@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     
     lazy var scrollView = UIScrollView().then {
         $0.backgroundColor = .white
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
     }
         
@@ -309,9 +308,11 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantDetailTableViewCell.id, for: indexPath) as? RestaurantDetailTableViewCell else {
             return UITableViewCell()
         }
+        cell.setUI(data[indexPath.row])
         
         switch indexPath.row {
         case 0:
+            
             cell.cellTitleLabel.text = "종류"
             cell.cellDetailTitleLabel.text = "패스프푸드"
 
