@@ -46,4 +46,5 @@ class SettingViewModel: ObservableObject {
         ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", deprecated: true),
     ]
     
+    @Published var shows인증페이지: Bool = false
 }

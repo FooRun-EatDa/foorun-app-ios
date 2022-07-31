@@ -60,6 +60,7 @@ struct InformationView: View {
         }
     }
     
+    /// 인포 정보에 대한 뷰에 대한 부분 입니다.
     private func infomationItemView(
         text: String,
         systemName: String = "chevron.right"
