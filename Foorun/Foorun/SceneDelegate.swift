@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
         
-        let vc = UIHostingController(rootView: SettingView())
+        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingListModel()))
         window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
     }

@@ -9,6 +9,7 @@ import SwiftUI
 import ReferenceKit
 
 struct InformationView: View {
+    @Enviro
     
     /// Reference Item
     let items: [ReferenceItem] = [
@@ -19,8 +20,7 @@ struct InformationView: View {
         ReferenceItem(title: "RxSwfit", url: "https://github.com/ReactiveX/RxSwift", deprecated: true),
         ReferenceItem(title: "TTGTagCollectionView", url: "https://github.com/zekunyan/TTGTagCollectionView", deprecated: false),
         ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", deprecated: true),
-      ]
-    
+    ]
     
     var body: some View {
         Section {
@@ -28,7 +28,7 @@ struct InformationView: View {
                 Text("🛸 앱 버전")
                     .font(.caption)
                 Spacer()
-                Text("\(Bundle.appVersion)")
+                Text("\(appVersion!)")
                     .font(.caption)
             }
             
@@ -74,8 +74,6 @@ struct InformationView: View {
                     .foregroundColor(.gray)
             }
             
-            // NOTE: - RefereceKit으로 구현
-            
             HStack {
                 NavigationLink {
                     ReferenceView(items: items)
@@ -90,7 +88,6 @@ struct InformationView: View {
             Text("정보")
         }
     }
-    
     
 }
 

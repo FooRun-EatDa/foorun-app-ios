@@ -12,8 +12,12 @@ struct MyPageView: View {
         Section {
             Text("🧩 인증 하기")
                 .font(.caption)
-            Text("🍭 알림 구독")
-                .font(.caption)
+            
+            // TODO: - Slider
+            HStack {
+                Text("🍭 알림 구독")
+                    .font(.caption)
+            }
         } header: {
             Text("마이 페이지")
         }
