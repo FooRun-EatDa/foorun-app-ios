@@ -1,7 +1,7 @@
 //
 //  AppDelegate.swift
 //  Foorun
-//
+//Setting
 //  Created by Hamlit Jason on 2022/07/10.
 //
 
