@@ -5,8 +5,13 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
+<<<<<<< HEAD
         "revision" : "8dd85aee02e39dd280c75eef88ffdb86eed4b07b",
         "version" : "5.6.2"
+=======
+        "branch" : "master",
+        "revision" : "8dd85aee02e39dd280c75eef88ffdb86eed4b07b"
+>>>>>>> develop
       }
     },
     {
@@ -19,6 +24,18 @@
       }
     },
     {
+<<<<<<< HEAD
+=======
+      "identity" : "referencekit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/BoilerSwift/ReferenceKit",
+      "state" : {
+        "revision" : "de5fa9ef53ddf9c5ad7c7a0770fe4cdd4837d306",
+        "version" : "1.0.5"
+      }
+    },
+    {
+>>>>>>> develop
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",
