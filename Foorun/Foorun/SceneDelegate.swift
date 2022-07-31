@@ -13,16 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        
-        window = UIWindow(windowScene: windowScene)
-        window?.backgroundColor = .systemBackground
-        
-        
-        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingViewModel()))
-        window?.rootViewController = UINavigationController(rootViewController: vc)
-        window?.makeKeyAndVisible()
-    }
+            
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            
+            window = UIWindow(windowScene: windowScene)
+            window?.backgroundColor = .systemBackground
+            window?.rootViewController = UINavigationController(rootViewController: EventViewController())
+            window?.makeKeyAndVisible()
+        }
 }
 
