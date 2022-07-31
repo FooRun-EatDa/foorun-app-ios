@@ -20,15 +20,6 @@
 		B1A36B78287AACE200DE64C8 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B77287AACE200DE64C8 /* Logger */; };
 		B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7A287AB01400DE64C8 /* SnapKit */; };
 		B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7D287AB04D00DE64C8 /* Then */; };
-		B1A4A41A288D332900D398CC /* FRDetailViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4A419288D332900D398CC /* FRDetailViewContoller.swift */; };
-		B1A4A41D288D35BE00D398CC /* FRDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4A41C288D35BE00D398CC /* FRDetailView.swift */; };
-		B1A4A420288D363100D398CC /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = B1A4A41F288D363100D398CC /* RxBlocking */; };
-		B1A4A422288D363100D398CC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B1A4A421288D363100D398CC /* RxCocoa */; };
-		B1A4A424288D363100D398CC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B1A4A423288D363100D398CC /* RxRelay */; };
-		B1A4A426288D363100D398CC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1A4A425288D363100D398CC /* RxSwift */; };
-		B1A4A428288D363100D398CC /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = B1A4A427288D363100D398CC /* RxTest */; };
-		B1A4A42B288D365500D398CC /* FRDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4A42A288D365500D398CC /* FRDetailViewModel.swift */; };
-		B1A4A42D288D399500D398CC /* FRDetailView.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4A42C288D399500D398CC /* FRDetailView.UICollectionView.swift */; };
 		F0E7449F287AB3470007623C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E7449E287AB3470007623C /* DetailViewController.swift */; };
 		F0E744A1287AD3400007623C /* RestaurantHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E744A0287AD3400007623C /* RestaurantHashTagCollectionViewCell.swift */; };
 		F0E744A3287AD8670007623C /* RestaurantDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E744A2287AD8660007623C /* RestaurantDetailTableViewCell.swift */; };
@@ -80,10 +71,6 @@
 		B1A36AD9287AA26B00DE64C8 /* FoorunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoorunUITests.swift; sourceTree = "<group>"; };
 		B1A36ADB287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoorunUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FoorunKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1A4A419288D332900D398CC /* FRDetailViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRDetailViewContoller.swift; sourceTree = "<group>"; };
-		B1A4A41C288D35BE00D398CC /* FRDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRDetailView.swift; sourceTree = "<group>"; };
-		B1A4A42A288D365500D398CC /* FRDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRDetailViewModel.swift; sourceTree = "<group>"; };
-		B1A4A42C288D399500D398CC /* FRDetailView.UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRDetailView.UICollectionView.swift; sourceTree = "<group>"; };
 		F0E7449E287AB3470007623C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F0E744A0287AD3400007623C /* RestaurantHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0E744A2287AD8660007623C /* RestaurantDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,15 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A4A422288D363100D398CC /* RxCocoa in Frameworks */,
-				B1A4A428288D363100D398CC /* RxTest in Frameworks */,
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
-				B1A4A424288D363100D398CC /* RxRelay in Frameworks */,
 				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
-				B1A4A426288D363100D398CC /* RxSwift in Frameworks */,
-				B1A4A420288D363100D398CC /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,11 +130,10 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
+				F0E7449D287AB3270007623C /* Detail */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				B1A36ABC287AA26A00DE64C8 /* ViewController.swift */,
-				B1A4A41B288D35A900D398CC /* FRDetailView */,
-				F0E7449D287AB3270007623C /* Detail */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
@@ -183,25 +164,6 @@
 				B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B1A4A41B288D35A900D398CC /* FRDetailView */ = {
-			isa = PBXGroup;
-			children = (
-				B1A4A42A288D365500D398CC /* FRDetailViewModel.swift */,
-				B1A4A419288D332900D398CC /* FRDetailViewContoller.swift */,
-				B1A4A429288D363B00D398CC /* View */,
-			);
-			path = FRDetailView;
-			sourceTree = "<group>";
-		};
-		B1A4A429288D363B00D398CC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B1A4A41C288D35BE00D398CC /* FRDetailView.swift */,
-				B1A4A42C288D399500D398CC /* FRDetailView.UICollectionView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		F0E7449D287AB3270007623C /* Detail */ = {
@@ -236,11 +198,6 @@
 				B1A36B77287AACE200DE64C8 /* Logger */,
 				B1A36B7A287AB01400DE64C8 /* SnapKit */,
 				B1A36B7D287AB04D00DE64C8 /* Then */,
-				B1A4A41F288D363100D398CC /* RxBlocking */,
-				B1A4A421288D363100D398CC /* RxCocoa */,
-				B1A4A423288D363100D398CC /* RxRelay */,
-				B1A4A425288D363100D398CC /* RxSwift */,
-				B1A4A427288D363100D398CC /* RxTest */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -318,7 +275,6 @@
 				B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */,
 				B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */,
-				B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
@@ -365,14 +321,10 @@
 				B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				F0E744A1287AD3400007623C /* RestaurantHashTagCollectionViewCell.swift in Sources */,
-				B1A4A42B288D365500D398CC /* FRDetailViewModel.swift in Sources */,
 				F0E744A3287AD8670007623C /* RestaurantDetailTableViewCell.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
 				F0E744A5287AE1FE0007623C /* RestaurantMenuCollectionViewCell.swift in Sources */,
-				B1A4A41A288D332900D398CC /* FRDetailViewContoller.swift in Sources */,
-				B1A4A42D288D399500D398CC /* FRDetailView.UICollectionView.swift in Sources */,
 				F0E7449F287AB3470007623C /* DetailViewController.swift in Sources */,
-				B1A4A41D288D35BE00D398CC /* FRDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,14 +678,6 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 6.5.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -751,31 +695,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
-		};
-		B1A4A41F288D363100D398CC /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		B1A4A421288D363100D398CC /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		B1A4A423288D363100D398CC /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		B1A4A425288D363100D398CC /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		B1A4A427288D363100D398CC /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1A4A41E288D363100D398CC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
