@@ -9,18 +9,7 @@ import SwiftUI
 import ReferenceKit
 
 struct InformationView: View {
-    @Enviro
-    
-    /// Reference Item
-    let items: [ReferenceItem] = [
-        ReferenceItem(title: "ReferenceKit", url: "https://github.com/BoilerSwift/ReferenceKit"),
-        ReferenceItem(title: "Logger", url: "https://github.com/BoilerSwift/Logger"),
-        ReferenceItem(title: "SnapKit", url: "https://github.com/SnapKit/SnapKit"),
-        ReferenceItem(title: "Then", url: "https://github.com/devxoul/Then"),
-        ReferenceItem(title: "RxSwfit", url: "https://github.com/ReactiveX/RxSwift", deprecated: true),
-        ReferenceItem(title: "TTGTagCollectionView", url: "https://github.com/zekunyan/TTGTagCollectionView", deprecated: false),
-        ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", deprecated: true),
-    ]
+    @StateObject private var viewModel = SettingViewModel()
     
     var body: some View {
         Section {
@@ -28,64 +17,61 @@ struct InformationView: View {
                 Text("🛸 앱 버전")
                     .font(.caption)
                 Spacer()
-                Text("\(appVersion!)")
+                Text("\(viewModel.version!)")
                     .font(.caption)
             }
             
+            infomationItemView(text: "📣 공지사항")
+                .onTapGesture {
+                    URLLink.notice.openURL()
+                }
             
-            HStack {
-                Text("📣 공지사항")
-                    .font(.caption)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
+            infomationItemView(text: "🤩 업데이트 소식")
+                .onTapGesture {
+                    URLLink.whatsNew.openURL()
+                }
             
-            // NOTE: Click URL
-            HStack {
-                Text("👮‍♀️ 신고 / 문의하기")
-                    .font(.caption)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
+            infomationItemView(text: "👨‍👩‍👧‍👧 푸런 팀")
+                .onTapGesture {
+                    URLLink.team.openURL()
+                }
             
-            HStack {
-                Text("👨‍👩‍👧‍👧 Foorun Team")
-                    .font(.caption)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
+            infomationItemView(text: "📃 약관 및 정책")
+                .onTapGesture {
+                    URLLink.terms.openURL()
+                }
             
-            HStack {
-                Text("📃 약관 및 정책")
-                    .font(.caption)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
-            
-            HStack {
-                Text("🛡 개인정보 처리방침")
-                    .font(.caption)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
+            infomationItemView(text: "🛡 개인정보 처리방침")
+                .onTapGesture {
+                    URLLink.privacy.openURL()
+                }
             
             HStack {
                 NavigationLink {
-                    ReferenceView(items: items)
+                    ReferenceView(items: viewModel.referenceItems)
                 } label: {
                     Text("🏛 사용한 오픈소스")
                         .font(.caption)
                 }
-                 
             }
             
         } header: {
             Text("정보")
+        }
+    }
+    
+    private func infomationItemView(
+        text: String,
+        systemName: String = "chevron.right"
+    ) -> some View {
+        HStack {
+            HStack {
+                Text(text)
+                    .font(.caption)
+                Spacer()
+                Image(systemName: systemName)
+                    .foregroundColor(.gray)
+            }
         }
     }
     

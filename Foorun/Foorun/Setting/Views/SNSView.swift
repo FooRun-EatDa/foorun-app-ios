@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct SNSView: View {
+    
     var body: some View {
         Section {
-            Text("👉 카카오톡 채널")
-                .font(.caption)
             Text("👉 인스타그램")
                 .font(.caption)
+                .onTapGesture {
+                    URLLink.instagram.openURL()
+                }
+            
+            Text("👉 카카오톡 채널")
+                .font(.caption)
+                .onTapGesture {
+                    URLLink.kakaotalk.openURL()
+                }
+            
         } header: {
             Text("SNS")
         }

@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import ReferenceKit
 
 enum URLLink: String {
     // 공지사항
-    case notice = "https://great-rover-489.notion.site/b077cdcffacd4336b7785f44ba0e6794"
+    case notice = "https://synonymous-reading-054.notion.site/d11e2a4381704e72a03eca81a3a406f8"
     // 푸런 팀
     case team = "https://synonymous-reading-054.notion.site/5e938cf823c040a193c566591fe5bfef"
     // 서비스 이용약관
@@ -21,7 +22,7 @@ enum URLLink: String {
     // 인스타그램
     case instagram = "https://www.instagram.com/uni__eat/"
     // 카카오톡 채널
-    case kakaotalk = ""
+    case kakaotalk = "https://pf.kakao.com/_xaxbJIxj"
     
     func openURL() {
         if let url = URL(string: self.rawValue) {
@@ -30,8 +31,19 @@ enum URLLink: String {
     }
 }
 
-class SettingListModel: ObservableObject {
+class SettingViewModel: ObservableObject {
+    /// 앱 버전
     let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
+    /// 레퍼런스 아이템
+    let referenceItems: [ReferenceItem] = [
+        ReferenceItem(title: "ReferenceKit", url: "https://github.com/BoilerSwift/ReferenceKit"),
+        ReferenceItem(title: "Logger", url: "https://github.com/BoilerSwift/Logger"),
+        ReferenceItem(title: "SnapKit", url: "https://github.com/SnapKit/SnapKit"),
+        ReferenceItem(title: "Then", url: "https://github.com/devxoul/Then"),
+        ReferenceItem(title: "RxSwfit", url: "https://github.com/ReactiveX/RxSwift", deprecated: true),
+        ReferenceItem(title: "TTGTagCollectionView", url: "https://github.com/zekunyan/TTGTagCollectionView", deprecated: false),
+        ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", deprecated: true),
+    ]
     
 }

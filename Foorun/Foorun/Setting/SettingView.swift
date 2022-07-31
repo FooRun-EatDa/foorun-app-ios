@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct SettingView: View {
+    @StateObject private var viewModel = SettingViewModel()
+    
     var body: some View {
         
         List {
             MyPageView()
+                .environmentObject(viewModel)
             
             InformationView()
+                .environmentObject(viewModel)
             
             SNSView()
         }
@@ -23,7 +27,7 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingView().environmentObject(SettingListModel())
+            SettingView().environmentObject(SettingViewModel())
                 .navigationBarTitleDisplayMode(.inline)
         }
         

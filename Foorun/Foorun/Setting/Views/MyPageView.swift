@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @StateObject private var viewModel = SettingViewModel()
+    
     var body: some View {
         Section {
             Text("🧩 인증 하기")
                 .font(.caption)
-            
-            // TODO: - Slider
-            HStack {
-                Text("🍭 알림 구독")
-                    .font(.caption)
-            }
+
+//            HStack {
+//                Text("🍭 알림 구독")
+//                    .font(.caption)
+//
+//            }
         } header: {
             Text("마이 페이지")
         }
