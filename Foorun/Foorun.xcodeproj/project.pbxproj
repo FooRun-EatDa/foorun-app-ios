@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		786E52AF289648A900B876E5 /* BookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookMarkViewController.swift */; };
+		786E52B12896490D00B876E5 /* BookMarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B02896490D00B876E5 /* BookMarkModel.swift */; };
+		786E52B32896492A00B876E5 /* BookMarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */; };
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
 		B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABC287AA26A00DE64C8 /* ViewController.swift */; };
@@ -54,6 +57,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		786E52AE289648A900B876E5 /* BookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewController.swift; sourceTree = "<group>"; };
+		786E52B02896490D00B876E5 /* BookMarkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkModel.swift; sourceTree = "<group>"; };
+		786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkTableViewCell.swift; sourceTree = "<group>"; };
 		B1A36AB5287AA26A00DE64C8 /* Foorun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		786E52AD2896488A00B876E5 /* BookMark */ = {
+			isa = PBXGroup;
+			children = (
+				786E52AE289648A900B876E5 /* BookMarkViewController.swift */,
+				786E52B02896490D00B876E5 /* BookMarkModel.swift */,
+				786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */,
+			);
+			path = BookMark;
+			sourceTree = "<group>";
+		};
 		B1A36AAC287AA26A00DE64C8 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
+				786E52AD2896488A00B876E5 /* BookMark */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				B1A36ABC287AA26A00DE64C8 /* ViewController.swift */,
@@ -298,9 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				786E52AF289648A900B876E5 /* BookMarkViewController.swift in Sources */,
 				B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */,
+				786E52B12896490D00B876E5 /* BookMarkModel.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
+				786E52B32896492A00B876E5 /* BookMarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
