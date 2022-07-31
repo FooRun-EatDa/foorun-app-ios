@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
-		B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABC287AA26A00DE64C8 /* ViewController.swift */; };
 		B1A36AC2287AA26B00DE64C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */; };
 		B1A36AC5287AA26B00DE64C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */; };
 		B1A36AD0287AA26B00DE64C8 /* FoorunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ACF287AA26B00DE64C8 /* FoorunTests.swift */; };
@@ -25,6 +24,16 @@
 		FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E253D287AC775008E9E24 /* Annotation.swift */; };
 		FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* AnnotationView.swift */; };
 		FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E254B287BBA14008E9E24 /* NSObject+.swift */; };
+		B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B93287ADB6300DE64C8 /* ReferenceKit */; };
+		B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A410772896650000B9306A /* SettingViewModel.swift */; };
+		B1A4107E2896650000B9306A /* SNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A410792896650000B9306A /* SNSView.swift */; };
+		B1A4107F2896650000B9306A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107A2896650000B9306A /* InformationView.swift */; };
+		B1A410802896650000B9306A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107B2896650000B9306A /* MyPageView.swift */; };
+		B1A410812896650000B9306A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107C2896650000B9306A /* SettingView.swift */; };
+		B1A41085289669D600B9306A /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A41084289669D600B9306A /* CertificationView.swift */; };
+		F0BFAADB2896723600FB499E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADA2896723600FB499E /* APIClient.swift */; };
+		F0BFAADE2896725700FB499E /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADD2896725700FB499E /* RestaurantList.swift */; };
+		F0BFAAE12896729300FB499E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0BFAAE02896729300FB499E /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +71,6 @@
 		B1A36AB5287AA26A00DE64C8 /* Foorun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1A36ABC287AA26A00DE64C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A36AC4287AA26B00DE64C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A36AC6287AA26B00DE64C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +85,14 @@
 		FD7E253D287AC775008E9E24 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		FD7E2548287BB842008E9E24 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		FD7E254B287BBA14008E9E24 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		B1A410772896650000B9306A /* SettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		B1A410792896650000B9306A /* SNSView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNSView.swift; sourceTree = "<group>"; };
+		B1A4107A2896650000B9306A /* InformationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		B1A4107B2896650000B9306A /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		B1A4107C2896650000B9306A /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B1A41084289669D600B9306A /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
+		F0BFAADA2896723600FB499E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		F0BFAADD2896725700FB499E /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +101,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
+				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
 				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
+				F0BFAAE12896729300FB499E /* Alamofire in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
 			);
@@ -132,11 +150,13 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
+				F0BFAAD92896722900FB499E /* SDK */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				B1A36ABC287AA26A00DE64C8 /* ViewController.swift */,
 				FD7E2533287AB363008E9E24 /* Map */,
 				FD7E254A287BB9F7008E9E24 /* ExtensionNahee */,
+				B1A410762896650000B9306A /* Setting */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
@@ -183,6 +203,23 @@
 			isa = PBXGroup;
 			children = (
 				FD7E2536287AB650008E9E24 /* MapView.swift */,
+		B1A410762896650000B9306A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B1A410772896650000B9306A /* SettingViewModel.swift */,
+				B1A4107C2896650000B9306A /* SettingView.swift */,
+				B1A410782896650000B9306A /* Views */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B1A410782896650000B9306A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1A410792896650000B9306A /* SNSView.swift */,
+				B1A4107A2896650000B9306A /* InformationView.swift */,
+				B1A4107B2896650000B9306A /* MyPageView.swift */,
+				B1A41084289669D600B9306A /* CertificationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +239,21 @@
 				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
 			);
 			path = ExtensionNahee;
+		F0BFAAD92896722900FB499E /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				F0BFAADC2896724400FB499E /* Model */,
+				F0BFAADA2896723600FB499E /* APIClient.swift */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		F0BFAADC2896724400FB499E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F0BFAADD2896725700FB499E /* RestaurantList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +277,8 @@
 				B1A36B77287AACE200DE64C8 /* Logger */,
 				B1A36B7A287AB01400DE64C8 /* SnapKit */,
 				B1A36B7D287AB04D00DE64C8 /* Then */,
+				B1A36B93287ADB6300DE64C8 /* ReferenceKit */,
+				F0BFAAE02896729300FB499E /* Alamofire */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -302,6 +356,8 @@
 				B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */,
 				B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */,
+				B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */,
+				F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
@@ -345,7 +401,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1A36ABD287AA26A00DE64C8 /* ViewController.swift in Sources */,
+				F0BFAADE2896725700FB499E /* RestaurantList.swift in Sources */,
+				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
+				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				FD7E2537287AB650008E9E24 /* MapView.swift in Sources */,
 				FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */,
@@ -353,6 +411,11 @@
 				FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */,
 				FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */,
 				FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */,
+				B1A4107F2896650000B9306A /* InformationView.swift in Sources */,
+				B1A410812896650000B9306A /* SettingView.swift in Sources */,
+				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
+				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
+				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +775,22 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BoilerSwift/ReferenceKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+		F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -729,6 +808,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		B1A36B93287ADB6300DE64C8 /* ReferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */;
+			productName = ReferenceKit;
+		};
+		F0BFAAE02896729300FB499E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
