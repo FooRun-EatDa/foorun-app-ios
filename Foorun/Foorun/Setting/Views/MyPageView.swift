@@ -14,6 +14,7 @@ struct MyPageView: View {
         Section {
             NavigationLink {
                 CertificationView()
+                
             } label: {
                 Text("🧩 인증 하기")
                     .font(.caption)
