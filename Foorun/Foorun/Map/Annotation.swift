@@ -18,6 +18,9 @@ class Annotation: NSObject, MKAnnotation {
     /// 좌표
     var coordinate: CLLocationCoordinate2D
     
+    /// 선택 유무
+    var isSelected: Bool
+    
     init(
         restaurantID: Int,
         coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.2429616, longitude: 127.0800525),
@@ -26,6 +29,7 @@ class Annotation: NSObject, MKAnnotation {
         self.restaurantID = restaurantID
         self.coordinate = coordinate
         self.type = type
+        self.isSelected = false
     }
     
     enum AnnotationType {

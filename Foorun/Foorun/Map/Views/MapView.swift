@@ -11,13 +11,9 @@ import UIKit
 import SnapKit
 import Then
 
-class MapView: UIView{
+class MapView: UIView {
     let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2429616, longitude: 127.0800525)
     let initialCoordinate2 = CLLocationCoordinate2D(latitude: 37.24896, longitude: 127.0800525)
-    
-    let currentLocationButton = UIButton().then {
-        $0.backgroundColor = .red
-    }
     
     let map = MKMapView().then {
         $0.showsUserLocation = true
@@ -25,11 +21,15 @@ class MapView: UIView{
         $0.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.identifier)
     }
     
+    let currentLocationButton = UIButton().then {
+        $0.setImage(UIImage(named: "currentLocation"), for: .normal)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         map.setRegion(MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
-        setupLayout()
+        setupMapView()
         addCustomPin()
     }
     
@@ -42,16 +42,24 @@ class MapView: UIView{
         let pin2 = Annotation(restaurantID: 10, coordinate: initialCoordinate2, type: .red)
         map.addAnnotations([pin, pin2])
     }
+}
 
-    func setupLayout() {
-        [map, currentLocationButton].forEach { addSubview($0) }
- 
+extension MapView {
+    func setupMapView() {
+        addSubview(map)
+        
         map.snp.makeConstraints {
-            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
         
+        setupCurrentButton()
+    }
+    
+    func setupCurrentButton() {
+        map.addSubview(currentLocationButton)
+
         currentLocationButton.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(20)
+            $0.trailing.bottom.equalToSuperview().inset(20)
             $0.width.height.equalTo(60)
         }
     }

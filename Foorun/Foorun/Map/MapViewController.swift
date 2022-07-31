@@ -12,13 +12,18 @@ import UIKit
 import Logger
 import SnapKit
 
-class MapViewController: UIViewController {    
+class MapViewController: UIViewController {
+    /// 맵뷰
     let mapView = MapView()
+    /// 위치 권한 설정
     let locationManager = CLLocationManager()
+    
+    override func loadView() {
+        view = mapView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mapView
         locationManager.requestWhenInUseAuthorization()
         
         mapView.map.delegate = self
@@ -62,13 +67,32 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? Annotation else {
-            return nil
-        }
+        guard let annotation = annotation as? Annotation else { return nil }
         
-        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationView.identifier, for: annotation) as? AnnotationView
+        guard let annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: AnnotationView.identifier,
+            for: annotation
+        ) as? AnnotationView else { return nil }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            mapView.deselectAnnotation(view.annotation, animated: false)
+        }
+        
+        else if let view = view as? AnnotationView,
+                let annotation = view.annotation as? Annotation {
+            view.updateAnnotation()
+            mapView.setCenter(annotation.coordinate, animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        guard let view = view as? AnnotationView else { return }
+            
+        view.updateAnnotation()
     }
 }
 
