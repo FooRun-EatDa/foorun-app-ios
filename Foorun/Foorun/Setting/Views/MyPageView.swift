@@ -12,17 +12,15 @@ struct MyPageView: View {
     
     var body: some View {
         Section {
-            Text("🧩 인증 하기")
-                .font(.caption)
-                .onTapGesture {
-                    viewModel.shows인증페이지.toggle()
-                }
-
+            NavigationLink {
+                CertificationView()
+            } label: {
+                Text("🧩 인증 하기")
+                    .font(.caption)
+            }
+            
         } header: {
             Text("마이 페이지")
-        }
-        .sheet(isPresented: $viewModel.shows인증페이지) {
-            CertificationView()
         }
     }
 }
