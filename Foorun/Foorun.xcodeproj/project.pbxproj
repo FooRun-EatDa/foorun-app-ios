@@ -160,10 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
-				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
+				8E75ECB928963C1D008A1221 /* FoorunKey.framework in Frameworks */,
 				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
+				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
 				F0BFAAE12896729300FB499E /* Alamofire in Frameworks */,
-				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +345,7 @@
 				8E75ECEB289647E7008A1221 /* Network */,
 				8E75ECE2289647DC008A1221 /* Model */,
 				8E75ECC8289647B4008A1221 /* Event */,
+				B1A410762896650000B9306A /* Setting */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
