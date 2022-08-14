@@ -14,7 +14,11 @@ struct CertificationView: View {
     
     @State private var disabledEmailField = false
     @State var email: String = ""
+    /// 유저가 입력한 코드
     @State var code: String = ""
+    
+    /// 서버에서 내려온 인증 코드
+    @State var certificationCode: String = ""
     
     var body: some View {
         VStack {
@@ -31,6 +35,7 @@ struct CertificationView: View {
                 Button {
                     if !email.isEmpty {
                         disabledEmailField.toggle()
+                        didTap이메일_인증_요청()
                     }
                     
                 } label: {
@@ -51,7 +56,7 @@ struct CertificationView: View {
                     .textFieldStyle(.roundedBorder)
                 
                 Text("""
-                     🧑🏻‍💻 해당 이메일의 인증 코드를 입력해주세요.
+                     🧑🏻‍💻 해당 이메일로 전송된 인증 코드를 입력해주세요.
                      코드 발송이 조금 지연될 수 있어요.
                      1분 이상 메일이 오지 않는다면, 재인증 혹은 푸런 팀에 알려주세요.
                      
@@ -63,7 +68,7 @@ struct CertificationView: View {
                 
                 Button {
                     // APIRequest
-                    self.mode.wrappedValue.dismiss()
+                    self.didTap인증()
                 } label: {
                     Text("✌️ 인증하기 ✌️")
                         .foregroundColor(.orange)
@@ -81,7 +86,49 @@ struct CertificationView: View {
             
         }
         .background(Color(uiColor: .secondarySystemBackground))
+    }
+    
+    struct Auth: Codable {
+        let code: Int
+        let data: Int?
+        let message: String
+    }
+    
+    private func didTap이메일_인증_요청() {
+        // foorun123@naver.com
+        let baseString = "auth"
+        let requestString = baseString + "?email=\(email)"
         
+        API<Auth>(
+            requestString: requestString,
+            method: .get,
+            parameters: [:]
+        ).fetch { apiResponse in
+            guard let response = apiResponse.data else { return }
+            guard let certificationCode = response.data else { return }
+            
+            self.certificationCode = String(certificationCode)
+        }
+    }
+    
+    private func didTap인증() {
+        let baseString = "auth"
+        let email = "?email=\(email)"
+        let varification = "?varificationCode=\(code)"
+        let requestString = baseString + email + varification
+        
+        API<Auth>(
+            requestString: requestString,
+            method: .post,
+            parameters: [:]
+        ).fetch { apiResponse in
+            guard let response = apiResponse.data else { return }
+            guard let code = response.data else { return }
+            
+            // NOTE: - 성공해야만 data가 내려옵니다.
+            UserDefaults.standard.set("\(code)", forKey: "token")
+            self.mode.wrappedValue.dismiss()
+        }
     }
 }
 
