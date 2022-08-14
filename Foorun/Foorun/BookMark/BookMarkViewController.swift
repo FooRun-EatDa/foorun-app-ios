@@ -1,79 +1,183 @@
-//
-//  BookMarkViewController.swift
-//  Foorun
-//
-//  Created by 김지훈 on 2022/07/31.
-//
-
 import UIKit
 import SnapKit
 import Then
-class BookMarkViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    let bookMarkTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(BookMarkTableViewCell.self, forCellReuseIdentifier: "cell")
-        return tableView
-    }()
-    var Title = UILabel().then {
+
+class KUBookmarkViewController: UIViewController {
+    // MARK: Views
+    /// 북마크뷰 타이틀
+    let bookmarkViewTitle = UILabel().then {
         $0.text = "찜한 맛집"
-        $0.frame = CGRect(x: 0, y: 0, width: 315, height: 34)
-        $0.font = UIFont.boldSystemFont(ofSize: 25) // font 다운로드 후 변경
-//        $0.textColor = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
-//        $0.backgroundColor = .red
+        $0.font = UIFont.boldSystemFont(ofSize: 25)
     }
-    var bookmarks: BookMarkModel?
-    var bookMarksSizeLabel = UILabel().then {
+    /// 북마크 개수 Label: 총 n개
+    let bookmarksSizeLabel = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 12)
     }
+    let emptyView = UIView()
+    let emptyLabel = UILabel().then {
+        $0.text = "현재 찜한 식당이 없습니다."
+    }
+    /// 북마크 테이블 뷰
+    lazy var bookmarkTableView = UITableView().then {
+        $0.separatorInset.left = 0
+    }
+    // MARK: - Properties
+    /// 삭제에 사용할 캐시
+    var deleteCache: Set<Int> = Set<Int>()
+    /// 로컬에 저장된 북마크 리스트 정보.
+    @UserDefault(key: "bookmarkList", defaultValue: [])
+    var bookmarkList: [RestaurantList]
+    // MARK: - Method
+    ///찜한 목록이 0개면 찜 없다 표시 (리젝 사유 때문에)
+    func checkTableView(){
+        if bookmarkList.count == 0 {
+            bookmarkTableView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            bookmarkTableView.isHidden = false
+            emptyView.isHidden = true
+        }
+        bookmarksSizeLabel.text = "총 \(bookmarkList.count)개"
+    }
+    /// 삭제 캐시를 서버에 보내고 캐시 정리 (아직 api구현 대기중)
+    private func delete() {
+        // 1. 로컬 업데이트
+        // 2. API Request Update -> set
+        deleteCache = []
+    }
     
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
-        setConstraints()
-//        self.bookMarkTableView = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-        bookMarkTableView.dataSource = self
-        bookMarkTableView.delegate = self
-        bookMarkTableView.rowHeight = 100 // 임시
-        bookmarks = BookMarkModel()
-        bookMarksSizeLabel.text = "총 \(bookmarks?.size  ?? 0)개"
-    }
-    func setUpView(){
-        view.addSubview(Title)
-        view.addSubview(bookMarksSizeLabel)
-        view.addSubview(bookMarkTableView)
-    }
 
-    func setConstraints(){
-        Title.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(22.54)
-            make.top.equalToSuperview().offset(97.46)
-        }
-        bookMarksSizeLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(25.13)
-            make.top.equalTo(Title).offset(46.74)
-        }
-        
-        bookMarkTableView.snp.makeConstraints { make in
-//            make.edges.equalTo(view)
-            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(Title).offset(84.62)
-//            make.
-        }
+        setupTitle()
+        setupBookmarksSizeLabel()
+        setupEmptyView()
+        setupEmptyLabel()
+        setupBookmarkTableView()
+        checkTableView()
     }
+}
+// MARK: TableView
+extension KUBookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookmarks!.size
+
+        return bookmarkList.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = bookMarkTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookMarkTableViewCell
-        cell.img.image = UIImage(systemName: "ticket")
-        cell.label.text = "cell Index: \(indexPath.row)"
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: KUBookmarkTableViewCell.identifier,
+            for: indexPath
+        ) as? KUBookmarkTableViewCell else { return UITableViewCell() }
+        cell.configure(bookmarkList[indexPath.row])
         return cell
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        var actions: [UIContextualAction] = []
+        let delete = UIContextualAction(style: .normal, title: nil, handler: {(action, view, completionHandler) in
+            if let safeId = self.bookmarkList[indexPath.row].id {
+                self.deleteCache.insert(safeId)
+            }
+            self.bookmarkList.remove(at: indexPath.row)
+            tableView.reloadData()
+            self.checkTableView()
+        })
+        delete.image = UIImage(systemName: "trash")
+        delete.backgroundColor = UIColor.red
+        actions.append(delete)
+        return UISwipeActionsConfiguration(actions: actions)
+    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let id = bookmarkList[indexPath.row].id {
+            print(id)
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.width * (76/376) + 25.96
+    }
 }
 
+// MARK: setUpViews
+extension KUBookmarkViewController {
+    func setupEmptyLabel(){
+        emptyView.addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
+    func setupTitle(){
+        view.addSubview(bookmarkViewTitle)
+        bookmarkViewTitle.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            $0.leading.equalToSuperview().offset(22.54)
+        }
+    }
+    func setupBookmarksSizeLabel(){
+        view.addSubview(bookmarksSizeLabel)
+        
+        bookmarksSizeLabel.snp.makeConstraints {
+            $0.top.equalTo(bookmarkViewTitle.snp.bottom).offset(12.74)
+            $0.leading.equalTo(bookmarkViewTitle)
+        }
+    }
+    func setupBookmarkTableView() {
+        view.addSubview(bookmarkTableView)
+        bookmarkTableView.register(KUBookmarkTableViewCell.self, forCellReuseIdentifier: KUBookmarkTableViewCell.identifier)
+        bookmarkTableView.snp.makeConstraints {
+            $0.top.equalTo(bookmarksSizeLabel.snp.bottom).offset(7.9)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+        bookmarkTableView.dataSource = self
+        bookmarkTableView.delegate = self
+    }
+    func setupEmptyView () {
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.top.equalTo(bookmarksSizeLabel.snp.bottom).offset(7.9)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
+    }
+
+}
+/// UserDefaults를 Codable 상태로 사용하기 위한 propertyWrapper
+@propertyWrapper
+struct UserDefault<T: Codable> {
+    private let key: String
+    private let defaultValue: T
+    public let storage: UserDefaults
+    
+    init(key: String, defaultValue: T, storage: UserDefaults = .standard) {
+        self.key = key
+        self.defaultValue = defaultValue
+        self.storage = storage
+    }
+
+    var wrappedValue: T {
+        get {
+            // Read value from UserDefaults
+            guard let data = self.storage.object(forKey: key) as? Data else {
+                // Return defaultValue when no data in UserDefaults
+                return defaultValue
+            }
+
+            // Convert data to the desire data type
+            let value = try? JSONDecoder().decode(T.self, from: data)
+            return value ?? defaultValue
+        }
+        set {
+            // Convert newValue to data
+            let data = try? JSONEncoder().encode(newValue)
+
+            // Set value to UserDefaults
+            UserDefaults.standard.set(data, forKey: key)
+        }
+    }
+}
