@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		786E52AF289648A900B876E5 /* BookMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookMarkViewController.swift */; };
-		786E52B32896492A00B876E5 /* BookMarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */; };
+		7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */; };
+		7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3F28AB6789000D405B /* BookmarkView.swift */; };
+		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
+		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
 		78EADC5A28A7A6030051B8D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78EADC5928A7A6030051B8D4 /* Kingfisher */; };
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
@@ -66,8 +68,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		786E52AE289648A900B876E5 /* BookMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkViewController.swift; sourceTree = "<group>"; };
-		786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkTableViewCell.swift; sourceTree = "<group>"; };
+		7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.UITableView.swift; sourceTree = "<group>"; };
+		7822EF3F28AB6789000D405B /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		B1A36AB5287AA26A00DE64C8 /* Foorun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,11 +126,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7822EF3E28AB6775000D405B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7822EF3F28AB6789000D405B /* BookmarkView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		786E52AD2896488A00B876E5 /* BookMark */ = {
 			isa = PBXGroup;
 			children = (
-				786E52AE289648A900B876E5 /* BookMarkViewController.swift */,
-				786E52B22896492A00B876E5 /* BookMarkTableViewCell.swift */,
+				7822EF3E28AB6775000D405B /* Views */,
+				786E52AE289648A900B876E5 /* BookmarkViewController.swift */,
+				786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */,
+				7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */,
 			);
 			path = BookMark;
 			sourceTree = "<group>";
@@ -385,10 +399,12 @@
 				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
 				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
 				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
-				786E52AF289648A900B876E5 /* BookMarkViewController.swift in Sources */,
+				786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */,
+				7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
+				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
-				786E52B32896492A00B876E5 /* BookMarkTableViewCell.swift in Sources */,
+				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

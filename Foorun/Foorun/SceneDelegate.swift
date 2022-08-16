@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .systemBackground
         
         
-        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingViewModel()))
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+//        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingViewModel()))
+        window?.rootViewController = BookmarkViewController()
         window?.makeKeyAndVisible()
     }
 }
