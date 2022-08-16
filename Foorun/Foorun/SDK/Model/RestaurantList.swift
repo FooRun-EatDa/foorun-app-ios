@@ -31,6 +31,5 @@ struct RestaurantList: Codable {
             self.distance = distance
             self.hashTags = hashTags
             self.liked = liked
-
         }
 }

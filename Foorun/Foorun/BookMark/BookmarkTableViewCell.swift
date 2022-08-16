@@ -13,7 +13,7 @@ class BookmarkTableViewCell: UITableViewCell {
     /// 식당 이름 Label
     let titleLabel = UILabel()
     /// 식당 설명 Label
-    let explanationLabel = UILabel()
+    let descriptionLabel = UILabel()
     /// 식당 해시태그 Label
     let tagLabel = UILabel()
     
@@ -29,11 +29,6 @@ class BookmarkTableViewCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder){
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        thumnailImageView.image = nil
-    }
 }
 
 extension BookmarkTableViewCell {
@@ -42,9 +37,10 @@ extension BookmarkTableViewCell {
         guard let item = item else { return }
         
         titleLabel.text = item.name
-        explanationLabel.text = item.explanation
+        descriptionLabel.text = item.explanation
         tagLabel.text = tagsToString(item.hashTags)
         
+        thumnailImageView.image = UIImage(named: "defaultImage")
         guard let url = URL(string: item.imgUrl ?? "") else { return }
         thumnailImageView.kf.setImage(with: url)
     }
@@ -59,37 +55,36 @@ extension BookmarkTableViewCell {
     private func setupThumbnailImageView() {
         contentView.addSubview(thumnailImageView)
         
-        thumnailImageView.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 1)
-        thumnailImageView.layer.cornerRadius = 17
+        thumnailImageView.layer.cornerRadius = 12
         thumnailImageView.clipsToBounds = true
         
-        let size = UIScreen.main.bounds.width * (76/376)
-        
         thumnailImageView.snp.makeConstraints {
-            $0.width.height.equalTo(size)
-            $0.top.equalToSuperview().offset(12.98)
-            $0.leading.equalToSuperview().offset(22.54)
+            $0.width.height.equalTo(80)
+            $0.top.equalToSuperview().offset(13)
+            $0.leading.equalToSuperview().offset(22)
         }
     }
     
     func setupVStackView() {
         contentView.addSubview(VStackView)
+        
         VStackView.axis = .vertical
         VStackView.distribution = .fillProportionally
         
         VStackView.snp.makeConstraints {
             $0.top.equalTo(thumnailImageView.snp.top)
-            $0.leading.equalTo(thumnailImageView.snp.trailing).offset(22.54)
+            $0.leading.equalTo(thumnailImageView.snp.trailing).offset(22)
             $0.trailing.bottom.equalToSuperview()
         }
+
+        [titleLabel, descriptionLabel, tagLabel].forEach { VStackView.addArrangedSubview($0) }
         
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        explanationLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        descriptionLabel.font = UIFont.systemFont(ofSize: 14)
         
         tagLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
         tagLabel.textColor = .gray
         tagLabel.numberOfLines = 2
-        // 스택뷰에 들어가는 뷰들
-        [titleLabel, explanationLabel, tagLabel].forEach { VStackView.addArrangedSubview($0) }
     }
 }
