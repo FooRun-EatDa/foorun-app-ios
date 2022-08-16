@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingViewModel()))
         window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
+        
     }
 }
 

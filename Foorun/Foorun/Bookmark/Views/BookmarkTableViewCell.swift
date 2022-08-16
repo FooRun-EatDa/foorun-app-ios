@@ -2,6 +2,7 @@ import UIKit
 import Kingfisher
 
 class BookmarkTableViewCell: UITableViewCell {
+    static let identifier = String(describing: self)
     
     // MARK: - IBOutlet
     
