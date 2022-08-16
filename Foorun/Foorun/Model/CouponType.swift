@@ -1,39 +1,22 @@
 import Foundation
 import UIKit
 
-enum CouponType {
-    case available
-    case used
-    case expired
-}
+enum CouponType: String {
+    case available = "쿠폰 사용하기"
+    case expired = "만료 되었습니다"
+    case used = "사용 완료"
 
-extension CouponType {
-    var title: String {
+    func backgroundColor() -> UIColor {
         switch self {
-        case .available:
-            return "쿠폰 사용하기"
-        case .used:
-            return "사용완료"
-        case .expired:
-            return "로그인 후 사용가능합니다"
+        case .available: return UIColor(named: "AccentColor") ?? .systemYellow
+        default: return UIColor.lightGray
         }
     }
 
-    var bgColor: UIColor {
+    func isEnable() -> Bool {
         switch self {
-        case .available:
-            return UIColor(named: "AccentColor") ?? .systemYellow
-        case .used, .expired:
-            return UIColor.lightGray
-        }
-    }
-
-    var touchEnable: Bool {
-        switch self {
-        case .available:
-            return true
-        case .used, .expired:
-            return false
+        case .available: return true
+        default: return false
         }
     }
 }
