@@ -36,7 +36,6 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let id = bookmarks[indexPath.row].id else { return }
-        
         // TODO: - 화면전환
     }
 }

@@ -4,7 +4,7 @@ import SnapKit
 class BookmarkViewController: UIViewController {
     
     let bookmarkView = BookmarkView()
-    
+
     // MARK: - Properties
     
     /// 삭제에 사용할 캐시
@@ -25,7 +25,7 @@ class BookmarkViewController: UIViewController {
         
         setupViews()
         updateBookmarks()
-        
+  
         bookmarkView.tableView.delegate = self
         bookmarkView.tableView.dataSource = self
     }

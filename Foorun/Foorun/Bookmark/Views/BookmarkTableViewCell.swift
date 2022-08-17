@@ -36,15 +36,20 @@ extension BookmarkTableViewCell {
     public func configure(_ item: RestaurantList?) {
         guard let item = item else { return }
         
+        thumnailImageView.image = UIImage(named: "defaultImage")
+        if let imgUrl = item.imgUrl {
+            thumnailImageView.kf.setImage(with: URL(string: imgUrl))
+        }
+        
         titleLabel.text = item.name
         descriptionLabel.text = item.explanation
         tagLabel.text = tagsToString(item.hashTags)
         
-        thumnailImageView.image = UIImage(named: "defaultImage")
-        guard let url = URL(string: item.imgUrl ?? "") else { return }
-        thumnailImageView.kf.setImage(with: url)
+        
     }
-    
+    override func prepareForReuse() {
+        thumnailImageView.image = nil
+    }
     private func tagsToString(_ tags: [String]) -> String {
         tags.map { "#\($0)" }
             .reduce("", +)
