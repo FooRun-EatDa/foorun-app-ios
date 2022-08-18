@@ -4,6 +4,11 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>현 위치 정보를 불러오려면 위치 권한이 필요합니다.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
