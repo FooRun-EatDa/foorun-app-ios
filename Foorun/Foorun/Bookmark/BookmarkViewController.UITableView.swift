@@ -38,4 +38,20 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         guard let id = bookmarks[indexPath.row].id else { return }
         // TODO: - 화면전환
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y <= 0 {
+            self.navigationItem.largeTitleDisplayMode = .always
+        } else {
+            self.navigationItem.largeTitleDisplayMode = .never
+        }
+        
+        self.navigationController?.navigationBar.setNeedsLayout()
+        self.view.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.25) {
+            self.navigationController?.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        }
+    }
 }

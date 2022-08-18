@@ -25,10 +25,8 @@ class BookmarkViewController: UIViewController {
         
         setupViews()
         updateBookmarks()
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "찜한 목록"
-  
   
         bookmarkView.tableView.delegate = self
         bookmarkView.tableView.dataSource = self
