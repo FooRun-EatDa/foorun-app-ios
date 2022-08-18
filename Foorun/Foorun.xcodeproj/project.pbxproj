@@ -233,6 +233,10 @@
 			isa = PBXGroup;
 			children = (
 				FD7E2536287AB650008E9E24 /* MapView.swift */,
+                );
+            path = Views;
+            sourceTree = "<group>";
+        };
 		B1A410762896650000B9306A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +273,8 @@
 				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
 			);
 			path = ExtensionNahee;
+               sourceTree = "<group>";
+        };
 		F0BFAAD92896722900FB499E /* SDK */ = {
 			isa = PBXGroup;
 			children = (
