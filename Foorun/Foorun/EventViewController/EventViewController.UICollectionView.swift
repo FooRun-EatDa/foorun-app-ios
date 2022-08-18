@@ -19,7 +19,7 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
             for: indexPath
         ) as? EventCollectionViewCell else { return UICollectionViewCell() }
         let event = events[indexPath.row]
-        let couponType = checkCouponType(event: event)
+        let couponType = CouponType.checkCouponType(event: event)
 
         cell.setUI(event, couponType)
 
@@ -28,7 +28,7 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedEvent = Event.dummyModel[indexPath.row]
-        let couponType = checkCouponType(event: selectedEvent)
+        let couponType = CouponType.checkCouponType(event: selectedEvent)
         let viewController = EventDetailViewController()
 
         viewController.event = selectedEvent

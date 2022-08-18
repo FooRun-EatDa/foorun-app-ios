@@ -10,13 +10,7 @@ import SnapKit
 import Kingfisher
 
 class EventCollectionViewCell: UICollectionViewCell {
-    // MARK: - Properties
     static let identifier = String(describing: self)
-    let sideEdgeInset: CGFloat = 20
-    let minLineSpacing: CGFloat = 12
-    lazy var cellWidth = (UIScreen.main.bounds.width - (2 * sideEdgeInset) - minLineSpacing) / 2
-    lazy var aspectRatio = cellWidth / CGFloat(162)
-
 
     // MARK: - IBOutlets
     var imageView = UIImageView()
@@ -52,6 +46,14 @@ class EventCollectionViewCell: UICollectionViewCell {
         overlayView.isHidden = type.overlayIsHidden()
         stampImageView.image = type.stampImage()
     }
+}
+extension EventCollectionViewCell {
+    var sideEdgeInset: CGFloat { return 20 }
+    var minLineSpacing: CGFloat { return 12 }
+    var cellWidth: CGFloat { return (UIScreen.main.bounds.width - (2 * sideEdgeInset) - minLineSpacing) / 2 }
+    var aspectRatio: CGFloat { return cellWidth / CGFloat(162) }
+
+    var leading: CGFloat { return 11 }
 
     private func setupCellLayer() {
         contentView.layer.cornerRadius = 12 * aspectRatio
@@ -81,7 +83,7 @@ class EventCollectionViewCell: UICollectionViewCell {
 
         eventTitleLabel.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(7 * aspectRatio)
-            $0.leading.equalToSuperview().inset(11)
+            $0.leading.equalToSuperview().inset(leading)
             $0.height.equalTo(23 * aspectRatio)
         }
     }
@@ -93,7 +95,7 @@ class EventCollectionViewCell: UICollectionViewCell {
 
         restaurantTitleLabel.snp.makeConstraints {
             $0.top.equalTo(eventTitleLabel.snp.bottom).inset(1 * aspectRatio)
-            $0.leading.equalTo(eventTitleLabel.snp.leading).inset(1)
+            $0.leading.equalToSuperview().inset(leading)
             $0.height.equalTo(16 * aspectRatio)
         }
     }
@@ -106,7 +108,7 @@ class EventCollectionViewCell: UICollectionViewCell {
 
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleLabel.snp.bottom).offset(2 * aspectRatio)
-            $0.leading.equalToSuperview().inset(12)
+            $0.leading.equalToSuperview().inset(leading)
             $0.bottom.equalToSuperview().inset(10 * aspectRatio)
         }
     }

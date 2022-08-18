@@ -80,30 +80,6 @@ class EventViewController: UIViewController {
             self?.events = events
         }
     }
-
-    func checkCouponType(event: Event) -> CouponType {
-        guard let _ = UserDefaults.standard.string(forKey: "token") else {
-
-            return .needLogin
-        }
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy/MM/dd hh:mm"
-        guard let date = dateFormatter.date(from: event.date) else {
-
-            return .expired
-        }
-
-        let currentDate = Date()
-        if currentDate >= date {
-
-            return .expired
-        }
-
-        return usedCoupons.contains(event.id)
-        ? .used
-        : .available
-    }
 }
 
 @propertyWrapper

@@ -36,5 +36,29 @@ enum CouponType: String {
         default: return UIImage()
         }
     }
+
+    static func checkCouponType(event: Event) -> CouponType {
+        @UserDefault(key: "UsedCoupons", defaultValue: [])
+        var usedCoupons: Set<Int>
+
+        guard let _ = UserDefaults.standard.string(forKey: "token") else {
+
+            return .needLogin
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy/MM/dd hh:mm"
+        let currentDate = Date()
+
+        guard let date = dateFormatter.date(from: event.date),
+              currentDate >= date else {
+
+            return .expired
+        }
+
+        return usedCoupons.contains(event.id)
+        ? .used
+        : .available
+    }
 }
 

@@ -26,10 +26,10 @@ class EventDetailView: UIView {
     var bannerImageView = UIImageView()
     var restaurantTitleLabel = UILabel()
     var themeLabel = UILabel()
-    var dateTitleLabel = UILabel()
+    let dateTitleLabel = UILabel()
     var dateLabel = UILabel()
     var descriptionLabel = UILabel()
-    var warningLabel = UILabel()
+    let warningLabel = UILabel()
     var warningDescriptionLabel = UILabel()
     var buttonContainerView = UIView()
     var couponButton = UIButton()
@@ -67,9 +67,18 @@ class EventDetailView: UIView {
         warningDescriptionLabel.text = warningsToString(item.warnings)
         updateCouponButton(type: type)
     }
+
+    private func updateCouponButton(type: CouponType) {
+        couponButton.setTitle(type.rawValue, for: .normal)
+        couponButton.backgroundColor = type.backgroundColor()
+        couponButton.isEnabled = type.isEnable()
+    }
 }
 
 extension EventDetailView {
+    var leading: CGFloat { return 24 }
+    var trailing: CGFloat { return 21 }
+
     private func setupButtonContainerView() {
         addSubview(buttonContainerView)
 
@@ -100,8 +109,10 @@ extension EventDetailView {
     }
 
     private func setupScrollView() {
-        backgroundColor = .white
         addSubview(scrollView)
+
+        backgroundColor = .white
+
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -144,8 +155,8 @@ extension EventDetailView {
 
         themeLabel.snp.makeConstraints {
             $0.top.equalTo(bannerImageView.snp.bottom).offset(27)
-            $0.leading.equalToSuperview().inset(24)
-            $0.trailing.equalToSuperview().inset(21)
+            $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
             $0.height.equalTo(16)
         }
     }
@@ -157,7 +168,8 @@ extension EventDetailView {
 
         restaurantTitleLabel.snp.makeConstraints {
             $0.top.equalTo(themeLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalTo(themeLabel)
+            $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
         }
     }
 
@@ -170,7 +182,7 @@ extension EventDetailView {
 
         dateTitleLabel.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleLabel.snp.bottom).offset(28)
-            $0.leading.equalTo(restaurantTitleLabel)
+            $0.leading.equalToSuperview().inset(leading)
             $0.height.equalTo(17)
         }
     }
@@ -196,8 +208,8 @@ extension EventDetailView {
 
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(dateTitleLabel.snp.bottom).offset(23)
-            $0.leading.equalTo(dateTitleLabel)
-            $0.trailing.equalToSuperview().inset(21)
+            $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
         }
     }
 
@@ -210,7 +222,7 @@ extension EventDetailView {
 
         warningLabel.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(23)
-            $0.leading.equalTo(descriptionLabel)
+            $0.leading.equalToSuperview().inset(leading)
         }
     }
 
@@ -222,8 +234,8 @@ extension EventDetailView {
 
         warningDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(warningLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(warningLabel)
-            $0.trailing.equalToSuperview().inset(21)
+            $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
             $0.bottom.equalToSuperview().inset(130)
         }
     }
@@ -238,12 +250,6 @@ extension EventDetailView {
         overlayView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-
-    private func updateCouponButton(type: CouponType) {
-        couponButton.setTitle(type.rawValue, for: .normal)
-        couponButton.backgroundColor = type.backgroundColor()
-        couponButton.isEnabled = type.isEnable()
     }
 
     @objc
