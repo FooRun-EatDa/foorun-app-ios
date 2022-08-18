@@ -50,6 +50,7 @@ class API<T: Decodable> {
         }
 
         NSLog("요청", self.fetchURL)
+        print(fetchURL)
 
         AF.request(self.fetchURL,
                    method: self.method,
@@ -74,3 +75,4 @@ class API<T: Decodable> {
         }
     }
 }
+
