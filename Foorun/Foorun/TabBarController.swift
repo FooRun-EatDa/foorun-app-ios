@@ -24,6 +24,18 @@ class TabBarController: UITabBarController {
         
         return viewController
     }()
+
+    private lazy var eventViewController: UIViewController = {
+        let viewController = UINavigationController(rootViewController: EventViewController())
+
+        viewController.tabBarItem = UITabBarItem(
+            title: "이벤트",
+            image: UIImage(named: "tabBarItemEvent"),
+            tag: 1
+        )
+
+        return viewController
+    }()
     
     private lazy var settingViewController: UIViewController = {
         let settingViewController = UIHostingController(rootView: SettingView())
@@ -45,6 +57,6 @@ class TabBarController: UITabBarController {
                 
         tabBar.backgroundColor = .white
         tabBar.tintColor = UIColor(red: 255.0/255.0, green: 193.0/255.0, blue: 7.0/255.0, alpha: 1)
-        viewControllers = [mapViewContoller, bookmarkViewController, settingViewController]
+        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, settingViewController]
     }
 }
