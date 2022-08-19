@@ -8,11 +8,12 @@ class BookmarkViewController: UIViewController {
     // MARK: - Properties
     
     /// 삭제에 사용할 캐시
-    var deleteCache: Set<Int> = Set<Int>()
+    var deleteCache: Set<Int> = []
     /// 로컬에 저장된 북마크 리스트 정보.
-    @UserDefault(key: "bookmarks", defaultValue: [])
-    var bookmarks: [RestaurantList] {
+    ///
+    var bookmarks: [RestaurantList] = UserDefaultManager.shared.bookmarks {
         didSet {
+            UserDefaultManager.shared.bookmarks = bookmarks
             updateBookmarks()
         }
     }
@@ -52,33 +53,4 @@ class BookmarkViewController: UIViewController {
         deleteCache = []
     }
     
-}
-
-@propertyWrapper
-struct UserDefault<T: Codable> {
-    private let key: String
-    private let defaultValue: T
-    public let storage: UserDefaults
-    
-    init(key: String, defaultValue: T, storage: UserDefaults = .standard) {
-        self.key = key
-        self.defaultValue = defaultValue
-        self.storage = storage
-    }
-
-    var wrappedValue: T {
-        get {
-            guard let data = self.storage.object(forKey: key) as? Data else {
-                return defaultValue
-            }
-
-            let value = try? JSONDecoder().decode(T.self, from: data)
-            return value ?? defaultValue
-        }
-        set {
-            let data = try? JSONEncoder().encode(newValue)
-
-            UserDefaults.standard.set(data, forKey: key)
-        }
-    }
 }

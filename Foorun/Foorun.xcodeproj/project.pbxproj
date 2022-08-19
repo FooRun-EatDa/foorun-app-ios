@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */; };
 		7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3F28AB6789000D405B /* BookmarkView.swift */; };
+		7822EF4828AF3C6E000D405B /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF4728AF3C6E000D405B /* UserDefaultManager.swift */; };
+		7822EF4D28AF6368000D405B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF4C28AF6367000D405B /* TabBarController.swift */; };
 		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
 		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
 		78EADC5A28A7A6030051B8D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78EADC5928A7A6030051B8D4 /* Kingfisher */; };
@@ -85,6 +87,8 @@
 /* Begin PBXFileReference section */
 		7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.UITableView.swift; sourceTree = "<group>"; };
 		7822EF3F28AB6789000D405B /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		7822EF4728AF3C6E000D405B /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		7822EF4C28AF6367000D405B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.Foorun.swift; sourceTree = "<group>"; };
@@ -160,19 +164,36 @@
 			isa = PBXGroup;
 			children = (
 				7822EF3F28AB6789000D405B /* BookmarkView.swift */,
+				786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		786E52AD2896488A00B876E5 /* BookMark */ = {
+		7822EF4628AF3C58000D405B /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				7822EF3E28AB6775000D405B /* Views */,
-				786E52AE289648A900B876E5 /* BookmarkViewController.swift */,
-				786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */,
-				7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */,
+				7822EF4728AF3C6E000D405B /* UserDefaultManager.swift */,
 			);
-			path = BookMark;
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		7822EF4928AF46DF000D405B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8ED9D79F28AF2672006A7F94 /* EventDetailViewController.swift */,
+				8ED9D7A128AF2672006A7F94 /* EventDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		786E52AD2896488A00B876E5 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				786E52AE289648A900B876E5 /* BookmarkViewController.swift */,
+				7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */,
+				7822EF3E28AB6775000D405B /* Views */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		8ED9D79028AF2668006A7F94 /* Extensions */ = {
@@ -180,18 +201,9 @@
 			children = (
 				8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */,
 				8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */,
+				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8ED9D79528AF2672006A7F94 /* EventViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8ED9D79628AF2672006A7F94 /* EventViewController.swift */,
-				8ED9D79728AF2672006A7F94 /* EventViewController.UICollectionView.swift */,
-				8ED9D79828AF2672006A7F94 /* Views */,
-			);
-			path = EventViewController;
 			sourceTree = "<group>";
 		};
 		8ED9D79828AF2672006A7F94 /* Views */ = {
@@ -200,33 +212,30 @@
 				8ED9D79928AF2672006A7F94 /* EventView.swift */,
 				8ED9D79A28AF2672006A7F94 /* EventCollectionViewCell.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
+			name = Views;
+			path = Foorun/EventViewController/Views;
+			sourceTree = SOURCE_ROOT;
 		};
 		8ED9D79B28AF2672006A7F94 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				8ED9D79C28AF2672006A7F94 /* Event.swift */,
 				8ED9D79D28AF2672006A7F94 /* CouponType.swift */,
+				F0BFAADD2896725700FB499E /* RestaurantList.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = ../Model;
 			sourceTree = "<group>";
 		};
-		8ED9D79E28AF2672006A7F94 /* EventDetailViewController */ = {
+		8ED9D79E28AF2672006A7F94 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				8ED9D79F28AF2672006A7F94 /* EventDetailViewController.swift */,
-				8ED9D7A028AF2672006A7F94 /* Views */,
+				8ED9D79628AF2672006A7F94 /* EventViewController.swift */,
+				8ED9D79728AF2672006A7F94 /* EventViewController.UICollectionView.swift */,
+				8ED9D79828AF2672006A7F94 /* Views */,
+				7822EF4928AF46DF000D405B /* Detail */,
 			);
-			path = EventDetailViewController;
-			sourceTree = "<group>";
-		};
-		8ED9D7A028AF2672006A7F94 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8ED9D7A128AF2672006A7F94 /* EventDetailView.swift */,
-			);
-			path = Views;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		B1A36AAC287AA26A00DE64C8 = {
@@ -253,17 +262,15 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
-				8ED9D79E28AF2672006A7F94 /* EventDetailViewController */,
-				8ED9D79528AF2672006A7F94 /* EventViewController */,
-				8ED9D79B28AF2672006A7F94 /* Model */,
-				8ED9D79028AF2668006A7F94 /* Extensions */,
 				F0BFAAD92896722900FB499E /* SDK */,
-				786E52AD2896488A00B876E5 /* BookMark */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
+				7822EF4C28AF6367000D405B /* TabBarController.swift */,
 				FD7E2533287AB363008E9E24 /* Map */,
-				FD7E254A287BB9F7008E9E24 /* ExtensionNahee */,
+				786E52AD2896488A00B876E5 /* Bookmark */,
+				8ED9D79E28AF2672006A7F94 /* Event */,
 				B1A410762896650000B9306A /* Setting */,
+				8ED9D79028AF2668006A7F94 /* Extensions */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
@@ -320,18 +327,11 @@
 		F0BFAAD92896722900FB499E /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				F0BFAADC2896724400FB499E /* Model */,
 				F0BFAADA2896723600FB499E /* APIClient.swift */,
+				8ED9D79B28AF2672006A7F94 /* Model */,
+				7822EF4628AF3C58000D405B /* Commons */,
 			);
 			path = SDK;
-			sourceTree = "<group>";
-		};
-		F0BFAADC2896724400FB499E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				F0BFAADD2896725700FB499E /* RestaurantList.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		FD7E2533287AB363008E9E24 /* Map */ = {
@@ -359,14 +359,6 @@
 				FD7E2548287BB842008E9E24 /* AnnotationView.swift */,
 			);
 			name = Annotation;
-			sourceTree = "<group>";
-		};
-		FD7E254A287BB9F7008E9E24 /* ExtensionNahee */ = {
-			isa = PBXGroup;
-			children = (
-				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
-			);
-			path = ExtensionNahee;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,6 +523,7 @@
 				B1A410812896650000B9306A /* SettingView.swift in Sources */,
 				8ED9D7A628AF2672006A7F94 /* Event.swift in Sources */,
 				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
+				7822EF4D28AF6368000D405B /* TabBarController.swift in Sources */,
 				8ED9D7A728AF2672006A7F94 /* CouponType.swift in Sources */,
 				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
 				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
@@ -540,6 +533,7 @@
 				7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				8ED9D79328AF2668006A7F94 /* UIViewController.Foorun.swift in Sources */,
+				7822EF4828AF3C6E000D405B /* UserDefaultManager.swift in Sources */,
 				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
 				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,

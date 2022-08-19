@@ -126,7 +126,8 @@ struct CertificationView: View {
             guard let code = response.data else { return }
             
             // NOTE: - 성공해야만 data가 내려옵니다.
-            UserDefaults.standard.set("\(code)", forKey: "token")
+            UserDefaultManager.shared.token = "\(code)"
+//            UserDefaults.standard.set("\(code)", forKey: "token")
             self.mode.wrappedValue.dismiss()
         }
     }

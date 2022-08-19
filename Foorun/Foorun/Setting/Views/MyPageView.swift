@@ -12,10 +12,7 @@ struct MyPageView: View {
     @State var isActive: Bool = true
     
     /// 토큰이 존재하면 true
-    var isToken: Bool {
-        if UserDefaults.standard.string(forKey: "token") == nil { return false }
-        else { return true }
-    }
+    var isToken: Bool = !UserDefaultManager.shared.token.isEmpty
     var body: some View {
         Section {
             NavigationLink {

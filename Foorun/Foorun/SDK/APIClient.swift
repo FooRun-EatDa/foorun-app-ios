@@ -27,8 +27,7 @@ class API<T: Decodable> {
     let headers: HTTPHeaders = [
         "Content-Type":"application/json",
         "Accept": "application/json",
-        "Authorization": FoorunKey.Token.guest,
-        "X-Refresh-Token": FoorunKey.Token.refresh
+        "X-MEMBER-ID": FoorunKey.Token.memberId,
     ]
 
     init (requestString: String, method: HTTPMethod, parameters: Parameters) {

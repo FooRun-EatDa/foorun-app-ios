@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
 //        let vc = UIHostingController(rootView: SettingView().environmentObject(SettingViewModel()))
-        window?.rootViewController = BookmarkViewController()
+        window?.rootViewController = TabBarController()
         window?.makeKeyAndVisible()
     }
 }

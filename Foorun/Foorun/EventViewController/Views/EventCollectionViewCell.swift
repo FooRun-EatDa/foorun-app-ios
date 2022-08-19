@@ -10,7 +10,6 @@ import SnapKit
 import Kingfisher
 
 class EventCollectionViewCell: UICollectionViewCell {
-    static let identifier = String(describing: self)
 
     // MARK: - IBOutlets
     var imageView = UIImageView()
