@@ -31,6 +31,12 @@ class EventDetailViewController: UIViewController {
         eventDetailView.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationItem.largeTitleDisplayMode = .never
+    }
+
     private func setupNavigationBar() {
         navigationController?.navigationBar.topItem?.backButtonDisplayMode = .minimal
         navigationController?.navigationBar.tintColor = .black
@@ -43,7 +49,6 @@ class EventDetailViewController: UIViewController {
 
         view.backgroundColor = .white
 
-        eventDetailView.backgroundColor = .clear
         eventDetailView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.bottom.equalToSuperview()
@@ -58,23 +63,23 @@ class EventDetailViewController: UIViewController {
             parameters: [: ]).fetch { _ in }
     }
 
-    private func isEventValid(id: Int) -> Bool {
-        var isValid: Bool = false
+    private func 선착순마감(id: Int) -> Bool {
+        var isValid: Bool = true
 
         API<EventValid>(
             requestString: FoorunRequest.Event.event + "\(id)/validCheck",
                         method: .get,
-                        parameters: [: ]).fetch { result in
+                        parameters: [: ]).fetchResult { result in
             switch result {
             case .success(let eventValid):
                 switch eventValid.data?.status {
                 case 0:
-                    isValid = true
-                default:
                     isValid = false
+                default:
+                    isValid = true
                 }
             case .failure(_):
-                isValid = false
+                isValid = true
             }
         }
 
@@ -90,25 +95,21 @@ extension EventDetailViewController: EventDetailViewDelegate {
     func updateCouponType(id: Int) -> CouponType {
         guard let event = event else { return .expired }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy/MM/dd hh:mm"
-        let currentDate = Date()
+        guard CouponType.isValidDate(event.date) else { return .expired }
 
-        guard let date = dateFormatter.date(from: event.date),
-              currentDate >= date else {
+        if CouponType.선착순_마감_여부(id: id) {
 
-            return .expired
-        }
-
-        if isEventValid(id: id) {
+            return .선착순_마감
+        } else {
             @UserDefault(key: "UsedCoupons", defaultValue: [])
             var usedCoupons: Set<Int>
             usedCoupons.insert(id)
 
-            return .used
-        } else {
+            DispatchQueue.global(qos: .background).async {
+                self.deleteUsedCoupon(id: id)
+            }
 
-            return .finished
+            return .used
         }
     }
 }
