@@ -75,9 +75,17 @@ class EventViewController: UIViewController {
     }
 
     private func fetchEvents(page: Int) {
-        API<[Event]>(requestString: FoorunRequest.Event.event, method: .get, parameters: ["page": "\(page)"]).fetch { [weak self] response in
-            guard let events = response.data else { return }
-            self?.events = events
+        API<[Event]>(
+            requestString: FoorunRequest.Event.event,
+            method: .get,
+            parameters: ["page": "\(page)"]).fetch { [weak self] result in
+            switch result {
+            case .success(let response):
+                guard let events = response.data else { return }
+                self?.events = events
+            case .failure(_):
+                self?.events = []
+            }
         }
     }
 }
