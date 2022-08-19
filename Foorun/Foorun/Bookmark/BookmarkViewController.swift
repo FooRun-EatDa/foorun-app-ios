@@ -8,11 +8,12 @@ class BookmarkViewController: UIViewController {
     // MARK: - Properties
     
     /// 삭제에 사용할 캐시
-    var deleteCache: Set<Int> = Set<Int>()
+    var deleteCache: Set<Int> = []
     /// 로컬에 저장된 북마크 리스트 정보.
-    @UserDefault(key: "bookmarks", defaultValue: [])
-    var bookmarks: [RestaurantList] {
+    ///
+    var bookmarks: [RestaurantList] = UserDefaultManager.shared.bookmarks {
         didSet {
+            UserDefaultManager.shared.bookmarks = bookmarks
             updateBookmarks()
         }
     }

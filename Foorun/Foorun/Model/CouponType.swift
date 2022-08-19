@@ -38,11 +38,8 @@ enum CouponType: String {
     }
 
     static func checkCouponType(event: Event) -> CouponType {
-        @UserDefault(key: "UsedCoupons", defaultValue: [])
-        var usedCoupons: Set<Int>
-
-        guard let _ = UserDefaults.standard.string(forKey: "token") else {
-
+        
+        if UserDefaultManager.shared.token.isEmpty {
             return .needLogin
         }
 
@@ -56,7 +53,7 @@ enum CouponType: String {
             return .expired
         }
 
-        return usedCoupons.contains(event.id)
+        return UserDefaultManager.shared.usedCoupons.contains(event.id)
         ? .used
         : .available
     }
