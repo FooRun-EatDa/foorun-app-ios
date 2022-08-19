@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import FoorunKey
 
 class EventDetailViewController: UIViewController {
     
@@ -38,8 +39,9 @@ class EventDetailViewController: UIViewController {
     // MARK: - Methods
     
     func setupEventDetailView() {
-        view.backgroundColor = .white
         view.addSubview(eventDetailView)
+
+        view.backgroundColor = .white
 
         eventDetailView.backgroundColor = .clear
         eventDetailView.snp.makeConstraints {
@@ -48,10 +50,65 @@ class EventDetailViewController: UIViewController {
             $0.width.equalToSuperview()
         }
     }
+
+    private func deleteUsedCoupon(id: Int) {
+        API<String>(
+            requestString: FoorunRequest.Event.event + "\(id)",
+            method: .delete,
+            parameters: [: ]).fetch { _ in }
+    }
+
+    private func isEventValid(id: Int) -> Bool {
+        var isValid: Bool = false
+
+        API<EventValid>(
+            requestString: FoorunRequest.Event.event + "\(id)/validCheck",
+                        method: .get,
+                        parameters: [: ]).fetch { result in
+            switch result {
+            case .success(let eventValid):
+                switch eventValid.data?.status {
+                case 0:
+                    isValid = true
+                default:
+                    isValid = false
+                }
+            case .failure(_):
+                isValid = false
+            }
+        }
+
+        return isValid
+    }
 }
 
 extension EventDetailViewController: EventDetailViewDelegate {
     func alert(controller: UIAlertController, actions: [UIAlertAction]) {
         self.showsAlert(controller: controller, actions: actions)
+    }
+
+    func updateCouponType(id: Int) -> CouponType {
+        guard let event = event else { return .expired }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy/MM/dd hh:mm"
+        let currentDate = Date()
+
+        guard let date = dateFormatter.date(from: event.date),
+              currentDate >= date else {
+
+            return .expired
+        }
+
+        if isEventValid(id: id) {
+            @UserDefault(key: "UsedCoupons", defaultValue: [])
+            var usedCoupons: Set<Int>
+            usedCoupons.insert(id)
+
+            return .used
+        } else {
+
+            return .finished
+        }
     }
 }

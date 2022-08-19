@@ -36,7 +36,7 @@ class API<T: Decodable> {
         self.parameters = parameters
     }
 
-    func fetch(completion: @escaping (APIResponse<T>) -> Void) {
+    func fetch(completion: @escaping (Result<APIResponse<T>, Error>) -> Void) {
         var encodingType: ParameterEncoding {
             switch self.method {
             case .get, .delete:
@@ -62,12 +62,14 @@ class API<T: Decodable> {
                 do {
                     let jsonData = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let result = try JSONDecoder().decode(APIResponse<T>.self, from: jsonData)
-                    completion(result)
+                    completion(.success(result))
                 } catch (let err){
+                    completion(.failure(err))
                     print("네트워크 에러: ", err.localizedDescription)
                 }
 
             case .failure(let error):
+                completion(.failure(error))
                 print("네트워크 에러: ", error.localizedDescription)
             }
         }

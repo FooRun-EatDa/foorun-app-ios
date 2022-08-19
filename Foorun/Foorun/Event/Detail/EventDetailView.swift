@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import FoorunKey
 
 protocol EventDetailViewDelegate: AnyObject {
     func alert(controller: UIAlertController, actions: [UIAlertAction])
+    func updateCouponType(id: Int) -> CouponType
 }
 
 class EventDetailView: UIView {
@@ -256,13 +258,31 @@ extension EventDetailView {
     private func didTapCouponButton() {
         guard let id = id else { return }
         let alertController: UIAlertController = .init(title: "쿠폰을 사용하시겠습니까?", message: nil)
-        let confirmAction = UIAlertAction(title: "사용", style: .destructive) { [weak self] action in
-            self?.updateCouponButton(type: .used)
+        let confirmAction = UIAlertAction(title: "사용", style: .destructive) { [unowned self] action in
+
+            guard let updatedCouponType = self.delegate?.updateCouponType(id: id) else { return }
+            updateCouponButton(type: updatedCouponType)
+
+            var alertMessage: String = "오류가 발생했어요... 😂"
+            switch updatedCouponType {
+            case .expired:
+                alertMessage = "쿠폰이 만료되었어요..ㅠ 😂"
+            case .used:
+                alertMessage = "쿠폰이 사용되었습니다! 😄"
+            case .finished:
+                alertMessage = "쿠폰이 마감되었어요..ㅠ 😂"
+            default :
+                alertMessage = "오류가 발생했어요... 😂"
+            }
+
+            let alertController: UIAlertController = .init(title: alertMessage, message: nil)
+            let confirmAction = UIAlertAction(title: "확인", style: .default)
 
             UserDefaultManager.shared.usedCoupons.insert(id)
             let alertController: UIAlertController = .init(title: "쿠폰이 사용되었습니다! 😄", message: nil)
             let confirmAction = UIAlertAction(title: "확인", style: .default)
-            self?.delegate?.alert(controller: alertController, actions: [confirmAction])
+            self.delegate?.alert(controller: alertController, actions: [confirmAction])
+
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 
