@@ -14,7 +14,7 @@ class UserDefaultManager {
     private init() { }
     
     @UserDefault(key: FoorunKey.UserDefaultKey.bookmark, defaultValue: [])
-    public var bookmarks: [RestaurantList]
+    public var bookmarks: [Restaurant]
     
     @UserDefault(key: FoorunKey.UserDefaultKey.usedCoupon, defaultValue: [])
     public var usedCoupons: Set<Int>

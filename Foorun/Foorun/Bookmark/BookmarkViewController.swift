@@ -11,7 +11,7 @@ class BookmarkViewController: UIViewController {
     var deleteCache: Set<Int> = []
     /// 로컬에 저장된 북마크 리스트 정보.
     ///
-    var bookmarks: [RestaurantList] = UserDefaultManager.shared.bookmarks {
+    var bookmarks: [Restaurant] = UserDefaultManager.shared.bookmarks {
         didSet {
             UserDefaultManager.shared.bookmarks = bookmarks
             updateBookmarks()
@@ -22,6 +22,8 @@ class BookmarkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bookmarks = Restaurant.dummyModel
         
         setupViews()
         updateBookmarks()
@@ -46,7 +48,8 @@ class BookmarkViewController: UIViewController {
         
         bookmarkView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.bottom.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
             
         }
     }
