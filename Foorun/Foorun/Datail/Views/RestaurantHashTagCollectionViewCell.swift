@@ -11,7 +11,13 @@ class RestaurantHashTagCollectionViewCell: UICollectionViewCell {
 
     static var id: String { NSStringFromClass(Self.self).components(separatedBy: ".").last ?? "" }
 
-    var model: String? { didSet { bind() } }
+    var hashTagModel: String? {
+        didSet {
+            bind()
+        }
+    }
+    
+    
     lazy var hagTagLabel = UILabel().then {
            $0.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
            $0.textColor = .white
@@ -24,7 +30,6 @@ class RestaurantHashTagCollectionViewCell: UICollectionViewCell {
            configure()
        }
 
-       @available(*, unavailable)
        required init?(coder: NSCoder) {
            fatalError()
        }
@@ -34,18 +39,17 @@ class RestaurantHashTagCollectionViewCell: UICollectionViewCell {
        }
 
        private func configure() {
-
            self.backgroundColor = .systemYellow
            self.layer.cornerRadius = 15
 
-           hagTagLabel.snp.makeConstraints { make in
-               make.leading.trailing.equalToSuperview().inset(13)
-               make.top.bottom.equalToSuperview().inset(6)
+           hagTagLabel.snp.makeConstraints {
+               $0.leading.trailing.equalToSuperview().inset(13)
+               $0.top.bottom.equalToSuperview().inset(6)
            }
        }
 
        private func bind() {
-           hagTagLabel.text = model
+           hagTagLabel.text = hashTagModel
        }
    }
 
