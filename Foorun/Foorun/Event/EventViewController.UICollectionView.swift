@@ -37,11 +37,12 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 extension EventViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let minLineSpacing: CGFloat = 12
-        let sideEdgeInset: CGFloat = 20
-        let figmaHeight: CGFloat = 162
+    var minInterItemSpacing: CGFloat { return 11 }
+    var minLineSpacing: CGFloat { return 12 }
+    var sideEdgeInset: CGFloat { return 20 }
+    var figmaHeight: CGFloat { return 162 }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = (UIScreen.main.bounds.width - minLineSpacing - (sideEdgeInset * 2)) / 2
         let aspectRatio = width / figmaHeight
         let height: CGFloat = CGFloat(225 * aspectRatio)
@@ -50,14 +51,14 @@ extension EventViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(11)
+        return minInterItemSpacing
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(12)
+        return minLineSpacing
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 10, left: sideEdgeInset, bottom: 0, right: sideEdgeInset)
     }
 }
