@@ -20,10 +20,6 @@
 		8E8C040E28AC79500076123F /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040D28AC79500076123F /* EventDetailViewController.swift */; };
 		8E8C041028AC8A960076123F /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040F28AC8A960076123F /* EventDetailView.swift */; };
 		8EE379EA289B69410021D12D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADA2896723600FB499E /* APIClient.swift */; };
-		7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */; };
-		7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3F28AB6789000D405B /* BookmarkView.swift */; };
-		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
-		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
 		B1A36AC2287AA26B00DE64C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */; };
@@ -96,10 +92,6 @@
 		8E8C040B28AC71B00076123F /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E8C040D28AC79500076123F /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8E8C040F28AC8A960076123F /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
-		7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.UITableView.swift; sourceTree = "<group>"; };
-		7822EF3F28AB6789000D405B /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
-		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
-		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		B1A36AB5287AA26A00DE64C8 /* Foorun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,15 +207,6 @@
 				8E8C040F28AC8A960076123F /* EventDetailView.swift */,
 			);
 			path = Views;
-		786E52AD2896488A00B876E5 /* BookMark */ = {
-			isa = PBXGroup;
-			children = (
-				7822EF3E28AB6775000D405B /* Views */,
-				786E52AE289648A900B876E5 /* BookmarkViewController.swift */,
-				786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */,
-				7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */,
-			);
-			path = BookMark;
 			sourceTree = "<group>";
 		};
 		B1A36AAC287AA26A00DE64C8 = {
@@ -250,7 +233,6 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
-				786E52AD2896488A00B876E5 /* BookMark */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				F0BFAAD92896722900FB499E /* SDK */,
@@ -503,27 +485,16 @@
 				8E8C040C28AC71B00076123F /* EventCollectionViewCell.swift in Sources */,
 				8E75ED09289647F0008A1221 /* UIAlertController.Foorun.swift in Sources */,
 				8E8C040A28AC717E0076123F /* EventViewController.UICollectionView.swift in Sources */,
+				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				8E75ECE8289647DC008A1221 /* CouponType.swift in Sources */,
 				8E5197F628AC92C500A9317E /* EventView.swift in Sources */,
 				8E75ED07289647F0008A1221 /* UIViewController.Foorun.swift in Sources */,
 				8E8C040828AC70B60076123F /* EventViewController.swift in Sources */,
 				8E8C040E28AC79500076123F /* EventDetailViewController.swift in Sources */,
+				8EE379EA289B69410021D12D /* APIClient.swift in Sources */,
 				8E8C041028AC8A960076123F /* EventDetailView.swift in Sources */,
 				8E75ECE7289647DC008A1221 /* Event.swift in Sources */,
-				F0BFAADE2896725700FB499E /* RestaurantList.swift in Sources */,
-				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
-				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
-				B1A4107F2896650000B9306A /* InformationView.swift in Sources */,
-				B1A410812896650000B9306A /* SettingView.swift in Sources */,
-				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
-				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
-				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
-				786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */,
-				7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */,
-				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
-				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
-				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,14 +826,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BoilerSwift/Logger";
@@ -914,11 +877,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		78EADC5928A7A6030051B8D4 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		B1A36B77287AACE200DE64C8 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */;
