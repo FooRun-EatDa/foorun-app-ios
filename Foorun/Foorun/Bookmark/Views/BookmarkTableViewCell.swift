@@ -3,7 +3,7 @@ import Kingfisher
 
 class BookmarkTableViewCell: UITableViewCell {
     
-    // MARK: - IBOutlet
+    // MARK: - IBOutlets
      
     /// 식당 메인 이미지
     let thumnailImageView = UIImageView()

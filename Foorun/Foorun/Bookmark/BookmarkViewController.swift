@@ -1,7 +1,10 @@
 import UIKit
 import SnapKit
+import FoorunKey
 
 class BookmarkViewController: UIViewController {
+    
+    // MARK: - IBOutlets
     
     let bookmarkView = BookmarkView()
 
@@ -10,7 +13,6 @@ class BookmarkViewController: UIViewController {
     /// 삭제에 사용할 캐시
     var deleteCache: Set<Int> = []
     /// 로컬에 저장된 북마크 리스트 정보.
-    ///
     var bookmarks: [Restaurant] = UserDefaultManager.shared.bookmarks {
         didSet {
             UserDefaultManager.shared.bookmarks = bookmarks
@@ -22,7 +24,7 @@ class BookmarkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bookmarks = Restaurant.dummyModel
         
         setupViews()
@@ -55,7 +57,16 @@ class BookmarkViewController: UIViewController {
         }
     }
     /// 삭제 캐시를 서버에 보내고 캐시 정리
-    private func delete() {
+    func delete() {
+        API<Int?>(
+            requestString: FoorunRequest.Restaurant.bookmarkingList,
+            method: .delete,
+            parameters: ["markingList": deleteCache]
+        ).fetch { apiResponse in
+            print(apiResponse)
+            guard let _ = apiResponse.data else { return }
+        }
+        
         deleteCache = []
     }
     
