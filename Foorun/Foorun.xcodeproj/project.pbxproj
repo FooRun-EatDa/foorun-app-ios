@@ -14,6 +14,7 @@
 		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
 		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
 		78C48CB628AFB72500C50FB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78C48CB528AFB72500C50FB5 /* Kingfisher */; };
+		8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD1FE228AFB1FE00288624 /* EventValid.swift */; };
 		8ED9D79328AF2668006A7F94 /* UIViewController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */; };
 		8ED9D79428AF2668006A7F94 /* UIAlertController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */; };
 		8ED9D7A228AF2672006A7F94 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79628AF2672006A7F94 /* EventViewController.swift */; };
@@ -64,6 +65,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8EAD1FE928AFB2FC00288624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B1A36B44287AA89F00DE64C8;
+			remoteInfo = FoorunKey;
+		};
+		8EAD1FEB28AFB2FC00288624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B1A36B4C287AA89F00DE64C8;
+			remoteInfo = FoorunKeyTests;
+		};
 		B1A36ACC287AA26B00DE64C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1A36AAD287AA26A00DE64C8 /* Project object */;
@@ -101,6 +116,8 @@
 		7822EF4C28AF6367000D405B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		8EAD1FE228AFB1FE00288624 /* EventValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventValid.swift; path = ../Event/Detail/EventValid.swift; sourceTree = "<group>"; };
+		8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoorunKey.xcodeproj; path = "../../Foorun-key/FoorunKey/FoorunKey.xcodeproj"; sourceTree = "<group>"; };
 		8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.Foorun.swift; sourceTree = "<group>"; };
 		8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.Foorun.swift; sourceTree = "<group>"; };
 		8ED9D79628AF2672006A7F94 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +233,15 @@
 			path = Bookmark;
 			sourceTree = "<group>";
 		};
+		8EAD1FE528AFB2FC00288624 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD1FEA28AFB2FC00288624 /* FoorunKey.framework */,
+				8EAD1FEC28AFB2FC00288624 /* FoorunKeyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8ED9D79028AF2668006A7F94 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				8ED9D79C28AF2672006A7F94 /* Event.swift */,
+				8EAD1FE228AFB1FE00288624 /* EventValid.swift */,
 				8ED9D79D28AF2672006A7F94 /* CouponType.swift */,
 				FDFF860F28B120620012EF71 /* Annotation.swift */,
 				FDFF861128B120700012EF71 /* MapRestaurant.swift */,
@@ -321,6 +348,7 @@
 		B1A36B71287AAA0D00DE64C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */,
 				B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */,
 			);
 			name = Frameworks;
@@ -515,6 +543,12 @@
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8EAD1FE528AFB2FC00288624 /* Products */;
+					ProjectRef = 8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B1A36AB4287AA26A00DE64C8 /* Foorun */,
@@ -523,6 +557,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8EAD1FEA28AFB2FC00288624 /* FoorunKey.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FoorunKey.framework;
+			remoteRef = 8EAD1FE928AFB2FC00288624 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8EAD1FEC28AFB2FC00288624 /* FoorunKeyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FoorunKeyTests.xctest;
+			remoteRef = 8EAD1FEB28AFB2FC00288624 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B1A36AB3287AA26A00DE64C8 /* Resources */ = {
@@ -590,6 +641,7 @@
 				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
 				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,
+				8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */,
 				8ED9D7A828AF2672006A7F94 /* EventDetailViewController.swift in Sources */,
 				F0724D8C28B47CF50005C688 /* DetailView.swift in Sources */,
 				8ED9D79428AF2668006A7F94 /* UIAlertController.Foorun.swift in Sources */,

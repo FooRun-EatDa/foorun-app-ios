@@ -279,8 +279,6 @@ extension EventDetailView {
             let confirmAction = UIAlertAction(title: "확인", style: .default)
 
             UserDefaultManager.shared.usedCoupons.insert(id)
-            let alertController: UIAlertController = .init(title: "쿠폰이 사용되었습니다! 😄", message: nil)
-            let confirmAction = UIAlertAction(title: "확인", style: .default)
             self?.delegate?.alert(controller: alertController, actions: [confirmAction])
 
         }
