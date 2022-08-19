@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FoorunKey
 
 struct CertificationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -87,47 +88,27 @@ struct CertificationView: View {
         }
         .background(Color(uiColor: .secondarySystemBackground))
     }
-    
-    struct Auth: Codable {
-        let code: Int
-        let data: Int?
-        let message: String
-    }
-    
     private func didTap이메일_인증_요청() {
         // foorun123@naver.com
-        let baseString = "auth"
-        let requestString = baseString + "?email=\(email)"
         
-        API<Auth>(
-            requestString: requestString,
+        API<Int>(
+            requestString: FoorunRequest.Auth.auth,
             method: .get,
-            parameters: [:]
+            parameters: ["email": email]
         ).fetch { apiResponse in
-            guard let response = apiResponse.data else { return }
-            guard let certificationCode = response.data else { return }
-            
-            self.certificationCode = String(certificationCode)
+            guard let _ = apiResponse.data else { return }
         }
     }
     
     private func didTap인증() {
-        let baseString = "auth"
-        let email = "?email=\(email)"
-        let varification = "?varificationCode=\(code)"
-        let requestString = baseString + email + varification
-        
-        API<Auth>(
-            requestString: requestString,
+        API<Int>(
+            requestString: "\(FoorunRequest.Auth.auth)?email=\(email)&verificationCode=\(code)",
             method: .post,
             parameters: [:]
         ).fetch { apiResponse in
-            guard let response = apiResponse.data else { return }
-            guard let code = response.data else { return }
-            
+            guard let code = apiResponse.data else { return }
             // NOTE: - 성공해야만 data가 내려옵니다.
             UserDefaultManager.shared.token = "\(code)"
-//            UserDefaults.standard.set("\(code)", forKey: "token")
             self.mode.wrappedValue.dismiss()
         }
     }
