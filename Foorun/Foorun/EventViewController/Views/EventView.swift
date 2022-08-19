@@ -35,7 +35,8 @@ extension EventView {
         emptyLabel.text = "현재 진행중인 이벤트가 없어요..😢"
 
         emptyLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-50)
         }
     }
 
