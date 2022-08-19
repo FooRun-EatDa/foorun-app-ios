@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "UsedStamp.png",
+      "filename" : "defaultImage.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "UsedStamp@2x.png",
+      "filename" : "defaultImage-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "UsedStamp@3x.png",
+      "filename" : "defaultImage-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

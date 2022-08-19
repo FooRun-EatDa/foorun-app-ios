@@ -7,19 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E5197F628AC92C500A9317E /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5197F528AC92C500A9317E /* EventView.swift */; };
-		8E75ECB928963C1D008A1221 /* FoorunKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; };
-		8E75ECBA28963C1D008A1221 /* FoorunKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8E75ECE7289647DC008A1221 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75ECE3289647DC008A1221 /* Event.swift */; };
-		8E75ECE8289647DC008A1221 /* CouponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75ECE4289647DC008A1221 /* CouponType.swift */; };
-		8E75ED07289647F0008A1221 /* UIViewController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75ED00289647F0008A1221 /* UIViewController.Foorun.swift */; };
-		8E75ED09289647F0008A1221 /* UIAlertController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75ED02289647F0008A1221 /* UIAlertController.Foorun.swift */; };
-		8E8C040828AC70B60076123F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040728AC70B60076123F /* EventViewController.swift */; };
-		8E8C040A28AC717E0076123F /* EventViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040928AC717E0076123F /* EventViewController.UICollectionView.swift */; };
-		8E8C040C28AC71B00076123F /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040B28AC71B00076123F /* EventCollectionViewCell.swift */; };
-		8E8C040E28AC79500076123F /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040D28AC79500076123F /* EventDetailViewController.swift */; };
-		8E8C041028AC8A960076123F /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8C040F28AC8A960076123F /* EventDetailView.swift */; };
-		8EE379EA289B69410021D12D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADA2896723600FB499E /* APIClient.swift */; };
+		7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */; };
+		7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF3F28AB6789000D405B /* BookmarkView.swift */; };
+		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
+		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
+		78EADC5A28A7A6030051B8D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78EADC5928A7A6030051B8D4 /* Kingfisher */; };
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
 		B1A36AC2287AA26B00DE64C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */; };
@@ -27,6 +19,8 @@
 		B1A36AD0287AA26B00DE64C8 /* FoorunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ACF287AA26B00DE64C8 /* FoorunTests.swift */; };
 		B1A36ADA287AA26B00DE64C8 /* FoorunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AD9287AA26B00DE64C8 /* FoorunUITests.swift */; };
 		B1A36ADC287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ADB287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift */; };
+		B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; };
+		B1A36B74287AAA0D00DE64C8 /* FoorunKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1A36B78287AACE200DE64C8 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B77287AACE200DE64C8 /* Logger */; };
 		B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7A287AB01400DE64C8 /* SnapKit */; };
 		B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7D287AB04D00DE64C8 /* Then */; };
@@ -36,25 +30,18 @@
 		FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* AnnotationView.swift */; };
 		FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E254B287BBA14008E9E24 /* NSObject+.swift */; };
 		B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B93287ADB6300DE64C8 /* ReferenceKit */; };
-		B1D77E4D28ABADA800747EE5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B1D77E4C28ABADA800747EE5 /* Kingfisher */; };
+		B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A410772896650000B9306A /* SettingViewModel.swift */; };
+		B1A4107E2896650000B9306A /* SNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A410792896650000B9306A /* SNSView.swift */; };
+		B1A4107F2896650000B9306A /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107A2896650000B9306A /* InformationView.swift */; };
+		B1A410802896650000B9306A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107B2896650000B9306A /* MyPageView.swift */; };
+		B1A410812896650000B9306A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107C2896650000B9306A /* SettingView.swift */; };
+		B1A41085289669D600B9306A /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A41084289669D600B9306A /* CertificationView.swift */; };
+		F0BFAADB2896723600FB499E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADA2896723600FB499E /* APIClient.swift */; };
+		F0BFAADE2896725700FB499E /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADD2896725700FB499E /* RestaurantList.swift */; };
 		F0BFAAE12896729300FB499E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0BFAAE02896729300FB499E /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8E75ECC1289645A9008A1221 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E75ECBC289645A9008A1221 /* FoorunKey.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B1A36B44287AA89F00DE64C8;
-			remoteInfo = FoorunKey;
-		};
-		8E75ECC3289645A9008A1221 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E75ECBC289645A9008A1221 /* FoorunKey.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B1A36B4C287AA89F00DE64C8;
-			remoteInfo = FoorunKeyTests;
-		};
 		B1A36ACC287AA26B00DE64C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1A36AAD287AA26A00DE64C8 /* Project object */;
@@ -72,13 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8E75ECBB28963C1E008A1221 /* Embed Frameworks */ = {
+		B1A36B75287AAA0E00DE64C8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8E75ECBA28963C1D008A1221 /* FoorunKey.framework in Embed Frameworks */,
+				B1A36B74287AAA0D00DE64C8 /* FoorunKey.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,17 +73,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8E5197F528AC92C500A9317E /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
-		8E75ECBC289645A9008A1221 /* FoorunKey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoorunKey.xcodeproj; path = "../../Foorun-key/FoorunKey/FoorunKey.xcodeproj"; sourceTree = "<group>"; };
-		8E75ECE3289647DC008A1221 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		8E75ECE4289647DC008A1221 /* CouponType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponType.swift; sourceTree = "<group>"; };
-		8E75ED00289647F0008A1221 /* UIViewController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.Foorun.swift; sourceTree = "<group>"; };
-		8E75ED02289647F0008A1221 /* UIAlertController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.Foorun.swift; sourceTree = "<group>"; };
-		8E8C040728AC70B60076123F /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		8E8C040928AC717E0076123F /* EventViewController.UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.UICollectionView.swift; sourceTree = "<group>"; };
-		8E8C040B28AC71B00076123F /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
-		8E8C040D28AC79500076123F /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
-		8E8C040F28AC8A960076123F /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
+		7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.UITableView.swift; sourceTree = "<group>"; };
+		7822EF3F28AB6789000D405B /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		B1A36AB5287AA26A00DE64C8 /* Foorun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foorun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,11 +110,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
-				8E75ECB928963C1D008A1221 /* FoorunKey.framework in Frameworks */,
-				B1D77E4D28ABADA800747EE5 /* Kingfisher in Frameworks */,
-				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
+				78EADC5A28A7A6030051B8D4 /* Kingfisher in Frameworks */,
+				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				F0BFAAE12896729300FB499E /* Alamofire in Frameworks */,
+				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,67 +136,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E75ECBD289645A9008A1221 /* Products */ = {
+		7822EF3E28AB6775000D405B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8E75ECC2289645A9008A1221 /* FoorunKey.framework */,
-				8E75ECC4289645A9008A1221 /* FoorunKeyTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8E75ECC8289647B4008A1221 /* EventViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8E8C040728AC70B60076123F /* EventViewController.swift */,
-				8E8C040928AC717E0076123F /* EventViewController.UICollectionView.swift */,
-				8E84C7B728AD095B0072776F /* Views */,
-			);
-			path = EventViewController;
-			sourceTree = "<group>";
-		};
-		8E75ECE2289647DC008A1221 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8E75ECE3289647DC008A1221 /* Event.swift */,
-				8E75ECE4289647DC008A1221 /* CouponType.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8E75ECFB289647F0008A1221 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8E75ED00289647F0008A1221 /* UIViewController.Foorun.swift */,
-				8E75ED02289647F0008A1221 /* UIAlertController.Foorun.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		8E84C7B728AD095B0072776F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8E5197F528AC92C500A9317E /* EventView.swift */,
-				8E8C040B28AC71B00076123F /* EventCollectionViewCell.swift */,
+				7822EF3F28AB6789000D405B /* BookmarkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8E84C7B828AD09790072776F /* EventDetailViewController */ = {
+		786E52AD2896488A00B876E5 /* BookMark */ = {
 			isa = PBXGroup;
 			children = (
-				8E8C040D28AC79500076123F /* EventDetailViewController.swift */,
-				8E84C7B928AD09870072776F /* Views */,
+				7822EF3E28AB6775000D405B /* Views */,
+				786E52AE289648A900B876E5 /* BookmarkViewController.swift */,
+				786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */,
+				7822EF3C28AB6418000D405B /* BookmarkViewController.UITableView.swift */,
 			);
-			path = EventDetailViewController;
-			sourceTree = "<group>";
-		};
-		8E84C7B928AD09870072776F /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8E8C040F28AC8A960076123F /* EventDetailView.swift */,
-			);
-			path = Views;
+			path = BookMark;
 			sourceTree = "<group>";
 		};
 		B1A36AAC287AA26A00DE64C8 = {
@@ -243,13 +179,10 @@
 		B1A36AB7287AA26A00DE64C8 /* Foorun */ = {
 			isa = PBXGroup;
 			children = (
+				F0BFAAD92896722900FB499E /* SDK */,
+				786E52AD2896488A00B876E5 /* BookMark */,
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
-				F0BFAAD92896722900FB499E /* SDK */,
-				8E75ECFB289647F0008A1221 /* Extensions */,
-				8E75ECE2289647DC008A1221 /* Model */,
-				8E75ECC8289647B4008A1221 /* EventViewController */,
-				8E84C7B828AD09790072776F /* EventDetailViewController */,
 				B1A36ABC287AA26A00DE64C8 /* ViewController.swift */,
 				FD7E2533287AB363008E9E24 /* Map */,
 				FD7E254A287BB9F7008E9E24 /* ExtensionNahee */,
@@ -282,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */,
-				8E75ECBC289645A9008A1221 /* FoorunKey.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -370,7 +302,7 @@
 				B1A36AB1287AA26A00DE64C8 /* Sources */,
 				B1A36AB2287AA26A00DE64C8 /* Frameworks */,
 				B1A36AB3287AA26A00DE64C8 /* Resources */,
-				8E75ECBB28963C1E008A1221 /* Embed Frameworks */,
+				B1A36B75287AAA0E00DE64C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,7 +315,7 @@
 				B1A36B7D287AB04D00DE64C8 /* Then */,
 				B1A36B93287ADB6300DE64C8 /* ReferenceKit */,
 				F0BFAAE02896729300FB499E /* Alamofire */,
-				B1D77E4C28ABADA800747EE5 /* Kingfisher */,
+				78EADC5928A7A6030051B8D4 /* Kingfisher */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -463,16 +395,10 @@
 				B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */,
 				B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */,
 				F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */,
-				B1D77E4B28ABADA800747EE5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8E75ECBD289645A9008A1221 /* Products */;
-					ProjectRef = 8E75ECBC289645A9008A1221 /* FoorunKey.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				B1A36AB4287AA26A00DE64C8 /* Foorun */,
@@ -481,23 +407,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8E75ECC2289645A9008A1221 /* FoorunKey.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FoorunKey.framework;
-			remoteRef = 8E75ECC1289645A9008A1221 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8E75ECC4289645A9008A1221 /* FoorunKeyTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = FoorunKeyTests.xctest;
-			remoteRef = 8E75ECC3289645A9008A1221 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B1A36AB3287AA26A00DE64C8 /* Resources */ = {
@@ -530,18 +439,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E8C040C28AC71B00076123F /* EventCollectionViewCell.swift in Sources */,
-				8E75ED09289647F0008A1221 /* UIAlertController.Foorun.swift in Sources */,
-				8E8C040A28AC717E0076123F /* EventViewController.UICollectionView.swift in Sources */,
-				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
-				8E75ECE8289647DC008A1221 /* CouponType.swift in Sources */,
-				8E5197F628AC92C500A9317E /* EventView.swift in Sources */,
-				8E75ED07289647F0008A1221 /* UIViewController.Foorun.swift in Sources */,
-				8E8C040828AC70B60076123F /* EventViewController.swift in Sources */,
-				8E8C040E28AC79500076123F /* EventDetailViewController.swift in Sources */,
-				8EE379EA289B69410021D12D /* APIClient.swift in Sources */,
-				8E8C041028AC8A960076123F /* EventDetailView.swift in Sources */,
-				8E75ECE7289647DC008A1221 /* Event.swift in Sources */,
 				F0BFAADE2896725700FB499E /* RestaurantList.swift in Sources */,
 				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
 				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
@@ -560,6 +457,7 @@
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
+				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +629,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VP52T77886;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -760,7 +658,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VP52T77886;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -895,6 +793,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BoilerSwift/Logger";
@@ -927,14 +833,6 @@
 				minimumVersion = 1.0.4;
 			};
 		};
-		B1D77E4B28ABADA800747EE5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 7.3.0;
-			};
-		};
 		F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -946,6 +844,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		78EADC5928A7A6030051B8D4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		B1A36B77287AACE200DE64C8 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */;
@@ -965,11 +868,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */;
 			productName = ReferenceKit;
-		};
-		B1D77E4C28ABADA800747EE5 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1D77E4B28ABADA800747EE5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		F0BFAAE02896729300FB499E /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
