@@ -14,22 +14,4 @@ struct RestaurantList: Codable {
     let distance: Double?
     let hashTags: [String]
     let liked: Bool
-    
-    init(
-            id: Int?,
-            name: String?,
-            explanation: String?,
-            imgUrl: String?,
-            distance: Double?,
-            hashTags: [String],
-            liked: Bool
-        ) {
-            self.id = id
-            self.name = name
-            self.explanation = explanation
-            self.imgUrl = imgUrl
-            self.distance = distance
-            self.hashTags = hashTags
-            self.liked = liked
-        }
 }
