@@ -12,8 +12,7 @@ import SnapKit
 import Then
 
 class MapView: UIView {
-    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2429616, longitude: 127.0800525)
-    let initialCoordinate2 = CLLocationCoordinate2D(latitude: 37.24896, longitude: 127.0800525)
+    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.24896, longitude: 127.0800525)
     
     let map = MKMapView().then {
         $0.showsUserLocation = true
@@ -30,17 +29,18 @@ class MapView: UIView {
         
         map.setRegion(MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
         setupMapView()
-        addCustomPin()
     }
     
     required init?(coder: NSCoder) {
         fatalError()
     }
     
-    private func addCustomPin() { // 임시
-        let pin = Annotation(restaurantID: 1, coordinate: initialCoordinate, type: .yellow)
-        let pin2 = Annotation(restaurantID: 10, coordinate: initialCoordinate2, type: .red)
-        map.addAnnotations([pin, pin2])
+    func addAnnotation(data: [MapRestaurant]) {
+        data.forEach { data in
+            let coordinate = CLLocationCoordinate2D(latitude: data.coordinate.latitude, longitude: data.coordinate.longitude)
+            let type: Annotation.AnnotationType = data.isUniEatSelected ? .yellow : .red
+            map.addAnnotation(Annotation(restaurantID: data.id, coordinate: coordinate, type: type))
+        }
     }
 }
 
@@ -49,7 +49,8 @@ extension MapView {
         addSubview(map)
         
         map.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide)
         }
         
         setupCurrentButton()

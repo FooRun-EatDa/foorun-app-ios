@@ -48,9 +48,13 @@
 		F0BFAAE12896729300FB499E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0BFAAE02896729300FB499E /* Alamofire */; };
 		FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2534287AB36C008E9E24 /* MapViewController.swift */; };
 		FD7E2537287AB650008E9E24 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2536287AB650008E9E24 /* MapView.swift */; };
-		FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E253D287AC775008E9E24 /* Annotation.swift */; };
 		FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* AnnotationView.swift */; };
 		FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E254B287BBA14008E9E24 /* NSObject+.swift */; };
+		FDFF861028B120620012EF71 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF860F28B120620012EF71 /* Annotation.swift */; };
+		FDFF861228B120700012EF71 /* MapRestaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF861128B120700012EF71 /* MapRestaurant.swift */; };
+		FDFF861428B120910012EF71 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF861328B120910012EF71 /* MapViewModel.swift */; };
+		FDFF861728B120E50012EF71 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF861628B120E50012EF71 /* RxCocoa */; };
+		FDFF861928B120E50012EF71 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF861828B120E50012EF71 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,9 +127,11 @@
 		F0BFAADD2896725700FB499E /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 		FD7E2534287AB36C008E9E24 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7E2536287AB650008E9E24 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		FD7E253D287AC775008E9E24 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		FD7E2548287BB842008E9E24 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		FD7E254B287BBA14008E9E24 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		FDFF860F28B120620012EF71 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		FDFF861128B120700012EF71 /* MapRestaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRestaurant.swift; sourceTree = "<group>"; };
+		FDFF861328B120910012EF71 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,12 +139,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFF861928B120E50012EF71 /* RxSwift in Frameworks */,
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
 				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
 				78EADC5A28A7A6030051B8D4 /* Kingfisher in Frameworks */,
 				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				F0BFAAE12896729300FB499E /* Alamofire in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
+				FDFF861728B120E50012EF71 /* RxCocoa in Frameworks */,
 				B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +230,8 @@
 				8ED9D79C28AF2672006A7F94 /* Event.swift */,
 				8ED9D79D28AF2672006A7F94 /* CouponType.swift */,
 				F0BFAADD2896725700FB499E /* RestaurantList.swift */,
+				FDFF860F28B120620012EF71 /* Annotation.swift */,
+				FDFF861128B120700012EF71 /* MapRestaurant.swift */,
 			);
 			name = Model;
 			path = ../Model;
@@ -338,8 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				FD7E2534287AB36C008E9E24 /* MapViewController.swift */,
+				FDFF861328B120910012EF71 /* MapViewModel.swift */,
 				FD7E2541287AD10F008E9E24 /* Views */,
-				FD7E2542287AD134008E9E24 /* Annotation */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -348,17 +358,9 @@
 			isa = PBXGroup;
 			children = (
 				FD7E2536287AB650008E9E24 /* MapView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		FD7E2542287AD134008E9E24 /* Annotation */ = {
-			isa = PBXGroup;
-			children = (
-				FD7E253D287AC775008E9E24 /* Annotation.swift */,
 				FD7E2548287BB842008E9E24 /* AnnotationView.swift */,
 			);
-			name = Annotation;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +387,8 @@
 				B1A36B93287ADB6300DE64C8 /* ReferenceKit */,
 				F0BFAAE02896729300FB499E /* Alamofire */,
 				78EADC5928A7A6030051B8D4 /* Kingfisher */,
+				FDFF861628B120E50012EF71 /* RxCocoa */,
+				FDFF861828B120E50012EF71 /* RxSwift */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -465,6 +469,7 @@
 				B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */,
 				F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				78EADC5828A7A6030051B8D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FDFF861528B120E50012EF71 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
@@ -514,11 +519,13 @@
 				8ED9D7A328AF2672006A7F94 /* EventViewController.UICollectionView.swift in Sources */,
 				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
 				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
+				FDFF861028B120620012EF71 /* Annotation.swift in Sources */,
 				FD7E2537287AB650008E9E24 /* MapView.swift in Sources */,
+				FDFF861228B120700012EF71 /* MapRestaurant.swift in Sources */,
 				FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */,
 				FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */,
-				FD7E253E287AC775008E9E24 /* Annotation.swift in Sources */,
 				FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */,
+				FDFF861428B120910012EF71 /* MapViewModel.swift in Sources */,
 				B1A4107F2896650000B9306A /* InformationView.swift in Sources */,
 				B1A410812896650000B9306A /* SettingView.swift in Sources */,
 				8ED9D7A628AF2672006A7F94 /* Event.swift in Sources */,
@@ -710,7 +717,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SQ5T25W9V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -739,7 +746,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SQ5T25W9V5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -922,6 +929,14 @@
 				kind = branch;
 			};
 		};
+		FDFF861528B120E50012EF71 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -954,6 +969,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FDFF861628B120E50012EF71 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDFF861528B120E50012EF71 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		FDFF861828B120E50012EF71 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDFF861528B120E50012EF71 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
