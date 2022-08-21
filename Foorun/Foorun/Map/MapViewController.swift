@@ -10,24 +10,50 @@ import MapKit
 import UIKit
 
 import Logger
+import RxSwift
 import SnapKit
 
 class MapViewController: UIViewController {
-    /// 맵뷰
     let mapView = MapView()
-    /// 위치 권한 설정
+    let viewModel = MapViewModel()
+    let disposeBag = DisposeBag()
     let locationManager = CLLocationManager()
     
     override func loadView() {
+        super.loadView()
+        
         view = mapView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind(to: viewModel)
         locationManager.requestWhenInUseAuthorization()
         
         mapView.map.delegate = self
         locationManager.delegate = self
+    }
+    
+    private func bind(to viewModel: MapViewModel) {
+        mapView.currentLocationButton.rx.tap
+            .bind(to: viewModel.currentLocationButtonTapped)
+            .disposed(by: disposeBag)
+        
+        viewModel.moveToCurrentLocation
+            .drive(with: self,
+                   onNext: { this, _ in
+                this.moveToCurrentLocation()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.annotationDataList
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: [])
+            .drive(with: self,
+                   onNext: { this, data in
+                this.mapView.addAnnotation(data: data)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -74,6 +100,8 @@ extension MapViewController: MKMapViewDelegate {
             for: annotation
         ) as? AnnotationView else { return nil }
         
+        annotationView.displayPriority = .defaultLow
+      
         return annotationView
     }
     
@@ -93,6 +121,14 @@ extension MapViewController: MKMapViewDelegate {
         guard let view = view as? AnnotationView else { return }
             
         view.updateAnnotation()
+    }
+
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        let coordinate = Coordinate(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        
+        Observable.just(coordinate)
+            .bind(to: viewModel.currentLocation)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -124,6 +160,12 @@ private extension MapViewController {
         
         if CLLocationManager.locationServicesEnabled() {
             checkCurrentLocationAuthorization(authorizationStatus: authorizationStatus)
+        }
+    }
+    
+    private func moveToCurrentLocation() {
+        if let location = locationManager.location {
+            mapView.map.setCenter(location.coordinate, animated: true)
         }
     }
 }
