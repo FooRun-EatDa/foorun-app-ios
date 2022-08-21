@@ -28,6 +28,7 @@ extension AnnotationView {
         guard let annotation = annotation as? Annotation else { return }
         annotation.isSelected = !annotation.isSelected
         self.canShowCallout = false
+        self.displayPriority = .defaultHigh
     
         switch annotation.type {
         case .red:

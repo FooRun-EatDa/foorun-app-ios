@@ -100,6 +100,8 @@ extension MapViewController: MKMapViewDelegate {
             for: annotation
         ) as? AnnotationView else { return nil }
         
+        annotationView.displayPriority = .defaultLow
+      
         return annotationView
     }
     
