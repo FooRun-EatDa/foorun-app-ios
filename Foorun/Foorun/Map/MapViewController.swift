@@ -39,7 +39,6 @@ class MapViewController: UIViewController {
             .bind(to: viewModel.currentLocationButtonTapped)
             .disposed(by: disposeBag)
         
-        
         viewModel.moveToCurrentLocation
             .drive(with: self,
                    onNext: { this, _ in
@@ -121,11 +120,13 @@ extension MapViewController: MKMapViewDelegate {
             
         view.updateAnnotation()
     }
-    
+
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        let latitude = Double(mapView.centerCoordinate.latitude)
-        let longitude = Double(mapView.centerCoordinate.longitude)
-        viewModel.fetchAnnotationList(latitude: latitude, longitude: longitude)
+        let coordinate = Coordinate(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        
+        Observable.just(coordinate)
+            .bind(to: viewModel.currentLocation)
+            .disposed(by: disposeBag)
     }
 }
 

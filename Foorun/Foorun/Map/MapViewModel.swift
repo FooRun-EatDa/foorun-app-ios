@@ -15,6 +15,7 @@ import FoorunKey
 final class MapViewModel {
     let disposeBag = DisposeBag()
     
+    let currentLocation = PublishRelay<Coordinate>()
     let currentLocationButtonTapped = PublishRelay<Void>()
     let annotationTapped = PublishRelay<Void>()
     let annotationDataList = PublishSubject<[MapRestaurant]>()
@@ -23,6 +24,14 @@ final class MapViewModel {
     init() {
         moveToCurrentLocation = currentLocationButtonTapped
             .asDriver(onErrorDriveWith: .empty())
+        
+        currentLocation
+            .distinctUntilChanged()
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(with: self,
+                       onNext: { this, location in
+                this.fetchAnnotationList(latitude: location.latitude, longitude: location.longitude)
+            }).disposed(by: disposeBag)
     }
     
     func fetchAnnotationList(latitude: Double, longitude: Double) {
@@ -31,9 +40,9 @@ final class MapViewModel {
             "longitude": longitude
         ]
         
-        API<[MapRestaurant]>(requestString: FoorunRequest.Restaurant.map,
-                                  method: .post,
-                                  parameters: body).fetch { result in
+        API<[MapRestaurant]>(requestString: FoorunRequest.Restaurant.near,
+                             method: .post,
+                             parameters: body).fetch { result in
             self.annotationDataList.onNext(result.data ?? [])
         }
     }

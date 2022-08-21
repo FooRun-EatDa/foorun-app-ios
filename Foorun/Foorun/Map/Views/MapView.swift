@@ -12,7 +12,7 @@ import SnapKit
 import Then
 
 class MapView: UIView {
-    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.24896, longitude: 127.0800525)
+    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2466779, longitude: 127.08107)
     
     let map = MKMapView().then {
         $0.showsUserLocation = true
@@ -27,7 +27,8 @@ class MapView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        map.setRegion(MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        let degree: CLLocationDegrees = 0.004
+        map.setRegion(MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: degree, longitudeDelta: degree)), animated: true)
         setupMapView()
     }
     
@@ -37,7 +38,7 @@ class MapView: UIView {
     
     func addAnnotation(data: [MapRestaurant]) {
         data.forEach { data in
-            let coordinate = CLLocationCoordinate2D(latitude: data.coordinate.latitude, longitude: data.coordinate.longitude)
+            let coordinate = CLLocationCoordinate2D(latitude: data.latitude, longitude: data.longitude)
             let type: Annotation.AnnotationType = data.isUniEatSelected ? .yellow : .red
             map.addAnnotation(Annotation(restaurantID: data.id, coordinate: coordinate, type: type))
         }

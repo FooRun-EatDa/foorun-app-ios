@@ -9,7 +9,8 @@ import Foundation
 
 struct MapRestaurant: Codable, Equatable {
     let id: Int
-    let coordinate: Coordinate
+    let latitude: Double
+    let longitude: Double
     let isUniEatSelected: Bool
 }
 
