@@ -17,23 +17,24 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
             withReuseIdentifier: EventCollectionViewCell.identifier,
             for: indexPath
         ) as? EventCollectionViewCell else { return UICollectionViewCell() }
-        let event = events[indexPath.row]
-        let couponType = CouponType.checkCouponType(event: event)
 
-        cell.setUI(event, couponType)
+        let event = events[indexPath.row]
+        CouponType.checkCouponType(event: event) { couponType in
+            cell.setUI(event, .available)
+        }
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedEvent = Event.dummyModel[indexPath.row]
-        let couponType = CouponType.checkCouponType(event: selectedEvent)
         let viewController = EventDetailViewController()
-
-        viewController.event = selectedEvent
-        viewController.couponType = couponType
-
-        navigationController?.pushViewController(viewController, animated: true)
+        CouponType.checkCouponType(event: selectedEvent) { [weak self] couponType in
+            viewController.event = selectedEvent
+            viewController.couponType = .available
+            viewController.hidesBottomBarWhenPushed = true
+            self?.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 extension EventViewController: UICollectionViewDelegateFlowLayout {

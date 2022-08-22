@@ -12,10 +12,7 @@ import FoorunKey
 class EventViewController: UIViewController {
 
     // MARK: - Properties
-
-    @UserDefault(key: "UsedCoupons", defaultValue: [])
-    var usedCoupons: Set<Int>
-
+    
     var events: [Event] = [] {
         didSet {
             updateEvents()
@@ -37,7 +34,7 @@ class EventViewController: UIViewController {
         setupNavigationBar()
         setupViews()
         updateEvents()
-        fetchEvents(page: 0)
+        fetchEvents(page: 1)
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -2,7 +2,7 @@
 //  EventValid.swift
 //  Foorun
 //
-//  Created by MacPro on 2022/08/19.
+//  Created by SeYeong on 2022/08/19.
 //
 
 import Foundation
