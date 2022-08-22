@@ -25,7 +25,7 @@ class BookmarkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bookmarks = Restaurant.dummyModel
+        bookmarks = Restaurant.bookmarkDummyModel
         
         setupViews()
         updateBookmarks()
