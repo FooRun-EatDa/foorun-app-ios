@@ -41,20 +41,37 @@ enum CouponType: String {
 }
 
 extension CouponType {
-    static func checkCouponType(event: Event) -> CouponType {
-        guard isLoggedIn() else { return .needLogin }
-        guard !isUsedCoupon(id: event.id) else { return .used }
-        guard isValidDate(event.date) else { return .expired }
-        guard !선착순_마감_여부(id: event.id) else { return .선착순_마감 }
+    static func checkCouponType(event: Event, completion: @escaping (CouponType) -> Void) {
+        선착순_마감_확인(id: event.id) { 선착순_마감 in
+            guard isLoggedIn() else {
+                completion(.needLogin)
+                return
+            }
 
-        return .available
+            guard !isUsedCoupon(id: event.id) else {
+                completion(.used)
+                return
+            }
+
+            guard isValidDate(event.date) else {
+                completion(.expired)
+                return
+            }
+
+            guard !선착순_마감 else {
+                completion(.선착순_마감)
+                return
+            }
+
+            completion(.available)
+        }
     }
 
     static func isLoggedIn() -> Bool {
         return !UserDefaultManager.shared.token.isEmpty
     }
 
-    static func isValidDate(_ date: String) -> Bool{
+    static func isValidDate(_ date: String) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy/MM/dd hh:mm"
         let currentDate = Date()
@@ -69,13 +86,11 @@ extension CouponType {
     }
 
     static func isUsedCoupon(id: Int) -> Bool {
-     
+
         return UserDefaultManager.shared.usedCoupons.contains(id)
     }
 
-    static func 선착순_마감_여부(id: Int) -> Bool {
-        var isValid: Bool = true
-
+    static func 선착순_마감_확인(id: Int, completion: @escaping ((Bool) -> Void)) {
         API<EventValid>(
             requestString: FoorunRequest.Event.event + "\(id)/validCheck",
             method: .get,
@@ -84,15 +99,14 @@ extension CouponType {
                 case .success(let eventValid):
                     switch eventValid.data?.status {
                     case 0:
-                        isValid = false
+                        completion(false)
                     default:
-                        isValid = true
+                        completion(true)
                     }
-                case .failure(_):
-                    isValid = true
+                case .failure(let error):
+                    completion(true)
+                    print("🚨Error:: \(error.localizedDescription) ~메소드 에러 발생!")
                 }
             }
-
-        return isValid
     }
 }

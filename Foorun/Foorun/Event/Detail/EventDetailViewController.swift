@@ -52,7 +52,6 @@ class EventDetailViewController: UIViewController {
         eventDetailView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.width.equalToSuperview()
         }
     }
 
@@ -62,29 +61,6 @@ class EventDetailViewController: UIViewController {
             method: .delete,
             parameters: [: ]).fetch { _ in }
     }
-
-    private func 선착순마감(id: Int) -> Bool {
-        var isValid: Bool = true
-
-        API<EventValid>(
-            requestString: FoorunRequest.Event.event + "\(id)/validCheck",
-                        method: .get,
-                        parameters: [: ]).fetchResult { result in
-            switch result {
-            case .success(let eventValid):
-                switch eventValid.data?.status {
-                case 0:
-                    isValid = false
-                default:
-                    isValid = true
-                }
-            case .failure(_):
-                isValid = true
-            }
-        }
-
-        return isValid
-    }
 }
 
 extension EventDetailViewController: EventDetailViewDelegate {
@@ -92,24 +68,27 @@ extension EventDetailViewController: EventDetailViewDelegate {
         self.showsAlert(controller: controller, actions: actions)
     }
 
-    func updateCouponType(id: Int) -> CouponType {
-        guard let event = event else { return .expired }
+    func updateCouponType(id: Int, completion: @escaping (CouponType) -> Void) {
+        guard let event = event else {
+            completion(.expired)
+            return
+        }
 
-        guard CouponType.isValidDate(event.date) else { return .expired }
-
-        if CouponType.선착순_마감_여부(id: id) {
-
-            return .선착순_마감
-        } else {
-            @UserDefault(key: "UsedCoupons", defaultValue: [])
-            var usedCoupons: Set<Int>
-            usedCoupons.insert(id)
-
-            DispatchQueue.global(qos: .background).async {
-                self.deleteUsedCoupon(id: id)
+        CouponType.checkCouponType(event: event) { [weak self] couponType in
+            switch couponType {
+            case .available:
+                UserDefaultManager.shared.usedCoupons.insert(id)
+                DispatchQueue.global(qos: .background).async {
+                    self?.deleteUsedCoupon(id: id)
+                }
+                completion(.available)
+            case .expired:
+                completion(.expired)
+            case .선착순_마감:
+                completion(.선착순_마감)
+            default:
+                completion(.needLogin)
             }
-
-            return .used
         }
     }
 }

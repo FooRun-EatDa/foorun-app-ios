@@ -37,11 +37,13 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
 
     func setUI(_ item: Event, _ type: CouponType) {
+        print("---------SetUI--------------")
+        print("itemID: \(item.id), type: \(type)")
         let imageURL = URL(string: item.imageURL ?? "")
         imageView.kf.setImage(with: imageURL)
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
-        dateLabel.text = item.date
+        dateLabel.text = removeTimeInDate(item.date)
         overlayView.isHidden = type.overlayIsHidden()
         stampImageView.image = type.stampImage()
     }
@@ -103,7 +105,7 @@ extension EventCollectionViewCell {
         contentView.addSubview(dateLabel)
 
         dateLabel.font = .systemFont(ofSize: 12, weight: .regular)
-        dateLabel.tintColor = .lightGray
+        dateLabel.textColor = .lightGray
 
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleLabel.snp.bottom).offset(2 * aspectRatio)
@@ -131,5 +133,11 @@ extension EventCollectionViewCell {
         overlayView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+
+    private func removeTimeInDate(_ dateString: String) -> String {
+        let formattedString = String(dateString.dropLast(5))
+
+        return formattedString + "종료"
     }
 }
