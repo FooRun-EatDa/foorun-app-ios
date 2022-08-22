@@ -39,7 +39,8 @@ extension BookmarkView {
         emptyLabel.text = "현재 찜한 식당이 없습니다."
         
         emptyLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-50)
         }
     }
     func setupCountLabel() {
