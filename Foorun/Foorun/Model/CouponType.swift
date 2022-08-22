@@ -94,7 +94,7 @@ extension CouponType {
         API<EventValid>(
             requestString: FoorunRequest.Event.event + "\(id)/validCheck",
             method: .get,
-            parameters: [: ]).fetchResult { result in
+            parameters: [:]).fetchResult { result in
                 switch result {
                 case .success(let eventValid):
                     switch eventValid.data?.status {
