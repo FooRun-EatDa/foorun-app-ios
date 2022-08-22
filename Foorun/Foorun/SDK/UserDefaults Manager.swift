@@ -1,34 +1,11 @@
-//
-//  UserDefaultManager.swift
-//  Foorun
-//
-//  Created by 김지훈 on 2022/08/19.
-//
-
 import Foundation
-import FoorunKey
-
-class UserDefaultManager {
-    static let shared = UserDefaultManager()
-    
-    private init() { }
-    
-    @UserDefault(key: FoorunKey.UserDefaultKey.bookmark, defaultValue: [])
-    public var bookmarks: [Restaurant]
-    
-    @UserDefault(key: FoorunKey.UserDefaultKey.usedCoupon, defaultValue: [])
-    public var usedCoupons: Set<Int>
-
-    @UserDefault(key: FoorunKey.UserDefaultKey.token, defaultValue: "")
-    public var token: String
-}
 
 @propertyWrapper
 struct UserDefault<T: Codable> {
     private let key: String
     private let defaultValue: T
     public let storage: UserDefaults
-
+    
     init(key: String, defaultValue: T, storage: UserDefaults = .standard) {
         self.key = key
         self.defaultValue = defaultValue

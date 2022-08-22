@@ -43,6 +43,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        tabBar.backgroundColor = .white
+        tabBar.tintColor = UIColor(red: 255.0/255.0, green: 193.0/255.0, blue: 7.0/255.0, alpha: 1)
         viewControllers = [mapViewContoller, bookmarkViewController, settingViewController]
     }
 }

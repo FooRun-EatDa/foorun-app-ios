@@ -10,8 +10,6 @@ import SnapKit
 class BookmarkView: UIView {
     // MARK: - IBOutlet
     
-    /// 북마크뷰 타이틀
-    let titleLabel = UILabel()
     /// 북마크 개수 Label: 총 n개
     let countLabel = UILabel()
     /// 찜한 식당이 없을 경우 표시되는 라벨
@@ -23,11 +21,11 @@ class BookmarkView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        setupTitle()
+
         setupCountLabel()
         setupEmptyLabel()
         setupTableView()
+        
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -41,18 +39,8 @@ extension BookmarkView {
         emptyLabel.text = "현재 찜한 식당이 없습니다."
         
         emptyLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-    }
-    func setupTitle() {
-        addSubview(titleLabel)
-        
-        titleLabel.text = "찜한 맛집"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(22)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-50)
         }
     }
     func setupCountLabel() {
@@ -61,8 +49,8 @@ extension BookmarkView {
         countLabel.font = UIFont.systemFont(ofSize: 12)
         
         countLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(13)
-            $0.leading.equalTo(titleLabel)
+            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.leading.equalToSuperview().offset(22)
         }
     }
     

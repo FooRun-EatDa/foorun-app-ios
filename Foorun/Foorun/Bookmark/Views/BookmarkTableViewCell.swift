@@ -3,8 +3,8 @@ import Kingfisher
 
 class BookmarkTableViewCell: UITableViewCell {
     
-    // MARK: - IBOutlet
-    
+    // MARK: - IBOutlets
+     
     /// 식당 메인 이미지
     let thumnailImageView = UIImageView()
     /// 스택뷰 (식당 이름, 설명, 해시테크 vertical)
@@ -32,18 +32,20 @@ class BookmarkTableViewCell: UITableViewCell {
 
 extension BookmarkTableViewCell {
     
-    public func configure(_ item: RestaurantList?) {
+    public func configure(_ item: Restaurant?) {
         guard let item = item else { return }
+        
+        thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""),placeholder: UIImage(named: "defaultImage"))
         
         titleLabel.text = item.name
         descriptionLabel.text = item.explanation
         tagLabel.text = tagsToString(item.hashTags)
         
-        thumnailImageView.image = UIImage(named: "defaultImage")
-        guard let url = URL(string: item.imgUrl ?? "") else { return }
-        thumnailImageView.kf.setImage(with: url)
+        
     }
-    
+    override func prepareForReuse() {
+        thumnailImageView.image = nil
+    }
     private func tagsToString(_ tags: [String]) -> String {
         tags.map { "#\($0)" }
             .reduce("", +)
