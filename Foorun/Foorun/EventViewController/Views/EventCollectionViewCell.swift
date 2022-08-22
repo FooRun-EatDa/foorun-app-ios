@@ -2,7 +2,7 @@
 //  EventCollectionViewCell.swift
 //  Foorun
 //
-//  Created by MacPro on 2022/08/17.
+//  Created by SeYeong on 2022/08/17.
 //
 
 import UIKit
@@ -37,13 +37,11 @@ class EventCollectionViewCell: UICollectionViewCell {
     }
 
     func setUI(_ item: Event, _ type: CouponType) {
-        print("---------SetUI--------------")
-        print("itemID: \(item.id), type: \(type)")
         let imageURL = URL(string: item.imageURL ?? "")
         imageView.kf.setImage(with: imageURL)
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
-        dateLabel.text = removeTimeInDate(item.date)
+        dateLabel.text = removeTimeInDate(item.date) + "종료"
         overlayView.isHidden = type.overlayIsHidden()
         stampImageView.image = type.stampImage()
     }
@@ -138,6 +136,6 @@ extension EventCollectionViewCell {
     private func removeTimeInDate(_ dateString: String) -> String {
         let formattedString = String(dateString.dropLast(5))
 
-        return formattedString + "종료"
+        return formattedString
     }
 }

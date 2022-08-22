@@ -60,7 +60,7 @@ class EventDetailView: UIView {
         self.id = item.id
 
         let imageURL = URL(string: item.imageURL ?? "")
-        bannerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "SampleImage"))
+        bannerImageView.kf.setImage(with: imageURL)
 
         themeLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
@@ -257,9 +257,11 @@ extension EventDetailView {
     @objc
     private func didTapCouponButton() {
         guard let id = id else { return }
+
         let alertController: UIAlertController = .init(title: "*주의*\n해당 쿠폰은 사용 즉시 소멸되며, 소비자가 아닌 이벤트 진행 중인 식당의 점원 혹은 점주가 사용 승인하는 쿠폰입니다. 진행하시겠습니까?", message: nil)
+
         let confirmAction = UIAlertAction(title: "사용", style: .destructive) { [weak self] action in
-            self?.delegate?.updateCouponType(id: id, completion: { updatedCouponType in
+            self?.delegate?.updateCouponType(id: id) { updatedCouponType in
                 var alertMessage = "오류가 발생했어요.. 😂"
                 switch updatedCouponType {
                 case .expired:
@@ -279,11 +281,11 @@ extension EventDetailView {
                 let alertController: UIAlertController = .init(title: alertMessage, message: nil)
                 let confirmAction = UIAlertAction(title: "확인", style: .default)
                 self?.delegate?.alert(controller: alertController, actions: [confirmAction])
-            })
+            }
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 
-        self.delegate?.alert(controller: alertController, actions: [confirmAction, cancelAction])
+        delegate?.alert(controller: alertController, actions: [confirmAction, cancelAction])
     }
 
     private func warningsToString(_ strings: [String]?) -> String {
