@@ -284,7 +284,7 @@ extension EventDetailView {
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 
-        self.delegate?.alert(controller: alertController, actions: [confirmAction, cancelAction])
+        delegate?.alert(controller: alertController, actions: [confirmAction, cancelAction])
     }
 
     private func warningsToString(_ strings: [String]?) -> String {
