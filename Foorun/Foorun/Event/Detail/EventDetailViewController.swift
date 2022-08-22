@@ -59,7 +59,7 @@ class EventDetailViewController: UIViewController {
         API<String>(
             requestString: FoorunRequest.Event.event + "\(id)",
             method: .delete,
-            parameters: [: ]).fetch { _ in }
+            parameters: [:]).fetch { _ in }
     }
 }
 
