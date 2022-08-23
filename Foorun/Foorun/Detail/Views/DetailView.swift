@@ -106,12 +106,16 @@ class DetailView: UIView {
 extension DetailView {
     func bindView() {
         data.subscribe( onNext: { data in
-            
             DispatchQueue.global().async {
-                let _url = URL(string: data?.foods[0].files[0].url ?? "")
-                if let url = _url, let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
+                if let foodsData = data?.foods {
+                    if !foodsData.isEmpty {
+                        let _url = URL(string: foodsData[0].files[0].url ?? "" )
+                        if let url = _url, let data = try? Data(contentsOf: url) {
+                            DispatchQueue.main.async {
+                                self.imageView.image = UIImage(data: data)
+                            }
+                        }
+
                     }
                 }
             }

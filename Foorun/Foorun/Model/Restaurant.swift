@@ -75,7 +75,7 @@ struct Food: Decodable {
 }
 
 struct FoodImageModel: Decodable {
-    let url: String
+    let url: String?
 }
 
 //struct Coordinate: Decodable {

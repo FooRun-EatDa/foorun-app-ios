@@ -13,7 +13,7 @@ import RxSwift
 class DetailViewController: UIViewController {
         
     let detailView = DetailView()
-    let viewModel = DetailViewModel()
+    var viewModel: DetailViewModel!
     
     let disposeBag = DisposeBag()
     
@@ -21,6 +21,15 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bind(viewModel, detailView)
+    }
+    
+    init(vm: DetailViewModel) {
+        super.init(nibName: nil, bundle: nil) 
+        self.viewModel = vm
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
