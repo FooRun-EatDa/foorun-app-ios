@@ -17,13 +17,17 @@ final class MapViewModel {
     
     let currentLocation = PublishRelay<Coordinate>()
     let currentLocationButtonTapped = PublishRelay<Void>()
-    let annotationTapped = PublishRelay<Void>()
+    let annotationTapped = PublishRelay<Int>()
     let annotationDataList = PublishSubject<[MapRestaurant]>()
     let moveToCurrentLocation: Driver<Void>
+    let presentBottomSheet: Driver<Int>
 
     init() {
         moveToCurrentLocation = currentLocationButtonTapped
-            .asDriver(onErrorDriveWith: .empty())
+            .asDriver(onErrorJustReturn: ())
+        
+        presentBottomSheet = annotationTapped
+            .asDriver(onErrorJustReturn: 0)
         
         currentLocation
             .distinctUntilChanged()

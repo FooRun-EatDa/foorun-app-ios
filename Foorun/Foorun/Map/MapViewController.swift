@@ -54,20 +54,14 @@ class MapViewController: UIViewController {
                 this.mapView.addAnnotation(data: data)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.presentBottomSheet
+            .drive(with: self,
+                   onNext: { this, restaurantID in
+                this.presentBottomSheet(restaurantID: restaurantID)
+            })
+            .disposed(by: disposeBag)
     }
-    
-    @objc func openBottomSheet() {
-            let detailViewController = DetailViewController()
-
-            let nav = UINavigationController(rootViewController: detailViewController)
-            nav.modalPresentationStyle = .pageSheet
-
-            if let sheet = nav.sheetPresentationController {
-               sheet.detents = [.medium(), .large()]
-               present(nav, animated: true, completion: nil)
-            }
-        }
-
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -125,6 +119,10 @@ extension MapViewController: MKMapViewDelegate {
         
         else if let view = view as? AnnotationView,
                 let annotation = view.annotation as? Annotation {
+            Observable.just(annotation.restaurantID)
+                .bind(to: viewModel.annotationTapped)
+                .disposed(by: disposeBag)
+
             view.updateAnnotation()
             mapView.setCenter(annotation.coordinate, animated: true)
         }
@@ -176,9 +174,24 @@ private extension MapViewController {
         }
     }
     
-    private func moveToCurrentLocation() {
+    func moveToCurrentLocation() {
         if let location = locationManager.location {
             mapView.map.setCenter(location.coordinate, animated: true)
+        } else {
+            configureSetting()
+        }
+    }
+    
+    func presentBottomSheet(restaurantID: Int) {
+        let detailViewController = DetailViewController()
+        print("식당 ID: ",restaurantID)
+
+        let nav = UINavigationController(rootViewController: detailViewController)
+        nav.modalPresentationStyle = .pageSheet
+
+        if let sheet = nav.sheetPresentationController {
+           sheet.detents = [.medium(), .large()]
+           present(nav, animated: true, completion: nil)
         }
     }
 }
