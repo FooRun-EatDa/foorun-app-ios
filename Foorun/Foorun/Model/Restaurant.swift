@@ -69,7 +69,7 @@ struct Food: Decodable {
     let id: Int
     let name: String
     let price: Int
-    let content: String
+//    let content: String
     let sequence: Int
     let files: [FoodImageModel]
 }

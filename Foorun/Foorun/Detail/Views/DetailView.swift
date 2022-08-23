@@ -109,7 +109,10 @@ extension DetailView {
             DispatchQueue.global().async {
                 if let foodsData = data?.foods {
                     if !foodsData.isEmpty {
-                        let _url = URL(string: foodsData[0].files[0].url ?? "" )
+                        guard let imageURL = foodsData[0].files.first?.url else {
+                            return
+                        }
+                        let _url = URL(string: imageURL)
                         if let url = _url, let data = try? Data(contentsOf: url) {
                             DispatchQueue.main.async {
                                 self.imageView.image = UIImage(data: data)

@@ -67,12 +67,16 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
     
     func bind() {
         DispatchQueue.global().async {
-            let _url = URL(string: self.foodModel?.files[0].url ?? "")
+            guard let imageURL = self.foodModel?.files.first?.url else {
+                return
+            }
+            
+            let _url = URL(string: imageURL)
             
             guard let url = _url, let data = try? Data(contentsOf: url) else {
                 self.menuImage.backgroundColor = .lightGray
                 self.menuTitle.text = self.foodModel?.name
-                self.menuDiscription.text = self.foodModel?.content
+//                self.menuDiscription.text = self.foodModel?.content
                 return
             }
             
@@ -81,7 +85,7 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
             }
         }
         menuTitle.text = foodModel?.name
-        menuDiscription.text = foodModel?.content
+//        menuDiscription.text = foodModel?.content
     }
 }
 
