@@ -32,15 +32,15 @@ class BookmarkTableViewCell: UITableViewCell {
 
 extension BookmarkTableViewCell {
     
-    public func configure(_ item: Restaurant?) {
+    public func configure(_ item: RestaurantDetail?) {
         guard let item = item else { return }
         
         thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""),placeholder: UIImage(named: "defaultImage"))
         
         titleLabel.text = item.name
         descriptionLabel.text = item.explanation
-        tagLabel.text = tagsToString(item.hashTags)
-        
+//        tagLabel.text = tagsToString(item.hashTags)
+        tagLabel.text = "임시요"
         
     }
     override func prepareForReuse() {
