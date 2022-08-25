@@ -2,7 +2,10 @@ import UIKit
 import SnapKit
 import FoorunKey
 
-class BookmarkViewController: UIViewController {
+class BookmarkViewController: UIViewController, UpdateBookmark {
+    func updateBookmark() {
+        bookmarks = UserDefaultManager.shared.bookmarks
+    }
     
     // MARK: - IBOutlets
     
@@ -11,7 +14,7 @@ class BookmarkViewController: UIViewController {
     // MARK: - Properties
     
     /// 삭제에 사용할 캐시
-    var deleteCache: Set<Int> = []
+    var deleteCache: [Int] = []
     /// 로컬에 저장된 북마크 리스트 정보.
     var bookmarks: [RestaurantDetail] = UserDefaultManager.shared.bookmarks {
         didSet {
@@ -24,7 +27,6 @@ class BookmarkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -41,6 +43,7 @@ class BookmarkViewController: UIViewController {
         ? true
         : false
         bookmarkView.countLabel.text = "총 \(bookmarks.count)개"
+        bookmarkView.tableView.reloadData()
     }
     
     func setupViews(){
@@ -48,22 +51,21 @@ class BookmarkViewController: UIViewController {
         
         bookmarkView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.bottom.trailing.equalToSuperview()
             
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //TODO: 새로고침 안되길래 임시로 넣어놨습니다. 확인 후 수정해주세요!
-        bookmarks =  UserDefaultManager.shared.bookmarks
-        bookmarkView.tableView.reloadData()
+        bookmarks = UserDefaultManager.shared.bookmarks
+//        bookmarks =  UserDefaultManager.shared.bookmarks
+        
     }
     
-    /// 삭제 캐시를 서버에 보내고 캐시 정리
+    /// 삭제 캐시를 서버에 보내고 캐시 정리 (캐시를 언제 어디서 쓸지 추후에 정리)
     func delete() {
-        API<Int?>(
+        API<String>(
             requestString: FoorunRequest.Restaurant.bookmarkingList,
             method: .delete,
             parameters: ["markingList": deleteCache]

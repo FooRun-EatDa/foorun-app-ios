@@ -38,16 +38,18 @@ extension BookmarkTableViewCell {
         thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""),placeholder: UIImage(named: "defaultImage"))
         
         titleLabel.text = item.name
-        descriptionLabel.text = item.explanation
-//        tagLabel.text = tagsToString(item.hashTags)
-        tagLabel.text = "임시요"
-        
+        descriptionLabel.text = item.explanation == "" ? " " : item.explanation
+        if let hashTags = item.hashTags {
+            tagLabel.text = tagsToString(hashTags)
+        } else {
+            tagLabel.text = " "
+        }
     }
     override func prepareForReuse() {
         thumnailImageView.image = nil
     }
     private func tagsToString(_ tags: [String]) -> String {
-        tags.map { "#\($0)" }
+        tags.map { "#\($0) " }
             .reduce("", +)
             .trimmingCharacters(in: .whitespaces)
         + "\n"
