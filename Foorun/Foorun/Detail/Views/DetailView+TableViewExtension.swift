@@ -17,8 +17,7 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
  
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantDetailTableViewCell.id, for: indexPath) as? RestaurantDetailTableViewCell else {
             return UITableViewCell()
-        }
-        
+        }        
         
         let detailData = detailData
         switch indexPath.row {

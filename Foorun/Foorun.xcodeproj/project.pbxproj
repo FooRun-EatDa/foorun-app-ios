@@ -392,12 +392,12 @@
 		F0724D8228B47C850005C688 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F0724D8528B47CC30005C688 /* RestaurantDetailTableViewCell.swift */,
-				F0724D8728B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift */,
-				F0724D8928B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift */,
 				F0724D8B28B47CF40005C688 /* DetailView.swift */,
 				F0724D9728B7D0BB0005C688 /* DetailView+TableViewExtension.swift */,
+				F0724D8528B47CC30005C688 /* RestaurantDetailTableViewCell.swift */,
 				F0724D9928B7DA360005C688 /* DetailView+CollectionViewExtension.swift */,
+				F0724D8728B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift */,
+				F0724D8928B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

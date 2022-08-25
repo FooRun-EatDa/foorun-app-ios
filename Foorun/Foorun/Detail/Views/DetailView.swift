@@ -15,6 +15,7 @@ class DetailView: UIView {
     let disposeBag = DisposeBag()
 
     var data = BehaviorRelay<RestaurantDetail?>(value: nil)
+    
     var foodData: [Food] = []
     var hashTagData: [String] = []
     var detailData: RestaurantDetailClientModel?

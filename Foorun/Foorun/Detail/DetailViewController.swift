@@ -10,24 +10,25 @@ import SnapKit
 import Then
 import RxSwift
 import RxCocoa
+
 protocol UpdateBookmark: AnyObject {
     func updateBookmark()
 }
+
 class DetailViewController: UIViewController {
     
     weak var delegate: UpdateBookmark?
-    
+        
     let detailView = DetailView()
     var viewModel: DetailViewModel!
-    
+
     let disposeBag = DisposeBag()
     
-    var bookmarks: [RestaurantDetail] = UserDefaultManager.shared.bookmarks
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bind(viewModel, detailView)
+        bindView(viewModel, detailView)
     }
     
     init(vm: DetailViewModel) {
@@ -49,17 +50,16 @@ class DetailViewController: UIViewController {
         self.title = ""
     }
         
-    func bind(_ viewModel: DetailViewModel, _ view: DetailView) {
+    func bindView(_ viewModel: DetailViewModel, _ view: DetailView) {
         
         detailView.heartButton.rx.tap
             .bind(to: viewModel.bookmarkButtonTapped)
             .disposed(by: disposeBag)
         
-        viewModel.changeBookmarkButton.drive(with: self, onNext: { this, _ in
+        viewModel.changeBookmarkButton.drive(with: self, onNext: {this, _ in
             this.changeButtonUI()
         }).disposed(by: disposeBag)
 
-        
         viewModel.data.subscribe(onNext: {
             view.data.accept($0)
         }).disposed(by: disposeBag)
@@ -71,13 +71,15 @@ class DetailViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if detailView.isBookMarkSelected {
-            UserDefaultManager.shared.bookmarks.append(viewModel.data.value!)
-        } else {
-            if let removedIdx = bookmarks.firstIndex(where: { $0.id == viewModel.id }) {
-                UserDefaultManager.shared.bookmarks.remove(at: removedIdx)
+       
+        if viewModel.bookmarks.contains(where: { $0.id == viewModel.id }) {
+            if !detailView.isBookMarkSelected {
+                UserDefaultManager.shared.bookmarks = UserDefaultManager.shared.bookmarks.filter { $0.id != viewModel.id }
                 self.delegate?.updateBookmark()
+            }
+        } else {
+            if detailView.isBookMarkSelected {
+                UserDefaultManager.shared.bookmarks.append(viewModel.data.value!)
             }
         }
     }

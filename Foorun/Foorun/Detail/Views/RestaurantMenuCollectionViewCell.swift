@@ -17,17 +17,17 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
         }
     }
 
-    lazy var menuImage = UIImageView().then {
+    var menuImage = UIImageView().then {
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
     }
 
-    lazy var menuTitle = UILabel().then {
+    var menuTitle = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         $0.textColor = .black
     }
 
-    lazy var menuDiscription = UILabel().then {
+    var menuDiscription = UILabel().then {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         $0.textColor = .gray
     }
