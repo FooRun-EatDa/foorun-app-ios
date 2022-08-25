@@ -9,18 +9,30 @@ import UIKit
 import SnapKit
 import Then
 import RxSwift
+import RxCocoa
 
 class DetailViewController: UIViewController {
         
     let detailView = DetailView()
-    let viewModel = DetailViewModel()
+    var viewModel: DetailViewModel!
     
     let disposeBag = DisposeBag()
+    
+    var bookmarks: [RestaurantDetail] = UserDefaultManager.shared.bookmarks
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         bind(viewModel, detailView)
+    }
+    
+    init(vm: DetailViewModel) {
+        super.init(nibName: nil, bundle: nil) 
+        self.viewModel = vm
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,9 +46,35 @@ class DetailViewController: UIViewController {
     }
         
     func bind(_ viewModel: DetailViewModel, _ view: DetailView) {
-        viewModel.data.subscribe(onNext: {
-            view.data.onNext($0)
+        
+        detailView.heartButton.rx.tap
+            .bind(to: viewModel.bookmarkButtonTapped)
+            .disposed(by: disposeBag)
+        
+        viewModel.changeBookmarkButton.drive(with: self, onNext: { this, _ in
+            this.changeButtonUI()
         }).disposed(by: disposeBag)
+
+        
+        viewModel.data.subscribe(onNext: {
+            view.data.accept($0)
+        }).disposed(by: disposeBag)
+    }
+    
+    func changeButtonUI() {
+        detailView.isBookMarkSelected = !detailView.isBookMarkSelected
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if detailView.isBookMarkSelected {
+            UserDefaultManager.shared.bookmarks.append(viewModel.data.value!)
+        } else {
+            if let removedIdx = bookmarks.firstIndex(where: { $0.id == viewModel.id }) {
+                UserDefaultManager.shared.bookmarks.remove(at: removedIdx)
+            }
+        }
     }
 }
 

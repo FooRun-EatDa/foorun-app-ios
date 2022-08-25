@@ -183,7 +183,7 @@ private extension MapViewController {
     }
     
     func presentBottomSheet(restaurantID: Int) {
-        let detailViewController = DetailViewController()
+        let detailViewController = DetailViewController(vm: DetailViewModel(id: restaurantID))
         print("식당 ID: ",restaurantID)
 
         let nav = UINavigationController(rootViewController: detailViewController)

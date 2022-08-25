@@ -8,16 +8,26 @@
 import UIKit
 import Then
 import RxSwift
-
+import RxCocoa
 
 class DetailView: UIView {
     
     let disposeBag = DisposeBag()
 
-    var data = BehaviorSubject<RestaurantDetail?>(value: nil)
+    var data = BehaviorRelay<RestaurantDetail?>(value: nil)
     var foodData: [Food] = []
     var hashTagData: [String] = []
     var detailData: RestaurantDetailClientModel?
+    
+    var isBookMarkSelected: Bool {
+        didSet {
+            if isBookMarkSelected {
+                heartButton.setImage(UIImage(named: "Detail/heartFilled"), for: .normal)
+            } else {
+                heartButton.setImage(UIImage(named: "Detail/heartEmpty"), for: .normal)
+            }
+        }
+    }
 
     private lazy var scrollView = UIScrollView()
     
@@ -29,6 +39,12 @@ class DetailView: UIView {
         $0.contentMode = .scaleAspectFill
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
+    }
+    
+    var heartButton = UIButton().then {
+        $0.setImage(UIImage(named: "Detail/heartEmpty"), for: .normal)
+        $0.isSelected = false
+        $0.isUserInteractionEnabled = true
     }
     
     var contentView = UIView().then {
@@ -91,6 +107,7 @@ class DetailView: UIView {
     }()
     
     init() {
+        self.isBookMarkSelected = false
         super.init(frame: .zero)
         
         setupScrollView()
@@ -106,12 +123,19 @@ class DetailView: UIView {
 extension DetailView {
     func bindView() {
         data.subscribe( onNext: { data in
-            
             DispatchQueue.global().async {
-                let _url = URL(string: data?.foods[0].files[0].url ?? "")
-                if let url = _url, let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
+                if let foodsData = data?.foods {
+                    if !foodsData.isEmpty {
+                        guard let imageURL = foodsData[0].files.first?.url else {
+                            return
+                        }
+                        let _url = URL(string: imageURL)
+                        if let url = _url, let data = try? Data(contentsOf: url) {
+                            DispatchQueue.main.async {
+                                self.imageView.image = UIImage(data: data)
+                            }
+                        }
+
                     }
                 }
             }
@@ -131,9 +155,17 @@ extension DetailView {
                 self.hashTagData = [(data?.district ?? "경희대") + " 대표 맛집"]
             }
             
+            let bookData = UserDefaultManager.shared.bookmarks
+            if bookData.contains(where: { ($0 as RestaurantDetail).id == data?.id }) {
+                self.isBookMarkSelected = true
+            } else {
+                self.isBookMarkSelected = false
+            }
+            
             self.restaurantDetailTableView.reloadData()
             self.hashTagCollectionView.reloadData()
             self.restaurantMenuCollectionView.reloadData()
+
         }).disposed(by: disposeBag)
     }
 }
@@ -182,6 +214,12 @@ extension DetailView {
         imageViewTopConstraint = imageView.topAnchor.constraint(equalTo: self.topAnchor)
         imageViewTopConstraint.priority = UILayoutPriority(rawValue: 900)
         imageViewTopConstraint.isActive = true
+        
+        contentView.addSubview(heartButton)
+        heartButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().offset(20)
+        }
     }
     
     func setupInnerView() {
