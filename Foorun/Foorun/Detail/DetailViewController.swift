@@ -10,9 +10,13 @@ import SnapKit
 import Then
 import RxSwift
 import RxCocoa
-
+protocol UpdateBookmark: AnyObject {
+    func updateBookmark()
+}
 class DetailViewController: UIViewController {
-        
+    
+    weak var delegate: UpdateBookmark?
+    
     let detailView = DetailView()
     var viewModel: DetailViewModel!
     
@@ -73,6 +77,7 @@ class DetailViewController: UIViewController {
         } else {
             if let removedIdx = bookmarks.firstIndex(where: { $0.id == viewModel.id }) {
                 UserDefaultManager.shared.bookmarks.remove(at: removedIdx)
+                self.delegate?.updateBookmark()
             }
         }
     }
