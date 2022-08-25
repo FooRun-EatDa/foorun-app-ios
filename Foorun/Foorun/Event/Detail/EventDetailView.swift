@@ -8,9 +8,11 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import FoorunKey
 
 protocol EventDetailViewDelegate: AnyObject {
     func alert(controller: UIAlertController, actions: [UIAlertAction])
+    func updateCouponType(id: Int, completion: @escaping (CouponType) -> Void)
 }
 
 class EventDetailView: UIView {
@@ -58,8 +60,7 @@ class EventDetailView: UIView {
         self.id = item.id
 
         let imageURL = URL(string: item.imageURL ?? "")
-        bannerImageView.kf.setImage(with: imageURL)
-
+        bannerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
         themeLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
         dateLabel.text = item.date
@@ -255,14 +256,31 @@ extension EventDetailView {
     @objc
     private func didTapCouponButton() {
         guard let id = id else { return }
-        let alertController: UIAlertController = .init(title: "쿠폰을 사용하시겠습니까?", message: nil)
-        let confirmAction = UIAlertAction(title: "사용", style: .destructive) { [weak self] action in
-            self?.updateCouponButton(type: .used)
 
-            UserDefaultManager.shared.usedCoupons.insert(id)
-            let alertController: UIAlertController = .init(title: "쿠폰이 사용되었습니다! 😄", message: nil)
-            let confirmAction = UIAlertAction(title: "확인", style: .default)
-            self?.delegate?.alert(controller: alertController, actions: [confirmAction])
+        let alertController: UIAlertController = .init(title: "*주의*\n해당 쿠폰은 사용 즉시 소멸되며, 소비자가 아닌 이벤트 진행 중인 식당의 점원 혹은 점주가 사용 승인하는 쿠폰입니다. 진행하시겠습니까?", message: nil)
+
+        let confirmAction = UIAlertAction(title: "사용", style: .destructive) { [weak self] action in
+            self?.delegate?.updateCouponType(id: id) { updatedCouponType in
+                var alertMessage = "오류가 발생했어요.. 😂"
+                switch updatedCouponType {
+                case .expired:
+                    alertMessage = "쿠폰이 만료되었어요..ㅠ 😂"
+                    self?.updateCouponButton(type: .expired)
+                case .available:
+                    alertMessage = "쿠폰이 사용되었습니다! 😄"
+                    self?.updateCouponButton(type: .used)
+                case .선착순_마감:
+                    alertMessage = "선착순 마감되었어요.. 😂"
+                    self?.updateCouponButton(type: .선착순_마감)
+                default :
+                    alertMessage = "오류가 발생했어요.. 😂"
+                    self?.updateCouponButton(type: .available)
+                }
+
+                let alertController: UIAlertController = .init(title: alertMessage, message: nil)
+                let confirmAction = UIAlertAction(title: "확인", style: .default)
+                self?.delegate?.alert(controller: alertController, actions: [confirmAction])
+            }
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
 

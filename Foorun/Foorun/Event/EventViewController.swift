@@ -5,9 +5,6 @@
 //  Created by SeYeong on 2022/08/17.
 //
 
-// TODO: - 흑백이미지
-// FIXME: - LargeTitle 버그
-
 import UIKit
 import SnapKit
 import FoorunKey
@@ -15,11 +12,8 @@ import FoorunKey
 class EventViewController: UIViewController {
 
     // MARK: - Properties
-
-    @UserDefault(key: "UsedCoupons", defaultValue: [])
-    var usedCoupons: Set<Int>
-
-    var events: [Event] = Event.dummyModel {
+    
+    var events: [Event] = [] {
         didSet {
             updateEvents()
         }
@@ -40,26 +34,27 @@ class EventViewController: UIViewController {
         setupNavigationBar()
         setupViews()
         updateEvents()
-        fetchEvents(page: 0)
+        fetchEvents(page: 1)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        navigationItem.largeTitleDisplayMode = .always
         eventView.collectionView.reloadData()
     }
 
     // MARK: - Methods
 
     func setupNavigationBar() {
-        self.navigationController?.navigationBar.backgroundColor = .white
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "이벤트"
     }
 
     func setupViews() {
-        view.backgroundColor = .white
         view.addSubview(eventView)
+
+        eventView.backgroundColor = .white
 
         eventView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -75,9 +70,17 @@ class EventViewController: UIViewController {
     }
 
     private func fetchEvents(page: Int) {
-        API<[Event]>(requestString: FoorunRequest.Event.event, method: .get, parameters: ["page": "\(page)"]).fetch { [weak self] response in
-            guard let events = response.data else { return }
-            self?.events = events
+        API<[Event]>(
+            requestString: FoorunRequest.Event.event,
+            method: .get,
+            parameters: ["page": page]).fetchResult { [weak self] result in
+            switch result {
+            case .success(let response):
+                guard let events = response.data else { return }
+                self?.events = events
+            case .failure(_):
+                self?.events = []
+            }
         }
     }
 }

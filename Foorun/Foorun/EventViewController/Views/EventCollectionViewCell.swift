@@ -2,7 +2,7 @@
 //  EventCollectionViewCell.swift
 //  Foorun
 //
-//  Created by MacPro on 2022/08/17.
+//  Created by SeYeong on 2022/08/17.
 //
 
 import UIKit
@@ -36,14 +36,14 @@ class EventCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setUI(_ item: Event, _ type: CouponType) {
+    func configure(with item: Event, _ type: CouponType) {
         let imageURL = URL(string: item.imageURL ?? "")
-        imageView.kf.setImage(with: imageURL)
+        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
-        dateLabel.text = item.date
+        dateLabel.text = removeTimeInDate(item.date) + "종료"
         overlayView.isHidden = type.overlayIsHidden()
-        stampImageView.image = type.stampImage()
+        stampImageView.image = type.toStampImage()
     }
 }
 extension EventCollectionViewCell {
@@ -103,7 +103,7 @@ extension EventCollectionViewCell {
         contentView.addSubview(dateLabel)
 
         dateLabel.font = .systemFont(ofSize: 12, weight: .regular)
-        dateLabel.tintColor = .lightGray
+        dateLabel.textColor = .lightGray
 
         dateLabel.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleLabel.snp.bottom).offset(2 * aspectRatio)
@@ -131,5 +131,11 @@ extension EventCollectionViewCell {
         overlayView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+
+    private func removeTimeInDate(_ dateString: String) -> String {
+        let formattedString = String(dateString.dropLast(5))
+
+        return formattedString
     }
 }

@@ -72,4 +72,43 @@ class API<T: Decodable> {
             }
         }
     }
+
+    func fetchResult(completion: @escaping (Result<APIResponse<T>, Error>) -> Void) {
+        var encodingType: ParameterEncoding {
+            switch self.method {
+            case .get, .delete:
+                return URLEncoding.default
+            case .post, .put:
+                return JSONEncoding.default
+            default:
+                return URLEncoding.default
+            }
+        }
+
+        NSLog("요청", self.fetchURL)
+
+        AF.request(self.fetchURL,
+                   method: self.method,
+                   parameters: self.parameters,
+                   encoding: encodingType,
+                   headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let result = try JSONDecoder().decode(APIResponse<T>.self, from: jsonData)
+                    completion(.success(result))
+                } catch (let err){
+                    print("네트워크 에러: ", err.localizedDescription)
+                    completion(.failure(err))
+                }
+
+            case .failure(let error):
+                print("네트워크 에러: ", error.localizedDescription)
+                completion(.failure(error))
+            }
+        }
+    }
 }
