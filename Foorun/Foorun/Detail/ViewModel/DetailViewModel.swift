@@ -12,17 +12,18 @@ import RxCocoa
 
 class DetailViewModel {
     
-    let disposeBag = DisposeBag()
-
+    var bookmarks: [RestaurantDetail] = UserDefaultManager.shared.bookmarks
     var data = BehaviorRelay<RestaurantDetail?>(value: nil)
     let id: Int!
-    
+
     let bookmarkButtonTapped = PublishRelay<Void>()
     let changeBookmarkButton: Driver<Void>
     
-
+    let disposeBag = DisposeBag()
+    
+    
+    
     init(id: Int) { // 917717809
-        
         changeBookmarkButton = bookmarkButtonTapped
             .asDriver(onErrorJustReturn: ())
         
