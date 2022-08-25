@@ -54,3 +54,9 @@ struct RestaurantDetailClientModel: Decodable {
     var district: String?
     var liked: Bool?
 }
+
+extension RestaurantDetailClientModel {
+    static func entityToVM(item: RestaurantDetail) -> RestaurantDetailClientModel {
+        return RestaurantDetailClientModel(name: item.name, imgUrl: item.imgUrl, price: item.price, content: item.content, address: item.address, phoneNumber: item.phoneNumber, operationTime: item.operationTime, district: item.district, liked: item.liked)
+    }
+}

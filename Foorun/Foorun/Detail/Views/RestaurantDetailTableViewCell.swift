@@ -11,7 +11,7 @@ import Then
 
 class RestaurantDetailTableViewCell: UITableViewCell {
     
-    static var id: String { NSStringFromClass(Self.self).components(separatedBy: ".").last ?? "" }
+    static var id: String { self.identifier }
  
     var cellTitleLabel = UILabel().then {
           $0.font = UIFont.systemFont(ofSize: 15, weight: .semibold)

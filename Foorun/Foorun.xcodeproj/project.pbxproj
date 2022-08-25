@@ -50,6 +50,8 @@
 		F0724D8A28B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8928B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift */; };
 		F0724D8C28B47CF50005C688 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8B28B47CF40005C688 /* DetailView.swift */; };
 		F0724D8F28B47D170005C688 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8E28B47D170005C688 /* DetailViewModel.swift */; };
+		F0724D9828B7D0BC0005C688 /* DetailView+TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D9728B7D0BB0005C688 /* DetailView+TableViewExtension.swift */; };
+		F0724D9A28B7DA360005C688 /* DetailView+CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D9928B7DA360005C688 /* DetailView+CollectionViewExtension.swift */; };
 		F0BFAADB2896723600FB499E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADA2896723600FB499E /* APIClient.swift */; };
 		F0BFAADE2896725700FB499E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFAADD2896725700FB499E /* Restaurant.swift */; };
 		F0BFAAE12896729300FB499E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F0BFAAE02896729300FB499E /* Alamofire */; };
@@ -152,6 +154,8 @@
 		F0724D8928B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0724D8B28B47CF40005C688 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F0724D8E28B47D170005C688 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F0724D9728B7D0BB0005C688 /* DetailView+TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+TableViewExtension.swift"; sourceTree = "<group>"; };
+		F0724D9928B7DA360005C688 /* DetailView+CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView+CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		F0BFAADA2896723600FB499E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		F0BFAADD2896725700FB499E /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		FD7E2534287AB36C008E9E24 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 				F0724D8728B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift */,
 				F0724D8928B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift */,
 				F0724D8B28B47CF40005C688 /* DetailView.swift */,
+				F0724D9728B7D0BB0005C688 /* DetailView+TableViewExtension.swift */,
+				F0724D9928B7DA360005C688 /* DetailView+CollectionViewExtension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				8ED9D7A628AF2672006A7F94 /* Event.swift in Sources */,
 				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
 				8ED9D7A728AF2672006A7F94 /* CouponType.swift in Sources */,
+				F0724D9A28B7DA360005C688 /* DetailView+CollectionViewExtension.swift in Sources */,
 				F0724D8F28B47D170005C688 /* DetailViewModel.swift in Sources */,
 				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
 				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
@@ -635,6 +642,7 @@
 				8ED9D7A528AF2672006A7F94 /* EventCollectionViewCell.swift in Sources */,
 				786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */,
 				7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */,
+				F0724D9828B7D0BC0005C688 /* DetailView+TableViewExtension.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
 				8ED9D79328AF2668006A7F94 /* UIViewController.Foorun.swift in Sources */,
 				7822EF4828AF3C6E000D405B /* UserDefaultManager.swift in Sources */,

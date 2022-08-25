@@ -9,7 +9,7 @@ import UIKit
 
 class RestaurantHashTagCollectionViewCell: UICollectionViewCell {
 
-    static var id: String { NSStringFromClass(Self.self).components(separatedBy: ".").last ?? "" }
+    static var id: String { self.identifier }
 
     var hashTagModel: String? {
         didSet {

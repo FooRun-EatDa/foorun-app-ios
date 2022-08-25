@@ -9,8 +9,8 @@ import UIKit
 
 class RestaurantMenuCollectionViewCell: UICollectionViewCell {
 
-    static var id: String { NSStringFromClass(Self.self).components(separatedBy: ".").last ?? "" }
-    
+    static var id: String { self.identifier }
+
     var foodModel: Food? {
         didSet {
             bind()
