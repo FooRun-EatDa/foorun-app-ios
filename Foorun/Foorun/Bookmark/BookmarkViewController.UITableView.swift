@@ -21,7 +21,8 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
 
         let delete = UIContextualAction(style: .normal, title: nil) { _, _, _ in
             let restaurantId = self.bookmarks[indexPath.row].id
-            self.deleteCache.insert(restaurantId)
+            self.deleteCache.append(restaurantId)
+            self.delete()
             self.bookmarks.remove(at: indexPath.row)
             tableView.reloadData()
         }
@@ -35,7 +36,15 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let id = bookmarks[indexPath.row].id else { return }
-//        // TODO: - 화면전환
+        let detailViewController = DetailViewController(vm: DetailViewModel(id: bookmarks[indexPath.row].id))
+
+        let nav = UINavigationController(rootViewController: detailViewController)
+        nav.modalPresentationStyle = .pageSheet
+
+        if let sheet = nav.sheetPresentationController {
+           sheet.detents = [.medium(), .large()]
+           present(nav, animated: true, completion: nil)
+        }
+        detailViewController.delegate = self
     }
 }

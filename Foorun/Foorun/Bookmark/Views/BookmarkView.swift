@@ -36,7 +36,7 @@ extension BookmarkView {
     func setupEmptyLabel() {
         addSubview(emptyLabel)
         
-        emptyLabel.text = "현재 찜한 식당이 없습니다."
+        emptyLabel.text = "현재 찜한 식당이 없어요..😵"
         
         emptyLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()

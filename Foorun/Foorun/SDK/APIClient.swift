@@ -39,9 +39,9 @@ class API<T: Decodable> {
     func fetch(completion: @escaping (APIResponse<T>) -> Void) {
         var encodingType: ParameterEncoding {
             switch self.method {
-            case .get, .delete:
+            case .get:
                 return URLEncoding.default
-            case .post, .put:
+            case .post, .put, .delete:
                 return JSONEncoding.default
             default:
                 return URLEncoding.default
@@ -57,6 +57,7 @@ class API<T: Decodable> {
                    headers: headers)
         .validate(statusCode: 200..<300)
         .responseJSON { response in
+   
             switch response.result {
             case .success(let value):
                 do {
@@ -76,9 +77,9 @@ class API<T: Decodable> {
     func fetchResult(completion: @escaping (Result<APIResponse<T>, Error>) -> Void) {
         var encodingType: ParameterEncoding {
             switch self.method {
-            case .get, .delete:
+            case .get:
                 return URLEncoding.default
-            case .post, .put:
+            case .post, .put, .delete:
                 return JSONEncoding.default
             default:
                 return URLEncoding.default

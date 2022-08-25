@@ -6,48 +6,6 @@
 //
 import Foundation
 
-struct Restaurant: Codable {
-    let id: Int?
-    let name: String?
-    let explanation: String?
-    let imgUrl: String?
-    let distance: Double?
-    let hashTags: [String]
-    let liked: Bool
-
-    init(
-            id: Int?,
-            name: String?,
-            explanation: String?,
-            imgUrl: String?,
-            distance: Double?,
-            hashTags: [String],
-            liked: Bool
-        ) {
-            self.id = id
-            self.name = name
-            self.explanation = explanation
-            self.imgUrl = imgUrl
-            self.distance = distance
-            self.hashTags = hashTags
-            self.liked = liked
-        }
-}
-
-
-
-
-// 여기서부터
-struct RestaurantList: Codable {
-    let id: Int?
-    let name: String?
-    let explanation: String?
-    let imgUrl: String?
-    let distance: Double?
-    let hashTags: [String]
-    let liked: Bool
-}
-
 struct RestaurantDetail: Codable {
     let id: Int
     let name: String
@@ -59,10 +17,12 @@ struct RestaurantDetail: Codable {
     let operationTime: String?
     let price: Int
     let district: String?
+    let hashTags: [String]?
 //    let coordinate: [Coordinate]
     let categories: [String]?
     let foods: [Food]
     let liked: Bool
+
 }
 
 struct Food: Codable {
