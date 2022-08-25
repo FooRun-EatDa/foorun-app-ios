@@ -36,14 +36,14 @@ class EventCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setUI(_ item: Event, _ type: CouponType) {
+    func configure(with item: Event, _ type: CouponType) {
         let imageURL = URL(string: item.imageURL ?? "")
-        imageView.kf.setImage(with: imageURL)
+        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
         dateLabel.text = removeTimeInDate(item.date) + "종료"
         overlayView.isHidden = type.overlayIsHidden()
-        stampImageView.image = type.stampImage()
+        stampImageView.image = type.toStampImage()
     }
 }
 extension EventCollectionViewCell {
