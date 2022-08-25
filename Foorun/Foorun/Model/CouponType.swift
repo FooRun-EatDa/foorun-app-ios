@@ -30,7 +30,7 @@ enum CouponType: String {
         }
     }
 
-    func stampImage() -> UIImage {
+    func toStampImage() -> UIImage {
         switch self {
         case .expired: return UIImage(named: "Expired") ?? UIImage()
         case .used: return UIImage(named: "Used") ?? UIImage()

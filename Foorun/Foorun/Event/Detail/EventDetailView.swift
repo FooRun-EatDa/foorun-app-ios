@@ -60,8 +60,7 @@ class EventDetailView: UIView {
         self.id = item.id
 
         let imageURL = URL(string: item.imageURL ?? "")
-        bannerImageView.kf.setImage(with: imageURL)
-
+        bannerImageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
         themeLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
         dateLabel.text = item.date
