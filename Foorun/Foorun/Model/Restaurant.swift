@@ -6,6 +6,7 @@
 //
 import Foundation
 
+
 struct RestaurantDetail: Codable {
     let id: Int
     let name: String
@@ -15,21 +16,18 @@ struct RestaurantDetail: Codable {
     let address: String?
     let phoneNumber: String?
     let operationTime: String?
-    let price: Int
+    let price: Int?
     let district: String?
     let hashTags: [String]?
-//    let coordinate: [Coordinate]
     let categories: [String]?
     let foods: [Food]
     let liked: Bool
-
 }
 
 struct Food: Codable {
     let id: Int
     let name: String
     let price: Int
-//    let content: String
     let sequence: Int
     let files: [FoodImageModel]
 }

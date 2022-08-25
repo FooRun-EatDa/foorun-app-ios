@@ -28,7 +28,7 @@ class DetailViewModel {
             .asDriver(onErrorJustReturn: ())
         
         self.id = id
-        let apiCall = API<RestaurantDetail>(requestString: FoorunRequest.Restaurant.restaurant + "/\(917717809)" , method: .get, parameters: [:])
+        let apiCall = API<RestaurantDetail>(requestString: FoorunRequest.Restaurant.restaurant + "/\(id)" , method: .get, parameters: [:])
         
         apiCall.fetch { result in
             self.data.accept(result.data)

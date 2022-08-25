@@ -9,6 +9,15 @@ import UIKit
 import Then
 import RxSwift
 import RxCocoa
+import Kingfisher
+
+public enum RestarauntDesc: String {
+    case phonenumber = "전화번호"
+    case district = "지역"
+    case price = "가격"
+    case workTime = "운영시간"
+}
+
 
 class DetailView: UIView {
     
@@ -91,6 +100,7 @@ class DetailView: UIView {
         view.dataSource = self
         view.separatorStyle = .none
         view.allowsSelection = false
+        view.isScrollEnabled = false
         view.register(RestaurantDetailTableViewCell.self, forCellReuseIdentifier: RestaurantDetailTableViewCell.id)
         return view
     }()
@@ -122,21 +132,19 @@ class DetailView: UIView {
 }
 
 extension DetailView {
+    
+    // MARK: 여기 코드가 너무 더러움,,, 수정필요..
     func bindView() {
-        data.subscribe( onNext: { data in
+        data.subscribe(onNext: { data in
             DispatchQueue.global().async {
                 if let foodsData = data?.foods {
                     if !foodsData.isEmpty {
                         guard let imageURL = foodsData[0].files.first?.url else {
                             return
                         }
-                        let _url = URL(string: imageURL)
-                        if let url = _url, let data = try? Data(contentsOf: url) {
-                            DispatchQueue.main.async {
-                                self.imageView.image = UIImage(data: data)
-                            }
+                        DispatchQueue.main.async {
+                            self.imageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "defaultImage"))
                         }
-
                     }
                 }
             }
@@ -147,11 +155,11 @@ extension DetailView {
             
             self.detailData = RestaurantDetailClientModel(name: data?.name, imgUrl: data?.imgUrl, content: data?.content, address: data?.address, phoneNumber: data?.phoneNumber, operationTime: data?.operationTime, district: data?.district, liked: data?.liked)
 
-            guard let categories = data?.categories else {
+            guard let hashTags = data?.hashTags else {
                 return
             }
-            if categories.count > 0 {
-                self.hashTagData = categories
+            if hashTags.count > 0 {
+                self.hashTagData = hashTags
             } else {
                 self.hashTagData = [(data?.district ?? "경희대") + " 대표 맛집"]
             }
@@ -184,17 +192,19 @@ extension DetailView {
         }
 
         [headerContainerView, contentView].forEach { scrollView.addSubview($0) }
+
         headerContainerView.addSubview(imageView)
-        contentView.addSubview(restaurantDiscripionView)
         
+        contentView.addSubview(restaurantDiscripionView)
         [restaurantTitleView, restaurantDetailTableView, restaurantMenuCollectionView].forEach { restaurantDiscripionView.addSubview($0) }
                 
-        contentView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self)
-            make.top.equalTo(scrollView.snp.top).offset(220)
-            make.bottom.equalTo(scrollView.snp.bottom)
+        contentView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(self)
+            $0.top.equalTo(scrollView.snp.top).offset(220)
+            $0.bottom.equalTo(scrollView.snp.bottom)
         }
-        let headerContainerViewBottom : NSLayoutConstraint!
+        
+        let headerContainerViewBottom: NSLayoutConstraint!
         NSLayoutConstraint.activate([
             headerContainerView.topAnchor.constraint(equalTo: self.topAnchor),
             headerContainerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -255,7 +265,7 @@ extension DetailView {
         
         restaurantDetailTableView.snp.makeConstraints {
             $0.top.equalTo(restaurantTitleView.snp.bottom)
-            $0.height.equalTo(38 * 5)
+            $0.height.equalTo(38 * 4)
             $0.leading.trailing.equalToSuperview()
         }
         

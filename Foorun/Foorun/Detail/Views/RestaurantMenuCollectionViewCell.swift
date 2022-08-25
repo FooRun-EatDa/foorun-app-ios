@@ -26,10 +26,10 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
         $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         $0.textColor = .black
     }
-
-    var menuDiscription = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        $0.textColor = .gray
+    
+    var menuPrice = UILabel().then {
+        $0.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        $0.textColor = .systemYellow
     }
 
     override init(frame: CGRect) {
@@ -44,7 +44,7 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
     }
 
     private func addSubviews() {
-        [menuImage, menuTitle, menuDiscription].forEach { self.addSubview($0) }
+        [menuImage, menuTitle, menuPrice].forEach { self.addSubview($0) }
     }
 
     private func configure() {
@@ -57,8 +57,8 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
             $0.leading.trailing.equalToSuperview().inset(8)
             $0.top.equalTo(menuImage.snp.bottom).offset(10)
         }
-
-        menuDiscription.snp.makeConstraints {
+        
+        menuPrice.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(8)
             $0.top.equalTo(menuTitle.snp.bottom).offset(4)
             $0.bottom.equalToSuperview().offset(-10)
@@ -70,23 +70,14 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
             guard let imageURL = self.foodModel?.files.first?.url else {
                 return
             }
-            
-            let _url = URL(string: imageURL)
-            
-            guard let url = _url, let data = try? Data(contentsOf: url) else {
+            DispatchQueue.main.async {
+                self.menuImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "defaultImage"))
                 self.menuImage.backgroundColor = .lightGray
                 self.menuTitle.text = self.foodModel?.name
-//                self.menuDiscription.text = self.foodModel?.content
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.menuImage.image = UIImage(data: data)
+                self.menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
             }
         }
         menuTitle.text = foodModel?.name
-//        menuDiscription.text = foodModel?.content
+        menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
     }
 }
-
-
