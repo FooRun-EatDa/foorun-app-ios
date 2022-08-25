@@ -20,7 +20,7 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
         let event = events[indexPath.row]
         CouponType.checkCouponType(event: event) { couponType in
-            cell.setUI(event, .available)
+            cell.configure(with: event, couponType)
         }
 
         return cell
