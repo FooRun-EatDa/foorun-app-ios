@@ -12,7 +12,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as? BookmarkTableViewCell else { return UITableViewCell() }
         
-        cell.configure(bookmarks[indexPath.row])
+        cell.configure(bookmarks[self.bookmarks.count - indexPath.row - 1])
         
         return cell
     }
@@ -20,10 +20,10 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         let delete = UIContextualAction(style: .normal, title: nil) { _, _, _ in
-            let restaurantId = self.bookmarks[indexPath.row].id
+            let restaurantId = self.bookmarks[self.bookmarks.count - indexPath.row - 1].id
             self.deleteCache.append(restaurantId)
             self.delete()
-            self.bookmarks.remove(at: indexPath.row)
+            self.bookmarks.remove(at: self.bookmarks.count - indexPath.row - 1)
             tableView.reloadData()
         }
         
@@ -36,7 +36,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = DetailViewController(vm: DetailViewModel(id: bookmarks[indexPath.row].id))
+        let detailViewController = DetailViewController(vm: DetailViewModel(id: bookmarks[self.bookmarks.count - indexPath.row - 1].id))
 
         let nav = UINavigationController(rootViewController: detailViewController)
         nav.modalPresentationStyle = .pageSheet
