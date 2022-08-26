@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct SettingView: View {
-    @StateObject private var viewModel = SettingViewModel()
+    @EnvironmentObject private var viewModel: SettingViewModel
     
     var body: some View {
         
         List {
             MyPageView()
-                .environmentObject(viewModel)
+                .environmentObject(SettingViewModel())
             
             InformationView()
-                .environmentObject(viewModel)
+                .environmentObject(SettingViewModel())
             
             SNSView()
+                .environmentObject(SettingViewModel())
         }
     }
 }

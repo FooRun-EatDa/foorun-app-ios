@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct MyPageView: View {
-    @StateObject private var viewModel = SettingViewModel()
-    @State var isActive: Bool = true
+    @EnvironmentObject private var viewModel: SettingViewModel
     
-    /// 토큰이 존재하면 true
-    var isToken: Bool = !UserDefaultManager.shared.token.isEmpty
+    @State private var tokenString = "🧩 인증 하기"
     var body: some View {
         Section {
             NavigationLink {
                 CertificationView()
+                    .environmentObject(viewModel)
             } label: {
-                isToken
-                ? Text("✅ 인증 완료").font(.caption)
-                : Text("🧩 인증 하기").font(.caption)
+                Text(tokenString).font(.caption)
             }
-            .disabled(isToken)
+            .disabled(viewModel.isToken)
             
         } header: {
             Text("마이 페이지")
+        }
+        .onAppear {
+            tokenString = viewModel.isToken
+            ? "✅ 인증 완료"
+            : "🧩 인증 하기"
         }
     }
 }

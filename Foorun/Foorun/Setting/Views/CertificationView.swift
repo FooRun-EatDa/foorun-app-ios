@@ -11,7 +11,7 @@ import FoorunKey
 struct CertificationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @Environment(\.editMode) private var editMode
-    
+    @EnvironmentObject private var viewModel: SettingViewModel
     
     @State private var disabledEmailField = false
     @State var email: String = ""
@@ -96,6 +96,7 @@ struct CertificationView: View {
             method: .get,
             parameters: ["email": email]
         ).fetch { apiResponse in
+            print("apiResponse \(apiResponse) lgw9898@naver.com")
             guard let _ = apiResponse.data else { return }
         }
     }
@@ -109,6 +110,7 @@ struct CertificationView: View {
             guard let code = apiResponse.data else { return }
             // NOTE: - 성공해야만 data가 내려옵니다.
             UserDefaultManager.shared.token = "\(code)"
+            viewModel.isToken = true
             self.mode.wrappedValue.dismiss()
         }
     }

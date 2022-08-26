@@ -35,6 +35,9 @@ class SettingViewModel: ObservableObject {
     /// 앱 버전
     let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
+    /// 토큰이 존재하면 true
+    var isToken: Bool = !UserDefaultManager.shared.token.isEmpty
+    
     /// 레퍼런스 아이템
     let referenceItems: [ReferenceItem] = [
         ReferenceItem(title: "ReferenceKit", url: "https://github.com/BoilerSwift/ReferenceKit"),

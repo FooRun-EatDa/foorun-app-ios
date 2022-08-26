@@ -9,7 +9,7 @@ import SwiftUI
 import ReferenceKit
 
 struct InformationView: View {
-    @StateObject private var viewModel = SettingViewModel()
+    @EnvironmentObject private var viewModel: SettingViewModel
     
     var body: some View {
         Section {
