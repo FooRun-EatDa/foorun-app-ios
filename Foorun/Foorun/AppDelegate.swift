@@ -51,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("[Log] deviceToken :", deviceTokenString)
 
         Messaging.messaging().apnsToken = deviceToken
+        
+        print("\(#function)")
     }
     
     
@@ -59,15 +61,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("파이어베이스 토큰: \(String(describing: fcmToken))")
+        
+        print("\(#function)")
     }
 }
 
 extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,willPresent notification: UNNotification,withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("\(#function)")
         completionHandler([.banner, .list, .badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,didReceive response: UNNotificationResponse,withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("\(#function)")
         completionHandler()
     }
 }
