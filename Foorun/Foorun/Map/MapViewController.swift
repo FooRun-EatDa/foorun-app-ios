@@ -54,13 +54,6 @@ class MapViewController: UIViewController {
                 this.mapView.addAnnotation(data: data)
             })
             .disposed(by: disposeBag)
-        
-        viewModel.presentBottomSheet
-            .drive(with: self,
-                   onNext: { this, restaurantID in
-                this.presentBottomSheet(restaurantID: restaurantID)
-            })
-            .disposed(by: disposeBag)
     }
 }
 
@@ -119,12 +112,10 @@ extension MapViewController: MKMapViewDelegate {
         
         else if let view = view as? AnnotationView,
                 let annotation = view.annotation as? Annotation {
-            Observable.just(annotation.restaurantID)
-                .bind(to: viewModel.annotationTapped)
-                .disposed(by: disposeBag)
 
             view.updateAnnotation()
             mapView.setCenter(annotation.coordinate, animated: true)
+            presentBottomSheet(restaurantID: annotation.restaurantID)
         }
     }
     

@@ -51,7 +51,6 @@ class DetailViewController: UIViewController {
     }
         
     func bindView(_ viewModel: DetailViewModel, _ view: DetailView) {
-        
         detailView.heartButton.rx.tap
             .bind(to: viewModel.bookmarkButtonTapped)
             .disposed(by: disposeBag)
