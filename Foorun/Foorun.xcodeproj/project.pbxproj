@@ -25,6 +25,7 @@
 		8ED9D7A728AF2672006A7F94 /* CouponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79D28AF2672006A7F94 /* CouponType.swift */; };
 		8ED9D7A828AF2672006A7F94 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79F28AF2672006A7F94 /* EventDetailViewController.swift */; };
 		8ED9D7A928AF2672006A7F94 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D7A128AF2672006A7F94 /* EventDetailView.swift */; };
+		B198E79B28BA0F6A00EB0F24 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B198E79A28BA0F6A00EB0F24 /* Logger */; };
 		B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */; };
 		B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */; };
 		B1A36AC2287AA26B00DE64C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */; };
@@ -34,7 +35,6 @@
 		B1A36ADC287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A36ADB287AA26B00DE64C8 /* FoorunUITestsLaunchTests.swift */; };
 		B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; };
 		B1A36B74287AAA0D00DE64C8 /* FoorunKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1A36B72287AAA0D00DE64C8 /* FoorunKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B1A36B78287AACE200DE64C8 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B77287AACE200DE64C8 /* Logger */; };
 		B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7A287AB01400DE64C8 /* SnapKit */; };
 		B1A36B7E287AB04D00DE64C8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B7D287AB04D00DE64C8 /* Then */; };
 		B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1A36B93287ADB6300DE64C8 /* ReferenceKit */; };
@@ -175,8 +175,8 @@
 				FDFF861928B120E50012EF71 /* RxSwift in Frameworks */,
 				B1A36B7B287AB01400DE64C8 /* SnapKit in Frameworks */,
 				B1A36B94287ADB6300DE64C8 /* ReferenceKit in Frameworks */,
+				B198E79B28BA0F6A00EB0F24 /* Logger in Frameworks */,
 				78C48CB628AFB72500C50FB5 /* Kingfisher in Frameworks */,
-				B1A36B78287AACE200DE64C8 /* Logger in Frameworks */,
 				F0BFAAE12896729300FB499E /* Alamofire in Frameworks */,
 				B1A36B73287AAA0D00DE64C8 /* FoorunKey.framework in Frameworks */,
 				FDFF861728B120E50012EF71 /* RxCocoa in Frameworks */,
@@ -457,7 +457,6 @@
 			);
 			name = Foorun;
 			packageProductDependencies = (
-				B1A36B77287AACE200DE64C8 /* Logger */,
 				B1A36B7A287AB01400DE64C8 /* SnapKit */,
 				B1A36B7D287AB04D00DE64C8 /* Then */,
 				B1A36B93287ADB6300DE64C8 /* ReferenceKit */,
@@ -465,6 +464,7 @@
 				FDFF861628B120E50012EF71 /* RxCocoa */,
 				FDFF861828B120E50012EF71 /* RxSwift */,
 				78C48CB528AFB72500C50FB5 /* Kingfisher */,
+				B198E79A28BA0F6A00EB0F24 /* Logger */,
 			);
 			productName = Foorun;
 			productReference = B1A36AB5287AA26A00DE64C8 /* Foorun.app */;
@@ -539,13 +539,13 @@
 			);
 			mainGroup = B1A36AAC287AA26A00DE64C8;
 			packageReferences = (
-				B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */,
 				B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B1A36B7C287AB04D00DE64C8 /* XCRemoteSwiftPackageReference "Then" */,
 				B1A36B92287ADB6300DE64C8 /* XCRemoteSwiftPackageReference "ReferenceKit" */,
 				F0BFAADF2896729300FB499E /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FDFF861528B120E50012EF71 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				78C48CB428AFB72500C50FB5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B198E79928BA0F6A00EB0F24 /* XCRemoteSwiftPackageReference "Logger" */,
 			);
 			productRefGroup = B1A36AB6287AA26A00DE64C8 /* Products */;
 			projectDirPath = "";
@@ -828,15 +828,17 @@
 				DEVELOPMENT_TEAM = 7W4B2CQKWX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현 위치 정보를 불러오려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Foorun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -857,15 +859,17 @@
 				DEVELOPMENT_TEAM = 7W4B2CQKWX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현 위치 정보를 불러오려면 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Foorun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -997,12 +1001,12 @@
 				minimumVersion = 7.3.0;
 			};
 		};
-		B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */ = {
+		B198E79928BA0F6A00EB0F24 /* XCRemoteSwiftPackageReference "Logger" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BoilerSwift/Logger";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				branch = main;
+				kind = branch;
 			};
 		};
 		B1A36B79287AB01400DE64C8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -1053,9 +1057,9 @@
 			package = 78C48CB428AFB72500C50FB5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		B1A36B77287AACE200DE64C8 /* Logger */ = {
+		B198E79A28BA0F6A00EB0F24 /* Logger */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B1A36B76287AACE200DE64C8 /* XCRemoteSwiftPackageReference "Logger" */;
+			package = B198E79928BA0F6A00EB0F24 /* XCRemoteSwiftPackageReference "Logger" */;
 			productName = Logger;
 		};
 		B1A36B7A287AB01400DE64C8 /* SnapKit */ = {
