@@ -92,7 +92,7 @@ extension CouponType {
 
     static func 선착순_마감_확인(id: Int, completion: @escaping ((Bool) -> Void)) {
         API<EventValid>(
-            requestString: FoorunRequest.Event.event + "\(id)/validCheck",
+            requestString: FoorunRequest.Event.event + "/\(id)/validCheck",
             method: .get,
             parameters: [:]).fetchResult { result in
                 switch result {

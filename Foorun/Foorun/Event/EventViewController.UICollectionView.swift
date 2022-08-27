@@ -27,11 +27,11 @@ extension EventViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedEvent = Event.dummyModel[indexPath.row]
+        let selectedEvent = events[indexPath.row]
         let viewController = EventDetailViewController()
         CouponType.checkCouponType(event: selectedEvent) { [weak self] couponType in
             viewController.event = selectedEvent
-            viewController.couponType = .available
+            viewController.couponType = couponType
             viewController.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(viewController, animated: true)
         }
