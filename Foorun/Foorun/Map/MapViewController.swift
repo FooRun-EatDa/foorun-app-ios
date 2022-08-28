@@ -175,14 +175,21 @@ private extension MapViewController {
     
     func presentBottomSheet(restaurantID: Int) {
         let detailViewController = DetailViewController(vm: DetailViewModel(id: restaurantID))
-        print("식당 ID: ",restaurantID)
-
-        let nav = UINavigationController(rootViewController: detailViewController)
-        nav.modalPresentationStyle = .pageSheet
-
-        if let sheet = nav.sheetPresentationController {
+        
+        detailViewController.isDismiss
+            .asDriver(onErrorJustReturn: false)
+            .filter { $0 == true}
+            .drive(with: self,
+                   onNext: { this, isDismiss in
+                this.mapView.map.deselectAnnotation(this.mapView.map.selectedAnnotations.first, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        if let sheet = detailViewController.sheetPresentationController {
            sheet.detents = [.medium(), .large()]
-           present(nav, animated: true, completion: nil)
         }
+        
+        navigationController?.modalPresentationStyle = .pageSheet
+        present(detailViewController, animated: true, completion: nil)
     }
 }
