@@ -34,7 +34,7 @@ class EventViewController: UIViewController {
         setupNavigationBar()
         setupViews()
         updateEvents()
-        fetchEvents(page: 1)
+        fetchEvents(page: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {

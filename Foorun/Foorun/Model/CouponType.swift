@@ -3,7 +3,7 @@ import UIKit
 import FoorunKey
 
 enum CouponType: String {
-    case available = "쿠폰 사용하기"
+    case available = "쿠폰 사용하기 (점주 전용)"
     case expired = "기간 만료"
     case used = "사용 완료"
     case 선착순_마감 = "마감되었습니다 😂"
@@ -73,7 +73,7 @@ extension CouponType {
 
     static func isValidDate(_ date: String) -> Bool {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy/MM/dd hh:mm"
+        dateFormatter.dateFormat = "yy/MM/dd HH:mm"
         let currentDate = Date()
 
         guard let date = dateFormatter.date(from: date),
@@ -92,7 +92,7 @@ extension CouponType {
 
     static func 선착순_마감_확인(id: Int, completion: @escaping ((Bool) -> Void)) {
         API<EventValid>(
-            requestString: FoorunRequest.Event.event + "\(id)/validCheck",
+            requestString: FoorunRequest.Event.event + "/\(id)/validCheck",
             method: .get,
             parameters: [:]).fetchResult { result in
                 switch result {

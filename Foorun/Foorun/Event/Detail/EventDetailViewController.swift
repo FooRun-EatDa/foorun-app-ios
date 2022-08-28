@@ -57,7 +57,7 @@ class EventDetailViewController: UIViewController {
 
     private func deleteUsedCoupon(id: Int) {
         API<String>(
-            requestString: FoorunRequest.Event.event + "\(id)",
+            requestString: FoorunRequest.Event.event + "/\(id)",
             method: .delete,
             parameters: [:]).fetch { _ in }
     }
