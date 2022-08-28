@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var viewModel: DetailViewModel!
 
     let disposeBag = DisposeBag()
-    
+    let isDismiss = BehaviorRelay<Bool>(value: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,11 @@ class DetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("deinit called")
+        isDismiss.accept(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
