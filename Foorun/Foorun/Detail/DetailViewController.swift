@@ -73,8 +73,8 @@ class DetailViewController: UIViewController {
         detailView.isBookMarkSelected = !detailView.isBookMarkSelected
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
        
         if viewModel.bookmarks.contains(where: { $0.id == viewModel.id }) {
             if !detailView.isBookMarkSelected {
