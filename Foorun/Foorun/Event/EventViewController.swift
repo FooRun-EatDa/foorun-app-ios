@@ -13,7 +13,7 @@ class EventViewController: UIViewController {
 
     // MARK: - Properties
     
-    var events: [Event] = Event.dummyModel {
+    var events: [Event] = [] {
         didSet {
             updateEvents()
         }
@@ -34,7 +34,7 @@ class EventViewController: UIViewController {
         setupNavigationBar()
         setupViews()
         updateEvents()
-//        fetchEvents(page: 0)
+        fetchEvents(page: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
