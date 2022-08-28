@@ -20,6 +20,7 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
     var menuImage = UIImageView().then {
         $0.layer.cornerRadius = 8
         $0.clipsToBounds = true
+        $0.image = UIImage(named: AssetSet.ETC.Food.empty)
     }
 
     var menuTitle = UILabel().then {
@@ -71,7 +72,7 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
                 return
             }
             DispatchQueue.main.async {
-                self.menuImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "defaultImage"))
+                self.menuImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
                 self.menuImage.backgroundColor = .lightGray
                 self.menuTitle.text = self.foodModel?.name
                 self.menuPrice.text = String(self.foodModel?.price ?? 0) + "원"

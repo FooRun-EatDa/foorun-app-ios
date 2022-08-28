@@ -48,6 +48,7 @@ class DetailView: UIView {
     var imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = UIImage(named: AssetSet.ETC.Food.empty)
         $0.clipsToBounds = true
     }
     
@@ -143,7 +144,7 @@ extension DetailView {
                             return
                         }
                         DispatchQueue.main.async {
-                            self.imageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: "defaultImage"))
+                            self.imageView.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
                         }
                     }
                 }

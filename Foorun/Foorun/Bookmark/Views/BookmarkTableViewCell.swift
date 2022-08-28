@@ -35,7 +35,7 @@ extension BookmarkTableViewCell {
     public func configure(_ item: RestaurantDetail?) {
         guard let item = item else { return }
         
-        thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""),placeholder: UIImage(named: "defaultImage"))
+        thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
         
         titleLabel.text = item.name
         descriptionLabel.text = item.explanation == "" ? " " : item.explanation
