@@ -36,9 +36,19 @@ class EventCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        imageView.image = nil
+        eventTitleLabel.text = nil
+        restaurantTitleLabel.text = nil
+        dateLabel.text = nil
+        stampImageView.image = nil
+    }
+
     func configure(with item: Event, _ type: CouponType) {
         let imageURL = URL(string: item.imageURL ?? "")
-        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
+        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: AssetSet.Event.empty))
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
         dateLabel.text = removeTimeInDate(item.date) + "종료"

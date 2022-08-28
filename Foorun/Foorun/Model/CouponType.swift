@@ -32,9 +32,9 @@ enum CouponType: String {
 
     func toStampImage() -> UIImage {
         switch self {
-        case .expired: return UIImage(named: "Expired") ?? UIImage()
-        case .used: return UIImage(named: "Used") ?? UIImage()
-        case .선착순_마감: return UIImage(named: "Ended") ?? UIImage()
+        case .expired: return UIImage(named: AssetSet.Event.Stamp.expired) ?? UIImage()
+        case .used: return UIImage(named: AssetSet.Event.Stamp.used) ?? UIImage()
+        case .선착순_마감: return UIImage(named: AssetSet.Event.Stamp.ended) ?? UIImage()
         default: return UIImage()
         }
     }
@@ -43,11 +43,6 @@ enum CouponType: String {
 extension CouponType {
     static func checkCouponType(event: Event, completion: @escaping (CouponType) -> Void) {
         선착순_마감_확인(id: event.id) { 선착순_마감 in
-            guard isLoggedIn() else {
-                completion(.needLogin)
-                return
-            }
-
             guard !isUsedCoupon(id: event.id) else {
                 completion(.used)
                 return
@@ -68,7 +63,7 @@ extension CouponType {
     }
 
     static func isLoggedIn() -> Bool {
-        return !UserDefaultManager.shared.token.isEmpty
+        return !(UserDefaultManager.shared.token == "843168213")
     }
 
     static func isValidDate(_ date: String) -> Bool {

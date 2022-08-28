@@ -19,7 +19,7 @@ class UserDefaultManager {
     @UserDefault(key: FoorunKey.UserDefaultKey.usedCoupon, defaultValue: [])
     public var usedCoupons: Set<Int>
 
-    @UserDefault(key: FoorunKey.UserDefaultKey.token, defaultValue: "")
+    @UserDefault(key: FoorunKey.UserDefaultKey.token, defaultValue: "843168213")
     public var token: String
 }
 
