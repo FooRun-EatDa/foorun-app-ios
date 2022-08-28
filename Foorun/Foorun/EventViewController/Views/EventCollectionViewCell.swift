@@ -92,6 +92,7 @@ extension EventCollectionViewCell {
         contentView.addSubview(restaurantTitleLabel)
 
         restaurantTitleLabel.font = .systemFont(ofSize: 13)
+        restaurantTitleLabel.adjustsFontSizeToFitWidth = true
 
         restaurantTitleLabel.snp.makeConstraints {
             $0.top.equalTo(eventTitleLabel.snp.bottom).inset(1 * aspectRatio)
