@@ -55,6 +55,15 @@ struct InformationView: View {
                 }
             }
             
+            HStack {
+                NavigationLink {
+                    ReferenceView(items: viewModel.개발자들)
+                } label: {
+                    Text("🍎 iOS 개발자들 🍎")
+                        .font(.caption)
+                }
+            }
+            
         } header: {
             Text("정보")
         }

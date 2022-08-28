@@ -40,13 +40,23 @@ class SettingViewModel: ObservableObject {
     
     /// 레퍼런스 아이템
     let referenceItems: [ReferenceItem] = [
-        ReferenceItem(title: "ReferenceKit", url: "https://github.com/BoilerSwift/ReferenceKit"),
+        ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire"),
+        ReferenceItem(title: "Kingfisher", url: "https://github.com/onevcat/Kingfisher"),
         ReferenceItem(title: "Logger", url: "https://github.com/BoilerSwift/Logger"),
+        ReferenceItem(title: "RxSwfit", url: "https://github.com/ReactiveX/RxSwift"),
+        ReferenceItem(title: "ReferenceKit", url: "https://github.com/BoilerSwift/ReferenceKit"),
         ReferenceItem(title: "SnapKit", url: "https://github.com/SnapKit/SnapKit"),
         ReferenceItem(title: "Then", url: "https://github.com/devxoul/Then"),
-        ReferenceItem(title: "RxSwfit", url: "https://github.com/ReactiveX/RxSwift", deprecated: true),
-        ReferenceItem(title: "TTGTagCollectionView", url: "https://github.com/zekunyan/TTGTagCollectionView", deprecated: false),
-        ReferenceItem(title: "Alamofire", url: "https://github.com/Alamofire/Alamofire", deprecated: true),
+        
+        ReferenceItem(title: "TTGTagCollectionView", url: "https://github.com/zekunyan/TTGTagCollectionView", deprecated: true),
+    ]
+    
+    let 개발자들: [ReferenceItem] = [
+        ReferenceItem(title: "👩🏻‍💻 김나희", url: "https://github.com/k-nh"),
+        ReferenceItem(title: "👩🏻‍💻 김희진", url: "https://github.com/heejin342"),
+        ReferenceItem(title: "🧑🏻‍💻 김지훈", url: "https://github.com/gnjs224"),
+        ReferenceItem(title: "🧑🏻‍💻 이건우", url: "https://github.com/lgvv"),
+        ReferenceItem(title: "🧑🏻‍💻 윤세영", url: "https://github.com/ssyoun4092")
     ]
     
     @Published var shows인증페이지: Bool = false
