@@ -34,9 +34,11 @@ extension BookmarkTableViewCell {
     
     public func configure(_ item: RestaurantDetail?) {
         guard let item = item else { return }
+        print()
         
-        thumnailImageView.kf.setImage(with: URL(string: item.imgUrl ?? ""), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
-        
+        thumnailImageView.kf.setImage(with: URL(string: item.foods.first?.files.first?.url ?? ""), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
+        titleLabel.adjustsFontSizeToFitWidth = true
+        descriptionLabel.adjustsFontSizeToFitWidth = true
         titleLabel.text = item.name
         descriptionLabel.text = item.explanation == "" ? " " : item.explanation
         if let hashTags = item.hashTags {

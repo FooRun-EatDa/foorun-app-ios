@@ -10,7 +10,7 @@ import Foundation
 struct AssetSet {
     /// 탭바 아이템
     struct TabBarItem {
-        private static let `default`: String = "TabBarItem"
+        private static let `default`: String = "TabbarItem"
         
         static let bookmark = "\(`default`)/bookmark"
         static let event = "\(`default`)/event"
