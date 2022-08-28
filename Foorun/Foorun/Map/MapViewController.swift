@@ -143,8 +143,7 @@ private extension MapViewController {
                 UIApplication.shared.open(url)
             }
         }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel) { UIAlertAction in
-        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addAction(settingAction)
         alert.addAction(cancelAction)
