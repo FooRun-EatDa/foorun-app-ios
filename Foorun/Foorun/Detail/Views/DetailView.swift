@@ -32,9 +32,9 @@ class DetailView: UIView {
     var isBookMarkSelected: Bool {
         didSet {
             if isBookMarkSelected {
-                heartButton.setImage(UIImage(named: "Detail/heartFilled"), for: .normal)
+                heartButton.setImage(UIImage(named: AssetSet.Icon.heartFill), for: .normal)
             } else {
-                heartButton.setImage(UIImage(named: "Detail/heartEmpty"), for: .normal)
+                heartButton.setImage(UIImage(named: AssetSet.Icon.heart), for: .normal)
             }
         }
     }
@@ -53,7 +53,7 @@ class DetailView: UIView {
     }
     
     var heartButton = UIButton().then {
-        $0.setImage(UIImage(named: "Detail/heartEmpty"), for: .normal)
+        $0.setImage(UIImage(named: AssetSet.Icon.heart), for: .normal)
         $0.isSelected = false
         $0.isUserInteractionEnabled = true
     }

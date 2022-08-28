@@ -6,7 +6,7 @@ class TabBarController: UITabBarController {
         
         viewController.tabBarItem = UITabBarItem(
             title: "홈",
-            image: UIImage(named: "tabBarItemHome"),
+            image: UIImage(named: AssetSet.TabBarItem.home),
             tag: 1
         )
         
@@ -18,7 +18,7 @@ class TabBarController: UITabBarController {
         
         viewController.tabBarItem = UITabBarItem(
             title: "북마크",
-            image: UIImage(named: "tabBarItemBookmark"),
+            image: UIImage(named: AssetSet.TabBarItem.bookmark),
             tag: 1
         )
         
@@ -29,8 +29,8 @@ class TabBarController: UITabBarController {
         let viewController = UINavigationController(rootViewController: EventViewController())
 
         viewController.tabBarItem = UITabBarItem(
-            title: "이벤트",
-            image: UIImage(named: "tabBarItemEvent"),
+            title: "이벤트", 
+            image: UIImage(named: AssetSet.TabBarItem.event),
             tag: 1
         )
 
@@ -43,7 +43,7 @@ class TabBarController: UITabBarController {
         
         viewController.tabBarItem = UITabBarItem(
             title: "마이",
-            image: UIImage(named: "tabBarItemMy"),
+            image: UIImage(named: AssetSet.TabBarItem.my),
             tag: 1
         )
         

@@ -34,7 +34,9 @@ extension BookmarkTableViewCell {
     
     public func configure(_ item: RestaurantDetail?) {
         guard let item = item else { return }
-        thumnailImageView.kf.setImage(with: URL(string: item.foods[0].files[0].url ?? ""),placeholder: UIImage(named: "defaultImage"))
+        print()
+        
+        thumnailImageView.kf.setImage(with: URL(string: item.foods.first?.files.first?.url ?? ""), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
         titleLabel.adjustsFontSizeToFitWidth = true
         descriptionLabel.adjustsFontSizeToFitWidth = true
         titleLabel.text = item.name
@@ -45,9 +47,9 @@ extension BookmarkTableViewCell {
             tagLabel.text = " "
         }
     }
-//    override func prepareForReuse() {
-//        thumnailImageView.image = nil
-//    }
+    override func prepareForReuse() {
+        thumnailImageView.image = nil
+    }
     private func tagsToString(_ tags: [String]) -> String {
         tags.map { "#\($0) " }
             .reduce("", +)
