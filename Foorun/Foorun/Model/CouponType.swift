@@ -32,9 +32,9 @@ enum CouponType: String {
 
     func toStampImage() -> UIImage {
         switch self {
-        case .expired: return UIImage(named: "Expired") ?? UIImage()
-        case .used: return UIImage(named: "Used") ?? UIImage()
-        case .선착순_마감: return UIImage(named: "Ended") ?? UIImage()
+        case .expired: return UIImage(named: AssetSet.Event.Stamp.expired) ?? UIImage()
+        case .used: return UIImage(named: AssetSet.Event.Stamp.used) ?? UIImage()
+        case .선착순_마감: return UIImage(named: AssetSet.Event.Stamp.ended) ?? UIImage()
         default: return UIImage()
         }
     }

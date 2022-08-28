@@ -48,7 +48,7 @@ class EventCollectionViewCell: UICollectionViewCell {
 
     func configure(with item: Event, _ type: CouponType) {
         let imageURL = URL(string: item.imageURL ?? "")
-        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: "bannerPlaceholder"))
+        imageView.kf.setImage(with: imageURL, placeholder: UIImage(named: AssetSet.Event.empty))
         eventTitleLabel.text = item.eventName
         restaurantTitleLabel.text = item.restaurantName
         dateLabel.text = removeTimeInDate(item.date) + "종료"
