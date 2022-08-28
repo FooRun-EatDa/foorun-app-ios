@@ -13,7 +13,7 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? BookmarkTableViewCell else { return UITableViewCell() }
         
         cell.configure(bookmarks[self.bookmarks.count - indexPath.row - 1])
-        
+        cell.selectionStyle = .none
         return cell
     }
     
