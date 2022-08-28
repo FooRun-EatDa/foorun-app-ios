@@ -17,6 +17,7 @@ class MapView: UIView {
     let map = MKMapView().then {
         $0.showsUserLocation = true
         $0.setUserTrackingMode(.followWithHeading, animated: true)
+        $0.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.restaurant]))
         $0.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.identifier)
     }
     
