@@ -15,8 +15,8 @@
 		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
 		78C48CB628AFB72500C50FB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78C48CB528AFB72500C50FB5 /* Kingfisher */; };
 		8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD1FE228AFB1FE00288624 /* EventValid.swift */; };
-		8ED9D79328AF2668006A7F94 /* UIViewController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */; };
-		8ED9D79428AF2668006A7F94 /* UIAlertController.Foorun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */; };
+		8ED9D79328AF2668006A7F94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79128AF2668006A7F94 /* UIViewController+.swift */; };
+		8ED9D79428AF2668006A7F94 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79228AF2668006A7F94 /* UIAlertController+.swift */; };
 		8ED9D7A228AF2672006A7F94 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79628AF2672006A7F94 /* EventViewController.swift */; };
 		8ED9D7A328AF2672006A7F94 /* EventViewController.UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79728AF2672006A7F94 /* EventViewController.UICollectionView.swift */; };
 		8ED9D7A428AF2672006A7F94 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79928AF2672006A7F94 /* EventView.swift */; };
@@ -44,6 +44,7 @@
 		B1A410802896650000B9306A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107B2896650000B9306A /* MyPageView.swift */; };
 		B1A410812896650000B9306A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107C2896650000B9306A /* SettingView.swift */; };
 		B1A41085289669D600B9306A /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A41084289669D600B9306A /* CertificationView.swift */; };
+		B1DEE8AC28BB482700F34E12 /* AssetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEE8AB28BB482700F34E12 /* AssetSet.swift */; };
 		F0724D8428B47C9B0005C688 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8328B47C9B0005C688 /* DetailViewController.swift */; };
 		F0724D8628B47CC30005C688 /* RestaurantDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8528B47CC30005C688 /* RestaurantDetailTableViewCell.swift */; };
 		F0724D8828B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8728B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift */; };
@@ -120,8 +121,8 @@
 		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		8EAD1FE228AFB1FE00288624 /* EventValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventValid.swift; path = ../Event/Detail/EventValid.swift; sourceTree = "<group>"; };
 		8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoorunKey.xcodeproj; path = "../../Foorun-key/FoorunKey/FoorunKey.xcodeproj"; sourceTree = "<group>"; };
-		8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.Foorun.swift; sourceTree = "<group>"; };
-		8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertController.Foorun.swift; sourceTree = "<group>"; };
+		8ED9D79128AF2668006A7F94 /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		8ED9D79228AF2668006A7F94 /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		8ED9D79628AF2672006A7F94 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		8ED9D79728AF2672006A7F94 /* EventViewController.UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.UICollectionView.swift; sourceTree = "<group>"; };
 		8ED9D79928AF2672006A7F94 /* EventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 		B1A4107B2896650000B9306A /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		B1A4107C2896650000B9306A /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B1A41084289669D600B9306A /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
+		B1DEE8AB28BB482700F34E12 /* AssetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSet.swift; sourceTree = "<group>"; };
 		F0724D8328B47C9B0005C688 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F0724D8528B47CC30005C688 /* RestaurantDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F0724D8728B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantHashTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -249,9 +251,10 @@
 		8ED9D79028AF2668006A7F94 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8ED9D79128AF2668006A7F94 /* UIViewController.Foorun.swift */,
-				8ED9D79228AF2668006A7F94 /* UIAlertController.Foorun.swift */,
+				8ED9D79128AF2668006A7F94 /* UIViewController+.swift */,
+				8ED9D79228AF2668006A7F94 /* UIAlertController+.swift */,
 				FD7E254B287BBA14008E9E24 /* NSObject+.swift */,
+				B1DEE8AB28BB482700F34E12 /* AssetSet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				8ED9D7A928AF2672006A7F94 /* EventDetailView.swift in Sources */,
 				F0724D8428B47C9B0005C688 /* DetailViewController.swift in Sources */,
 				F0BFAADE2896725700FB499E /* Restaurant.swift in Sources */,
+				B1DEE8AC28BB482700F34E12 /* AssetSet.swift in Sources */,
 				8ED9D7A228AF2672006A7F94 /* EventViewController.swift in Sources */,
 				8ED9D7A328AF2672006A7F94 /* EventViewController.UICollectionView.swift in Sources */,
 				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
@@ -644,7 +648,7 @@
 				7822EF3D28AB6418000D405B /* BookmarkViewController.UITableView.swift in Sources */,
 				F0724D9828B7D0BC0005C688 /* DetailView+TableViewExtension.swift in Sources */,
 				B1A36AB9287AA26A00DE64C8 /* AppDelegate.swift in Sources */,
-				8ED9D79328AF2668006A7F94 /* UIViewController.Foorun.swift in Sources */,
+				8ED9D79328AF2668006A7F94 /* UIViewController+.swift in Sources */,
 				7822EF4828AF3C6E000D405B /* UserDefaultManager.swift in Sources */,
 				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
@@ -652,7 +656,7 @@
 				8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */,
 				8ED9D7A828AF2672006A7F94 /* EventDetailViewController.swift in Sources */,
 				F0724D8C28B47CF50005C688 /* DetailView.swift in Sources */,
-				8ED9D79428AF2668006A7F94 /* UIAlertController.Foorun.swift in Sources */,
+				8ED9D79428AF2668006A7F94 /* UIAlertController+.swift in Sources */,
 				F0724D8628B47CC30005C688 /* RestaurantDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
