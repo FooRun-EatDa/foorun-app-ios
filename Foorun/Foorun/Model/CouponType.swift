@@ -43,11 +43,6 @@ enum CouponType: String {
 extension CouponType {
     static func checkCouponType(event: Event, completion: @escaping (CouponType) -> Void) {
         선착순_마감_확인(id: event.id) { 선착순_마감 in
-            guard isLoggedIn() else {
-                completion(.needLogin)
-                return
-            }
-
             guard !isUsedCoupon(id: event.id) else {
                 completion(.used)
                 return
