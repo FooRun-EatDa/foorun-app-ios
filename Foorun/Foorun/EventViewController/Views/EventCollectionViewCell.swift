@@ -79,10 +79,11 @@ extension EventCollectionViewCell {
         contentView.addSubview(eventTitleLabel)
 
         eventTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        eventTitleLabel.adjustsFontSizeToFitWidth = true
 
         eventTitleLabel.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(7 * aspectRatio)
-            $0.leading.equalToSuperview().inset(leading)
+            $0.leading.trailing.equalToSuperview().inset(leading)
             $0.height.equalTo(23 * aspectRatio)
         }
     }
