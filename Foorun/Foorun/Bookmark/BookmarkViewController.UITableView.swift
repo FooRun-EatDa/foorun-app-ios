@@ -20,9 +20,9 @@ extension BookmarkViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         let delete = UIContextualAction(style: .normal, title: nil) { _, _, _ in
-            let restaurantId = self.bookmarks[self.bookmarks.count - indexPath.row - 1].id
-            self.deleteCache.append(restaurantId)
-            self.delete()
+//            let restaurantId = self.bookmarks[self.bookmarks.count - indexPath.row - 1].id
+//            self.deleteCache.append(restaurantId)
+//            self.delete()
             self.bookmarks.remove(at: self.bookmarks.count - indexPath.row - 1)
             tableView.reloadData()
         }
