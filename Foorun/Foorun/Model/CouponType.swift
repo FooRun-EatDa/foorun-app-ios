@@ -68,7 +68,7 @@ extension CouponType {
     }
 
     static func isLoggedIn() -> Bool {
-        return !UserDefaultManager.shared.token.isEmpty
+        return !(UserDefaultManager.shared.token == "843168213")
     }
 
     static func isValidDate(_ date: String) -> Bool {
