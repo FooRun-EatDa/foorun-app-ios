@@ -33,12 +33,12 @@ extension AnnotationView {
         switch annotation.type {
         case .red:
             self.image = annotation.isSelected
-            ? UIImage(named: AssetSet.Map.Annotation.red)
-            : UIImage(named: AssetSet.Map.Annotation.redDidSelect)
+            ? UIImage(named: AssetSet.Map.Annotation.redDidSelect)
+            : UIImage(named: AssetSet.Map.Annotation.red)
         case .yellow:
             self.image = annotation.isSelected
-            ? UIImage(named: AssetSet.Map.Annotation.yellow)
-            : UIImage(named: AssetSet.Map.Annotation.yellowDidSelect)
+            ? UIImage(named: AssetSet.Map.Annotation.yellowDidSelect)
+            : UIImage(named: AssetSet.Map.Annotation.yellow)
         }
     }
 }
