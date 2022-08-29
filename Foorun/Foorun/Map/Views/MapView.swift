@@ -12,23 +12,23 @@ import SnapKit
 import Then
 
 class MapView: UIView {
-    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2466779, longitude: 127.08107)
+    let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2429616, longitude: 127.0800525)
     
     let map = MKMapView().then {
         $0.showsUserLocation = true
         $0.setUserTrackingMode(.followWithHeading, animated: true)
-        $0.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.restaurant]))
+        $0.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.restaurant, MKPointOfInterestCategory.university]))
         $0.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.identifier)
     }
     
     let currentLocationButton = UIButton().then {
-        $0.setImage(UIImage(named: "currentLocation"), for: .normal)
+        $0.setImage(UIImage(named: AssetSet.Map.current), for: .normal)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let degree: CLLocationDegrees = 0.004
+        let degree: CLLocationDegrees = 0.007
         map.setRegion(MKCoordinateRegion(center: initialCoordinate, span: MKCoordinateSpan(latitudeDelta: degree, longitudeDelta: degree)), animated: true)
         setupMapView()
     }
