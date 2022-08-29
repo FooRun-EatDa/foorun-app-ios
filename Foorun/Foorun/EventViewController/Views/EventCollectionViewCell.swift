@@ -63,6 +63,7 @@ extension EventCollectionViewCell {
     var aspectRatio: CGFloat { return cellWidth / CGFloat(162) }
 
     var leading: CGFloat { return 11 }
+    var trailing: CGFloat { return 11 }
 
     private func setupCellLayer() {
         contentView.layer.cornerRadius = 12 * aspectRatio
@@ -93,7 +94,8 @@ extension EventCollectionViewCell {
 
         eventTitleLabel.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(7 * aspectRatio)
-            $0.leading.trailing.equalToSuperview().inset(leading)
+            $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
             $0.height.equalTo(23 * aspectRatio)
         }
     }
@@ -107,6 +109,7 @@ extension EventCollectionViewCell {
         restaurantTitleLabel.snp.makeConstraints {
             $0.top.equalTo(eventTitleLabel.snp.bottom).inset(1 * aspectRatio)
             $0.leading.equalToSuperview().inset(leading)
+            $0.trailing.equalToSuperview().inset(trailing)
             $0.height.equalTo(16 * aspectRatio)
         }
     }
