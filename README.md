@@ -1,5 +1,7 @@
 # 해당 Foorun iOS파트 결과물입니다.
 
+[👉 UNI-EAT 앱스토어 바로가기]()
+
 ### 프로젝트 기간
  
  1️⃣ 1차 개발: 2022.02 ~ 2022.05 (김나희, 김희진) <br>
@@ -19,17 +21,23 @@
 
 ## 사용한 스위프트 패키지
 
-- 
+- Alamofier 5.6.2
+- Kingfisher 7.3.2
+- Logger main
+- ReferenceKit 1.0.5
+- RxSwfit 6.5.0
+- SnapKit 5.6.0
+- Then 3.0.0
 
 
 ## 기능
 
-- 
+- [iOS 기능 보러가기](https://www.notion.so/iOS-22f42812235140698bac0478ae987b83)
 
 
 해당 프로젝트의 개발자들
- - [🐻‍❄️ 이건우](https://github.com/lgvv)
- - [🐰 김나희](https://github.com/k-nh)
- - [🐯 김지훈](https://github.com/gnjs224)
- - [🐣 김희진](https://github.com/heejin342)
- - [🐸 윤세영](https://github.com/ssyoun4092)
+ - [🐻‍❄️](https://github.com/lgvv)
+ - [🐰](https://github.com/k-nh)
+ - [🐯](https://github.com/gnjs224)
+ - [🐣](https://github.com/heejin342)
+ - [🐸](https://github.com/ssyoun4092)
