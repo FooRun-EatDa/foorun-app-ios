@@ -7,7 +7,7 @@ enum CouponType: String {
     case expired = "기간 만료"
     case used = "사용 완료"
     case 선착순_마감 = "마감되었습니다 😂"
-    case needLogin = "로그인 후 사용가능합니다"
+    case needLogin = "인증 후 사용가능합니다"
 
     func backgroundColor() -> UIColor {
         switch self {

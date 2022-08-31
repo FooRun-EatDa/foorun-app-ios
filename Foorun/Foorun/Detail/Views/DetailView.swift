@@ -154,7 +154,7 @@ extension DetailView {
             self.restaurantSubTitleLabel.text = data?.explanation
             self.foodData = data?.foods ?? []
             
-            self.detailData = RestaurantDetailClientModel(name: data?.name, imgUrl: data?.imgUrl, content: data?.content, address: data?.address, phoneNumber: data?.phoneNumber, operationTime: data?.operationTime, district: data?.district, liked: data?.liked)
+            self.detailData = RestaurantDetailClientModel(name: data?.name, imgUrl: data?.imgUrl, price: data?.price, content: data?.content, address: data?.address, phoneNumber: data?.phoneNumber, operationTime: data?.operationTime, district: data?.district, liked: data?.liked)
 
             guard let hashTags = data?.hashTags else {
                 return
