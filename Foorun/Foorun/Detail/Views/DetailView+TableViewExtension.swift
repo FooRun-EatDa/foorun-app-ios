@@ -32,7 +32,25 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
             
         case 2:
             cell.cellTitleLabel.text = "가격대"
-            cell.cellDetailTitleLabel.text = "\(detailData?.price ?? 10000)원대"
+            guard let price = detailData?.price else {
+                cell.cellDetailTitleLabel.text = "미입력"
+                return UITableViewCell()
+            }   
+            var returnPrice = ""
+            if price == 0 {
+                returnPrice = "미입력"
+            } else {
+                returnPrice = "\(price)원대"
+            }
+            cell.cellDetailTitleLabel.text = returnPrice
+            
+        case 3:
+            cell.cellTitleLabel.text = "상세 주소"
+            guard let address = detailData?.address else {
+                cell.cellDetailTitleLabel.text = "미입력"
+                return UITableViewCell()
+            }
+            cell.cellDetailTitleLabel.text = "\(address)"
 
         default:
             return UITableViewCell()
