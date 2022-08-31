@@ -67,18 +67,14 @@ class RestaurantMenuCollectionViewCell: UICollectionViewCell {
     }
     
     func bind() {
-        DispatchQueue.global().async {
-            guard let imageURL = self.foodModel?.files.first?.url else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.menuImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
-                self.menuImage.backgroundColor = .lightGray
-                self.menuTitle.text = self.foodModel?.name
-                self.menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
-            }
+        guard let imageURL = self.foodModel?.files.first?.url else {
+            self.menuImage.image = UIImage(named: AssetSet.ETC.Food.empty)
+            self.menuTitle.text = self.foodModel?.name
+            self.menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
+            return
         }
-        menuTitle.text = foodModel?.name
-        menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
+        self.menuImage.kf.setImage(with: URL(string: imageURL), placeholder: UIImage(named: AssetSet.ETC.Food.empty))
+        self.menuTitle.text = self.foodModel?.name
+        self.menuPrice.text = String(self.foodModel?.price ?? 0) + "원"
     }
 }
