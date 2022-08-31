@@ -1,6 +1,6 @@
 # 해당 Foorun iOS파트 결과물입니다.
 
-[👉 UNI-EAT 앱스토어 바로가기]()
+[👉 UNI-EAT 앱스토어 바로가기](https://apps.apple.com/app/uni-eat/id1642037820)
 
 ### 프로젝트 기간
  
