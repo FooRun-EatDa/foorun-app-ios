@@ -33,11 +33,7 @@ extension DetailView: UITableViewDelegate, UITableViewDataSource {
         case 2:
             cell.cellTitleLabel.text = "가격대"
             cell.cellDetailTitleLabel.text = "\(detailData?.price ?? 10000)원대"
-            
-        case 3:
-            cell.cellTitleLabel.text = "영업시간"
-            cell.cellDetailTitleLabel.text = detailData?.operationTime ?? "미제공"
-            
+
         default:
             return UITableViewCell()
         }
