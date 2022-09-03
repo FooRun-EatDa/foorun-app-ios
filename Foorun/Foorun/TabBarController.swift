@@ -50,6 +50,20 @@ class TabBarController: UITabBarController {
         return viewController
     }()
     
+    // MARK: - 🎉 BIRTHDAY
+    private lazy var birthDayViewController: UIViewController = {
+        let viewController = UINavigationController(rootViewController: EntryViewController())
+        
+        viewController.tabBarItem = UITabBarItem(
+            title: "",
+            image: UIImage(named: "birthday"),
+            tag: 1
+        )
+        
+        return viewController
+    }()
+    
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -57,6 +71,6 @@ class TabBarController: UITabBarController {
                 
         tabBar.backgroundColor = .white
         tabBar.tintColor = UIColor(red: 255.0/255.0, green: 193.0/255.0, blue: 7.0/255.0, alpha: 1)
-        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, settingViewController]
+        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, settingViewController, birthDayViewController]
     }
 }

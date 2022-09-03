@@ -45,6 +45,8 @@
 		B1A410812896650000B9306A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107C2896650000B9306A /* SettingView.swift */; };
 		B1A41085289669D600B9306A /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A41084289669D600B9306A /* CertificationView.swift */; };
 		B1CEBCB028C338D100A186F0 /* BirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */; };
+		B1CEBCB328C3427C00A186F0 /* birthday.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBCB228C3427C00A186F0 /* birthday.png */; };
+		B1CEBCB628C34A9C00A186F0 /* star.3.png in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBCB528C34A9C00A186F0 /* star.3.png */; };
 		B1DEE8AC28BB482700F34E12 /* AssetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEE8AB28BB482700F34E12 /* AssetSet.swift */; };
 		B1DEE8B328BB52E100F34E12 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1DEE8B228BB52E100F34E12 /* Alamofire */; };
 		F0724D8428B47C9B0005C688 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8328B47C9B0005C688 /* DetailViewController.swift */; };
@@ -151,6 +153,8 @@
 		B1A4107C2896650000B9306A /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B1A41084289669D600B9306A /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
 		B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
+		B1CEBCB228C3427C00A186F0 /* birthday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birthday.png; sourceTree = "<group>"; };
+		B1CEBCB528C34A9C00A186F0 /* star.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.3.png; sourceTree = "<group>"; };
 		B1DEE8AB28BB482700F34E12 /* AssetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSet.swift; sourceTree = "<group>"; };
 		B1DEE90328BB549200F34E12 /* Foorun copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Foorun copy-Info.plist"; path = "/Users/hamlitjason/Desktop/Eatda/foorun-app-ios/Foorun/Foorun copy-Info.plist"; sourceTree = "<absolute>"; };
 		F0724D8328B47C9B0005C688 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -335,7 +339,7 @@
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
-				B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */,
+				B1CEBCB428C3428100A186F0 /* BirthDay */,
 			);
 			path = Foorun;
 			sourceTree = "<group>";
@@ -385,6 +389,16 @@
 				B1A41084289669D600B9306A /* CertificationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B1CEBCB428C3428100A186F0 /* BirthDay */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */,
+				B1CEBCB228C3427C00A186F0 /* birthday.png */,
+				B1CEBCB528C34A9C00A186F0 /* star.3.png */,
+			);
+			path = BirthDay;
 			sourceTree = "<group>";
 		};
 		B1DEE8B028BB528500F34E12 /* Commons */ = {
@@ -603,6 +617,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A36AC5287AA26B00DE64C8 /* LaunchScreen.storyboard in Resources */,
+				B1CEBCB628C34A9C00A186F0 /* star.3.png in Resources */,
+				B1CEBCB328C3427C00A186F0 /* birthday.png in Resources */,
 				B1A36AC2287AA26B00DE64C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,11 +854,11 @@
 		B1A36AE0287AA26B00DE64C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-BirthDay";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0904;
 				DEVELOPMENT_TEAM = 7W4B2CQKWX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
@@ -859,7 +875,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 2022.09.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Foorun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -872,11 +888,11 @@
 		B1A36AE1287AA26B00DE64C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-BirthDay";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0904;
 				DEVELOPMENT_TEAM = 7W4B2CQKWX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foorun/Info.plist;
@@ -893,7 +909,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 2022.09.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.Foorun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
