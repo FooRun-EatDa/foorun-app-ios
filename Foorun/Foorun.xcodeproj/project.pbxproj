@@ -44,6 +44,7 @@
 		B1A410802896650000B9306A /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107B2896650000B9306A /* MyPageView.swift */; };
 		B1A410812896650000B9306A /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A4107C2896650000B9306A /* SettingView.swift */; };
 		B1A41085289669D600B9306A /* CertificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A41084289669D600B9306A /* CertificationView.swift */; };
+		B1CEBCB028C338D100A186F0 /* BirthDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */; };
 		B1DEE8AC28BB482700F34E12 /* AssetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DEE8AB28BB482700F34E12 /* AssetSet.swift */; };
 		B1DEE8B328BB52E100F34E12 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1DEE8B228BB52E100F34E12 /* Alamofire */; };
 		F0724D8428B47C9B0005C688 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0724D8328B47C9B0005C688 /* DetailViewController.swift */; };
@@ -149,6 +150,7 @@
 		B1A4107B2896650000B9306A /* MyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		B1A4107C2896650000B9306A /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B1A41084289669D600B9306A /* CertificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationView.swift; sourceTree = "<group>"; };
+		B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDayViewController.swift; sourceTree = "<group>"; };
 		B1DEE8AB28BB482700F34E12 /* AssetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSet.swift; sourceTree = "<group>"; };
 		B1DEE90328BB549200F34E12 /* Foorun copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Foorun copy-Info.plist"; path = "/Users/hamlitjason/Desktop/Eatda/foorun-app-ios/Foorun/Foorun copy-Info.plist"; sourceTree = "<absolute>"; };
 		F0724D8328B47C9B0005C688 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
 				B1A36AC3287AA26B00DE64C8 /* LaunchScreen.storyboard */,
 				B1A36AC6287AA26B00DE64C8 /* Info.plist */,
+				B1CEBCAF28C338D100A186F0 /* BirthDayViewController.swift */,
 			);
 			path = Foorun;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				FD7E2535287AB36C008E9E24 /* MapViewController.swift in Sources */,
 				FDFF861428B120910012EF71 /* MapViewModel.swift in Sources */,
 				7822EF4D28AF6368000D405B /* TabBarController.swift in Sources */,
+				B1CEBCB028C338D100A186F0 /* BirthDayViewController.swift in Sources */,
 				B1A4107F2896650000B9306A /* InformationView.swift in Sources */,
 				F0724D8828B47CD70005C688 /* RestaurantHashTagCollectionViewCell.swift in Sources */,
 				B1A410812896650000B9306A /* SettingView.swift in Sources */,
