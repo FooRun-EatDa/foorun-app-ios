@@ -14,7 +14,9 @@ struct AssetSet {
         
         static let bookmark = "\(`default`)/bookmark"
         static let event = "\(`default`)/event"
+        static let eventFill = "\(`default`)/event.fill"
         static let home = "\(`default`)/home"
+        static let homeFill = "\(`default`)/home.fill"
         static let my = "\(`default`)/my"
     }
     

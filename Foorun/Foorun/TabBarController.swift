@@ -1,15 +1,16 @@
 import UIKit
 import SwiftUI
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     private lazy var mapViewContoller: UIViewController = {
         let viewController = UINavigationController(rootViewController: MapViewController())
         
         viewController.tabBarItem = UITabBarItem(
             title: "홈",
             image: UIImage(named: AssetSet.TabBarItem.home),
-            tag: 1
+            tag: 0
         )
-        
+        viewController.tabBarItem.selectedImage = UIImage(named: AssetSet.TabBarItem.homeFill)
+       
         return viewController
     }()
     
@@ -31,32 +32,46 @@ class TabBarController: UITabBarController {
         viewController.tabBarItem = UITabBarItem(
             title: "이벤트", 
             image: UIImage(named: AssetSet.TabBarItem.event),
-            tag: 1
+            tag: 2
         )
-
+        viewController.tabBarItem.selectedImage = UIImage(named: AssetSet.TabBarItem.eventFill)
         return viewController
     }()
-    
+    private lazy var myPageViewController: UIViewController = {
+        let viewController = UINavigationController(rootViewController: MyPageViewController())
+        
+        viewController.tabBarItem = UITabBarItem(
+            title: "마이",
+            image: UIImage(named: AssetSet.TabBarItem.my),
+            tag: 3
+        )
+        
+        return viewController
+    }()
     private lazy var settingViewController: UIViewController = {
         let settingViewController = UIHostingController(rootView: SettingView())
         let viewController = UINavigationController(rootViewController: settingViewController)
         
         viewController.tabBarItem = UITabBarItem(
-            title: "마이",
+            title: "건우 마이",
             image: UIImage(named: AssetSet.TabBarItem.my),
-            tag: 1
+            tag: 3
         )
         
         return viewController
     }()
-    
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         tabBar.backgroundColor = .white
-        tabBar.tintColor = UIColor(red: 255.0/255.0, green: 193.0/255.0, blue: 7.0/255.0, alpha: 1)
-        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, settingViewController]
+        tabBar.tintColor = .black
+        
+        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController,settingViewController]
+        
+
     }
+    
 }
