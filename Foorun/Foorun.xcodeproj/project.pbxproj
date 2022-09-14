@@ -13,6 +13,11 @@
 		7822EF4D28AF6368000D405B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7822EF4C28AF6367000D405B /* TabBarController.swift */; };
 		786E52AF289648A900B876E5 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52AE289648A900B876E5 /* BookmarkViewController.swift */; };
 		786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */; };
+		788C788628D14DBD0083AF8E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788528D14DBD0083AF8E /* MyPageViewController.swift */; };
+		788C788828D153660083AF8E /* MyPageViewController.Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788728D153660083AF8E /* MyPageViewController.Layout.swift */; };
+		788C788A28D153770083AF8E /* MyPageViewController.DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788928D153770083AF8E /* MyPageViewController.DataSource.swift */; };
+		788C788C28D154A40083AF8E /* MyPageMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788B28D154A40083AF8E /* MyPageMainViewModel.swift */; };
+		788C788E28D154E60083AF8E /* MyPageMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788D28D154E60083AF8E /* MyPageMenuViewModel.swift */; };
 		78C48CB628AFB72500C50FB5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78C48CB528AFB72500C50FB5 /* Kingfisher */; };
 		8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD1FE228AFB1FE00288624 /* EventValid.swift */; };
 		8ED9D79328AF2668006A7F94 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED9D79128AF2668006A7F94 /* UIViewController+.swift */; };
@@ -119,6 +124,11 @@
 		7822EF4C28AF6367000D405B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		786E52AE289648A900B876E5 /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		786E52B22896492A00B876E5 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
+		788C788528D14DBD0083AF8E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		788C788728D153660083AF8E /* MyPageViewController.Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.Layout.swift; sourceTree = "<group>"; };
+		788C788928D153770083AF8E /* MyPageViewController.DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.DataSource.swift; sourceTree = "<group>"; };
+		788C788B28D154A40083AF8E /* MyPageMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMainViewModel.swift; sourceTree = "<group>"; };
+		788C788D28D154E60083AF8E /* MyPageMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuViewModel.swift; sourceTree = "<group>"; };
 		8EAD1FE228AFB1FE00288624 /* EventValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventValid.swift; path = ../Event/Detail/EventValid.swift; sourceTree = "<group>"; };
 		8EAD1FE428AFB2FC00288624 /* FoorunKey.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FoorunKey.xcodeproj; path = "../../Foorun-key/FoorunKey/FoorunKey.xcodeproj"; sourceTree = "<group>"; };
 		8ED9D79128AF2668006A7F94 /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -240,6 +250,42 @@
 			path = Bookmark;
 			sourceTree = "<group>";
 		};
+		788C788428D14D780083AF8E /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				788C788528D14DBD0083AF8E /* MyPageViewController.swift */,
+				788C788728D153660083AF8E /* MyPageViewController.Layout.swift */,
+				788C788928D153770083AF8E /* MyPageViewController.DataSource.swift */,
+				788C788F28D154F10083AF8E /* ViewModels */,
+				788C789228D15A2B0083AF8E /* Views */,
+				788C789128D15A1B0083AF8E /* Cells */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		788C788F28D154F10083AF8E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				788C788B28D154A40083AF8E /* MyPageMainViewModel.swift */,
+				788C788D28D154E60083AF8E /* MyPageMenuViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		788C789128D15A1B0083AF8E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		788C789228D15A2B0083AF8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8EAD1FE528AFB2FC00288624 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +374,7 @@
 				786E52AD2896488A00B876E5 /* Bookmark */,
 				8ED9D79E28AF2672006A7F94 /* Event */,
 				B1A410762896650000B9306A /* Setting */,
+				788C788428D14D780083AF8E /* MyPage */,
 				B1DEE8B028BB528500F34E12 /* Commons */,
 				8ED9D79028AF2668006A7F94 /* Extensions */,
 				B1A36AC1287AA26B00DE64C8 /* Assets.xcassets */,
@@ -630,6 +677,7 @@
 				F0BFAADE2896725700FB499E /* Restaurant.swift in Sources */,
 				B1DEE8AC28BB482700F34E12 /* AssetSet.swift in Sources */,
 				8ED9D7A228AF2672006A7F94 /* EventViewController.swift in Sources */,
+				788C788C28D154A40083AF8E /* MyPageMainViewModel.swift in Sources */,
 				8ED9D7A328AF2672006A7F94 /* EventViewController.UICollectionView.swift in Sources */,
 				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
 				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
@@ -647,10 +695,12 @@
 				B1A410812896650000B9306A /* SettingView.swift in Sources */,
 				8ED9D7A628AF2672006A7F94 /* Event.swift in Sources */,
 				B1A4107E2896650000B9306A /* SNSView.swift in Sources */,
+				788C788828D153660083AF8E /* MyPageViewController.Layout.swift in Sources */,
 				8ED9D7A728AF2672006A7F94 /* CouponType.swift in Sources */,
 				F0724D9A28B7DA360005C688 /* DetailView+CollectionViewExtension.swift in Sources */,
 				F0724D8F28B47D170005C688 /* DetailViewModel.swift in Sources */,
 				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
+				788C788A28D153770083AF8E /* MyPageViewController.DataSource.swift in Sources */,
 				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
 				8ED9D7A428AF2672006A7F94 /* EventView.swift in Sources */,
 				8ED9D7A528AF2672006A7F94 /* EventCollectionViewCell.swift in Sources */,
@@ -662,8 +712,10 @@
 				7822EF4828AF3C6E000D405B /* UserDefaultManager.swift in Sources */,
 				7822EF4028AB6789000D405B /* BookmarkView.swift in Sources */,
 				B1A36ABB287AA26A00DE64C8 /* SceneDelegate.swift in Sources */,
+				788C788E28D154E60083AF8E /* MyPageMenuViewModel.swift in Sources */,
 				786E52B32896492A00B876E5 /* BookmarkTableViewCell.swift in Sources */,
 				8EAD1FE328AFB1FE00288624 /* EventValid.swift in Sources */,
+				788C788628D14DBD0083AF8E /* MyPageViewController.swift in Sources */,
 				8ED9D7A828AF2672006A7F94 /* EventDetailViewController.swift in Sources */,
 				F0724D8C28B47CF50005C688 /* DetailView.swift in Sources */,
 				8ED9D79428AF2668006A7F94 /* UIAlertController+.swift in Sources */,
