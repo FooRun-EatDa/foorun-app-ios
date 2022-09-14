@@ -74,5 +74,14 @@ struct AssetSet {
             static let empty = "\(`default`)/empty"
         }
     }
+    
+    /// 마이페이지 이미지 셋
+    struct MyPage {
+        private static let `default`: String = "MyPage"
+        
+        static let userdefault = "\(`default`)/userdefault"
+        static let mainlogo = "\(`default`)/mainlogo"
+        static let chevronRight = "\(`default`)/chevron.right"
+    }
 }
 

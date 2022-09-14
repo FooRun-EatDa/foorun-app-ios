@@ -48,18 +48,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         return viewController
     }()
-    private lazy var settingViewController: UIViewController = {
-        let settingViewController = UIHostingController(rootView: SettingView())
-        let viewController = UINavigationController(rootViewController: settingViewController)
-        
-        viewController.tabBarItem = UITabBarItem(
-            title: "건우 마이",
-            image: UIImage(named: AssetSet.TabBarItem.my),
-            tag: 3
-        )
-        
-        return viewController
-    }()
 
     // MARK: - Life Cycle
     
@@ -69,7 +57,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.backgroundColor = .white
         tabBar.tintColor = .black
         
-        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController,settingViewController]
+        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController]
         
 
     }

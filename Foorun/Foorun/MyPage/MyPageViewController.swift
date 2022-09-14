@@ -8,13 +8,39 @@
 import UIKit
 
 class MyPageViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    var viewModel: MyPageViewModel = MyPageViewModel()
+    
+    var myPageCollectionVeiw = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    
+    // MARK: - Properties
+    var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageItem>! = nil
+
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateToken), name: Notification.Name("verificationCompleted"), object: nil)
+        navigationItem.title = viewModel.title
+        setupMyPageCollectionView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "마이페이지"
+    }
+    
+    // MARK: - Methods
+    func setupMyPageCollectionView() {
+        view.addSubview(myPageCollectionVeiw)
         
+        myPageCollectionVeiw.collectionViewLayout = createLayout()
+        myPageCollectionVeiw.isScrollEnabled = false
+        myPageCollectionVeiw.delegate = self
         
-        // Do any additional setup after loading the view.
+        myPageCollectionVeiw.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        configurationDataSource()
     }
     
 }
+
