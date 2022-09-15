@@ -9,18 +9,14 @@ import UIKit
 import SwiftUI
 extension MyPageViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section != 1 {
-            return
-        }
-        guard let nextVC = viewModel.getDetailViewController(index: indexPath.row) else {
-            self.navigationController?.pushViewController(viewModel.getWebViewController(index: indexPath.row), animated: true)
-            return
-            
-        }
-        self.navigationController?.pushViewController(nextVC, animated: true)
+        if indexPath.section != 1 { return }
         
+        if let viewController = viewModel.makeDetailViewController(index: indexPath.row) {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            self.navigationController?.pushViewController(viewModel.makeWebViewController(index: indexPath.row), animated: true)
+        }
     }
-    
 }
 
 // 레아이웃
@@ -52,22 +48,22 @@ extension MyPageViewController {
 // 데이터소스
 extension MyPageViewController {
     enum MyPageSection: Hashable {
-        case main, menu
+        case profile, menu
     }
     
     enum MyPageItem: Hashable {
-        case main(MyPageViewModel)
+        case profile(MyPageViewModel)
         case menu(String)
     }
     
     func configurationDataSource() {
-        let mainRegistration = UICollectionView.CellRegistration<MyPageMainCell, MyPageItem> { _,_,_ in}
-        let menuRegistration = UICollectionView.CellRegistration<MyPageMenuCell, MyPageItem> { _,_,_ in}
+        let profileRegistration = UICollectionView.CellRegistration<MyPageProfileCell, MyPageItem> { _, _, _ in }
+        let menuRegistration = UICollectionView.CellRegistration<MyPageMenuCell, MyPageItem> { _, _, _ in }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: myPageCollectionVeiw, cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .main(let item):
-                let cell = collectionView.dequeueConfiguredReusableCell(using: mainRegistration, for: indexPath, item: itemIdentifier)
+            case .profile(let item):
+                let cell = collectionView.dequeueConfiguredReusableCell(using: profileRegistration, for: indexPath, item: itemIdentifier)
                 cell.configureCell(with: item)
                 cell.delegate = self
                 return cell
@@ -81,25 +77,21 @@ extension MyPageViewController {
         performSnapshot()
 
     }
+    
     func performSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<MyPageSection, MyPageItem>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([.main(viewModel)])
+        snapshot.appendSections([.profile])
+        snapshot.appendItems([.profile(viewModel)])
         snapshot.appendSections([.menu])
         snapshot.appendItems(viewModel.menus.map { .menu($0) })
-        dataSource.apply(snapshot, animatingDifferences: false)
+        dataSource?.apply(snapshot, animatingDifferences: false)
     }
     
 }
 
-extension MyPageViewController: MyPageMainCellDelegate {
-    func goToCertificationView() {
+extension MyPageViewController: MyPageProfileCellDelegate {
+    func showCertificationView() {
         self.navigationController?.pushViewController(UIHostingController(rootView: CertificationView()), animated: true)
-    }
-    @objc
-    func updateToken() {
-        viewModel.updateName()
-        performSnapshot()
     }
 }
 

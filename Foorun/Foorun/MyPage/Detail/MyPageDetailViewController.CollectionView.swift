@@ -10,11 +10,12 @@ import UIKit
 
 extension MyPageDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let nextVC = viewModel.getDetailViewController(index: indexPath.row) else {
-            self.navigationController?.pushViewController(viewModel.getWebViewController(index: indexPath.row), animated: true)
-            return
+        if let viewController = viewModel.makeDetailViewController(index: indexPath.row) {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            self.navigationController?.pushViewController((viewModel.makeWebViewController(index: indexPath.row)), animated: true)
         }
-        self.navigationController?.pushViewController(nextVC, animated: true)
+       
     }
 }
 
@@ -46,9 +47,9 @@ extension MyPageDetailViewController {
     }
     
     func configurationDataSource() {
-        let menuRegistration = UICollectionView.CellRegistration<MyPageMenuCell, MyPageDetailItem> { _,_,_ in}
+        let menuRegistration = UICollectionView.CellRegistration<MyPageMenuCell, MyPageDetailItem> { _, _, _ in }
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: myPageDetailCollectionVeiw, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource(collectionView: myPageDetailCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .menu(let item):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: menuRegistration, for: indexPath, item: itemIdentifier)
@@ -59,7 +60,7 @@ extension MyPageDetailViewController {
         var snapshot = NSDiffableDataSourceSnapshot<MyPageDetailSection, MyPageDetailItem>()
         snapshot.appendSections([.menu])
         snapshot.appendItems(viewModel.menus.map { .menu($0) })
-        dataSource.apply(snapshot, animatingDifferences: false)
+        dataSource?.apply(snapshot, animatingDifferences: false)
                                                         
     }
 }

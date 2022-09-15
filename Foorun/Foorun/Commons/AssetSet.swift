@@ -79,8 +79,8 @@ struct AssetSet {
     struct MyPage {
         private static let `default`: String = "MyPage"
         
-        static let userdefault = "\(`default`)/userdefault"
-        static let mainlogo = "\(`default`)/mainlogo"
+        static let profileEmpty = "\(`default`)/profile.empty"
+        static let appLogo = "\(`default`)/app.logo"
         static let chevronRight = "\(`default`)/chevron.right"
     }
 }
