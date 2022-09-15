@@ -11,7 +11,7 @@ import FoorunKey
 struct CertificationView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @Environment(\.editMode) private var editMode
-    @EnvironmentObject private var viewModel: SettingViewModel
+//    @EnvironmentObject private var viewModel: SettingViewModel
     
     @State private var disabledEmailField = false
     @State var email: String = ""
@@ -109,10 +109,15 @@ struct CertificationView: View {
         ).fetch { apiResponse in
             guard let code = apiResponse.data else { return }
             // NOTE: - 성공해야만 data가 내려옵니다.
+            
             UserDefaultManager.shared.token = "\(code)"
-            viewModel.isToken = true
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "verificationCompleted") , object: nil)
+            
             self.mode.wrappedValue.dismiss()
         }
+        
+        
     }
 }
 

@@ -14,7 +14,9 @@ struct AssetSet {
         
         static let bookmark = "\(`default`)/bookmark"
         static let event = "\(`default`)/event"
+        static let eventFill = "\(`default`)/event.fill"
         static let home = "\(`default`)/home"
+        static let homeFill = "\(`default`)/home.fill"
         static let my = "\(`default`)/my"
     }
     
@@ -71,6 +73,15 @@ struct AssetSet {
             
             static let empty = "\(`default`)/empty"
         }
+    }
+    
+    /// 마이페이지 이미지 셋
+    struct MyPage {
+        private static let `default`: String = "MyPage"
+        
+        static let userdefault = "\(`default`)/userdefault"
+        static let mainlogo = "\(`default`)/mainlogo"
+        static let chevronRight = "\(`default`)/chevron.right"
     }
 }
 
