@@ -98,7 +98,6 @@ extension MyPageViewController: MyPageMainCellDelegate {
     }
     @objc
     func updateToken() {
-        print("asd")
         viewModel.updateName()
         performSnapshot()
     }

@@ -27,7 +27,6 @@ class MyPageMenuCell: UICollectionViewCell {
     // MARK: - Methods
     func configureCell(with: String) {
         titleLabel.text = with
-        print(with)
         rightImageView.image = UIImage(named: AssetSet.MyPage.chevronRight)
     }
     func setupTitleLabel() {

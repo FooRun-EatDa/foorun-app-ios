@@ -23,7 +23,7 @@ class MyPageWebViewController:UIViewController, WKUIDelegate, WKNavigationDelega
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .white
 
@@ -39,13 +39,14 @@ class MyPageWebViewController:UIViewController, WKUIDelegate, WKNavigationDelega
             return
         }
         indicator.startAnimating()
+        
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        setupWebView()
         webView.uiDelegate = self
         let myRequest = URLRequest(url: myURL)
-
         webView.load(myRequest)
-        setupWebView()
+        
         
     }
     
