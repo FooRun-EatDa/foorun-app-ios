@@ -7,20 +7,16 @@
 
 import UIKit
 import WebKit
-class MyPageWebViewController:UIViewController, WKUIDelegate, WKNavigationDelegate{
+
+class MyPageWebViewController:UIViewController, WKUIDelegate{
     
     // MARK: - IBOutlets
-    var webView: WKWebView!
-    var emptyLabel: UILabel = UILabel()
+    var webView: WKWebView = WKWebView(frame: .zero)
     var indicator = UIActivityIndicatorView()
     
     // MARK: - Properties
-    var link: String?
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        indicator.stopAnimating()
-    }
-    
+    var linkString: String?
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,56 +25,50 @@ class MyPageWebViewController:UIViewController, WKUIDelegate, WKNavigationDelega
 
         configureWebView()
         setupIndicator()
-        
-    }
-    func configureWebView() {
-        
-        guard  let myURL = URL(string: link ?? "") else {
-            indicator.isHidden = true
-            setupEmptyLabel()
-            return
-        }
-        indicator.startAnimating()
-        
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        setupWebView()
-        webView.uiDelegate = self
-        let myRequest = URLRequest(url: myURL)
-        webView.load(myRequest)
-        
-        
     }
     
-    func setupEmptyLabel() {
-        view.addSubview(emptyLabel)
+    // MARK: - Methods
+    func loadWebView() {
         
-        emptyLabel.text = "일시적인 오류가 발생했어요...😱"
-        emptyLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+        guard  let url = URL(string: linkString ?? "") else {
+            self.navigationController?.popViewController(animated: true)
+            return
         }
-        
+        let request = URLRequest(url: url)
+        webView.load(request)
+    }
+    
+    func configureWebView() {
+        setupWebView()
+        loadWebView()
     }
     
     func setupWebView() {
-        
         view.addSubview(webView)
         
+        webView.uiDelegate = self
         webView.navigationDelegate = self
         
         webView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
-        
     }
     
     func setupIndicator() {
-        
         view.addSubview(indicator)
+        
         indicator.snp.makeConstraints {
             $0.centerY.centerX.equalToSuperview()
         }
-        
-        
+    }
+}
+
+extension MyPageWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        indicator.startAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        indicator.stopAnimating()
     }
 }

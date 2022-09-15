@@ -8,12 +8,25 @@
 import UIKit
 
 class MyPageDetailViewController: UIViewController {
-    // MARK: - IBOutlets
-    var viewModel = MyPageViewModel(title: "", menus: [""])
-    var myPageDetailCollectionVeiw = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     // MARK: - Properties
-    var dataSource: UICollectionViewDiffableDataSource<MyPageDetailSection, MyPageDetailItem>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<MyPageDetailSection, MyPageDetailItem>!
+
+    // MARK: - IBOutlets
+    var viewModel: MyPageViewModel
+    var myPageDetailCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    
+    // MARK: - Initializer
+    init(dataSource: UICollectionViewDiffableDataSource<MyPageDetailSection, MyPageDetailItem>? = nil, viewModel: MyPageViewModel) {
+        self.dataSource = dataSource
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,13 +40,13 @@ class MyPageDetailViewController: UIViewController {
     
     // MARK: - Methods
     func setupMyPageCollectionView() {
-        view.addSubview(myPageDetailCollectionVeiw)
+        view.addSubview(myPageDetailCollectionView)
         
-        myPageDetailCollectionVeiw.collectionViewLayout = createLayout()
-        myPageDetailCollectionVeiw.isScrollEnabled = false
-        myPageDetailCollectionVeiw.delegate = self
+        myPageDetailCollectionView.collectionViewLayout = createLayout()
+        myPageDetailCollectionView.isScrollEnabled = false
+        myPageDetailCollectionView.delegate = self
         
-        myPageDetailCollectionVeiw.snp.makeConstraints {
+        myPageDetailCollectionView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
         configurationDataSource()

@@ -16,7 +16,7 @@
 		7886FFD628D203D5006D4590 /* MyPageDetailViewController.CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7886FFD528D203D5006D4590 /* MyPageDetailViewController.CollectionView.swift */; };
 		788C788628D14DBD0083AF8E /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788528D14DBD0083AF8E /* MyPageViewController.swift */; };
 		788C788C28D154A40083AF8E /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C788B28D154A40083AF8E /* MyPageViewModel.swift */; };
-		788C789528D1B31B0083AF8E /* MyPageMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C789428D1B31B0083AF8E /* MyPageMainCell.swift */; };
+		788C789528D1B31B0083AF8E /* MyPageProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C789428D1B31B0083AF8E /* MyPageProfileCell.swift */; };
 		788C789728D1B3270083AF8E /* MyPageMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C789628D1B3270083AF8E /* MyPageMenuCell.swift */; };
 		788C789928D1CF000083AF8E /* MyPageViewController.CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C789828D1CF000083AF8E /* MyPageViewController.CollectionView.swift */; };
 		788C789D28D1D7AB0083AF8E /* MyPageWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788C789C28D1D7AB0083AF8E /* MyPageWebViewController.swift */; };
@@ -130,7 +130,7 @@
 		7886FFD528D203D5006D4590 /* MyPageDetailViewController.CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageDetailViewController.CollectionView.swift; sourceTree = "<group>"; };
 		788C788528D14DBD0083AF8E /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		788C788B28D154A40083AF8E /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
-		788C789428D1B31B0083AF8E /* MyPageMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMainCell.swift; sourceTree = "<group>"; };
+		788C789428D1B31B0083AF8E /* MyPageProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProfileCell.swift; sourceTree = "<group>"; };
 		788C789628D1B3270083AF8E /* MyPageMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuCell.swift; sourceTree = "<group>"; };
 		788C789828D1CF000083AF8E /* MyPageViewController.CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.CollectionView.swift; sourceTree = "<group>"; };
 		788C789C28D1D7AB0083AF8E /* MyPageWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageWebViewController.swift; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		788C789128D15A1B0083AF8E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				788C789428D1B31B0083AF8E /* MyPageMainCell.swift */,
+				788C789428D1B31B0083AF8E /* MyPageProfileCell.swift */,
 				788C789628D1B3270083AF8E /* MyPageMenuCell.swift */,
 			);
 			path = Cells;
@@ -699,7 +699,7 @@
 				8ED9D7A728AF2672006A7F94 /* CouponType.swift in Sources */,
 				F0724D9A28B7DA360005C688 /* DetailView+CollectionViewExtension.swift in Sources */,
 				F0724D8F28B47D170005C688 /* DetailViewModel.swift in Sources */,
-				788C789528D1B31B0083AF8E /* MyPageMainCell.swift in Sources */,
+				788C789528D1B31B0083AF8E /* MyPageProfileCell.swift in Sources */,
 				B1A4107D2896650000B9306A /* SettingViewModel.swift in Sources */,
 				F0BFAADB2896723600FB499E /* APIClient.swift in Sources */,
 				788C789D28D1D7AB0083AF8E /* MyPageWebViewController.swift in Sources */,

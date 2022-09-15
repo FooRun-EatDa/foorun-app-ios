@@ -6,15 +6,17 @@
 //
 
 import UIKit
-class MyPageMenuCell: UICollectionViewCell {
+
+final class MyPageMenuCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     let titleLabel = UILabel()
-    let rightImageView = UIImageView()
+    let accessoryDisclosureIndicator = UIImageView()
     
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupTitleLabel()
         setupRightImageView()
     }
@@ -24,12 +26,16 @@ class MyPageMenuCell: UICollectionViewCell {
         
     }
     
-    // MARK: - Methods
-    func configureCell(with: String) {
-        titleLabel.text = with
-        rightImageView.image = UIImage(named: AssetSet.MyPage.chevronRight)
+    func configureCell(with item: String) {
+        titleLabel.text = item
     }
-    func setupTitleLabel() {
+
+}
+
+extension MyPageMenuCell {
+
+    
+    private func setupTitleLabel() {
         contentView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints {
@@ -37,10 +43,12 @@ class MyPageMenuCell: UICollectionViewCell {
         }
     }
     
-    func setupRightImageView() {
-        contentView.addSubview(rightImageView)
+    private func setupRightImageView() {
+        contentView.addSubview(accessoryDisclosureIndicator)
         
-        rightImageView.snp.makeConstraints {
+        accessoryDisclosureIndicator.image = UIImage(named: AssetSet.MyPage.chevronRight)
+        
+        accessoryDisclosureIndicator.snp.makeConstraints {
             $0.centerY.trailing.equalToSuperview()
         }
     }

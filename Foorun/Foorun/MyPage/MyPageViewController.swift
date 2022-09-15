@@ -9,13 +9,12 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
-    // MARK: - IBOutlets
-    var viewModel: MyPageViewModel = MyPageViewModel()
-    
-    var myPageCollectionVeiw = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-    
     // MARK: - Properties
     var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageItem>! = nil
+    var viewModel: MyPageViewModel = MyPageViewModel()
+    
+    // MARK: - IBOutlets
+    var myPageCollectionVeiw = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
 
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -24,11 +23,21 @@ class MyPageViewController: UIViewController {
         navigationItem.title = viewModel.title
         setupMyPageCollectionView()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
     }
     
     // MARK: - Methods
+    @objc
+    func updateToken() {
+        viewModel.updateName()
+        performSnapshot()
+    }
+}
+
+extension MyPageViewController {
     func setupMyPageCollectionView() {
         view.addSubview(myPageCollectionVeiw)
         
@@ -41,6 +50,5 @@ class MyPageViewController: UIViewController {
         }
         configurationDataSource()
     }
-    
 }
 

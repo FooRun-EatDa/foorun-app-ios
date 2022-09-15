@@ -9,8 +9,8 @@ import UIKit
 
 struct MyPageViewModel: Hashable {
     var title = "마이페이지"
-    let userImgUrl = AssetSet.MyPage.userdefault
-    let logoImgUrl = AssetSet.MyPage.mainlogo
+    let profileImageName = AssetSet.MyPage.profileEmpty
+    let logoImageName = AssetSet.MyPage.appLogo
     var name = UserDefaultManager.shared.token
     
     var menus: [String] = [
@@ -21,12 +21,12 @@ struct MyPageViewModel: Hashable {
         "신고 / 문의하기"
     ]
     
-    let links: [String: String]  = [
+    let linkStrings: [String: String]  = [
         "공지사항": "https://synonymous-reading-054.notion.site/d11e2a4381704e72a03eca81a3a406f8",
         "개인정보 처리방침": "https://synonymous-reading-054.notion.site/ebf982ca25cb4f5397cadf3fceedd353",
         "약관 및 정책": "https://synonymous-reading-054.notion.site/063a327e74ad4f8b8c1a38847639e75c",
         "업데이트 소식": "https://synonymous-reading-054.notion.site/iOS-22f42812235140698bac0478ae987b83",
-        "푸런팀": "https://synonymous-reading-054.notion.site/5e938cf823c040a193c566591fe5bfef",
+        "푸런팀": "https://synonymous-reading-054.notion.site/b878f028ac0a493ca61af17444b8c7e2?v=49f1b24a95514300b2fb273a34e1be90",
         "카카오톡 채널" : "https://pf.kakao.com/_xaxbJIxj",
         "인스타그램": "https://www.instagram.com/uni__eat/",
         "👩🏻‍💻 김나희": "https://github.com/k-nh",
@@ -77,18 +77,18 @@ struct MyPageViewModel: Hashable {
         self.menus = menus
     }
     
-    func getWebViewController(index: Int) -> MyPageWebViewController {
-        let nextVC = MyPageWebViewController()
-        nextVC.link = links[menus[index]]
-        return nextVC
+    func makeWebViewController(index: Int) -> MyPageWebViewController {
+        let viewController = MyPageWebViewController()
+        viewController.linkString = linkStrings[menus[index]]
+        return viewController
     }
     
-    func getDetailViewController(index: Int) -> MyPageDetailViewController? {
-        let nextVC = MyPageDetailViewController()
+    func makeDetailViewController(index: Int) -> MyPageDetailViewController? {
         let keyTitle = menus[index]
-        guard let nextMenus = nextMenus[keyTitle] else { return nil}
-        nextVC.viewModel = MyPageViewModel(title: keyTitle, menus: nextMenus)
-        return nextVC
+        guard let nextMenus = nextMenus[keyTitle] else { return nil }
+        let viewController = MyPageDetailViewController(viewModel: MyPageViewModel(title: keyTitle, menus: nextMenus))
+       
+        return viewController
     }
     
     mutating func updateName() {
