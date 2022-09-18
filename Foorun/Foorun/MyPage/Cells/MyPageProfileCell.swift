@@ -6,13 +6,8 @@
 //
 
 import UIKit
-protocol MyPageProfileCellDelegate: AnyObject {
-    func showCertificationView()
-}
+
 final class MyPageProfileCell: UICollectionViewCell {
-    
-    // MARK: - Properties
-    weak var delegate: MyPageProfileCellDelegate?
     
     // MARK: - IBOutlets
     let profileImageView = UIImageView()
@@ -42,13 +37,6 @@ final class MyPageProfileCell: UICollectionViewCell {
         certificationButton.setTitle( item.name == "" ? "인증 하기" : "인증완료", for: .normal)
         certificationButton.isEnabled = item.name == ""
     }
-    
-    @objc
-    func didTapCertificationButton() {
-        delegate?.showCertificationView()
-    }
-
-    
 }
 extension MyPageProfileCell {
     private func setupContentView() {
@@ -85,8 +73,7 @@ extension MyPageProfileCell {
     
     private func setupCertificationButton() {
         contentView.addSubview(certificationButton)
-        
-        certificationButton.addTarget(self, action: #selector(didTapCertificationButton), for: .touchUpInside)
+
         certificationButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         
         certificationButton.snp.makeConstraints {
@@ -97,6 +84,7 @@ extension MyPageProfileCell {
     
     private func setupLogoImageView() {
         contentView.addSubview(logoImageView)
+        
         logoImageView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.trailing.equalToSuperview().offset(10.73)

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MyPageViewController: UIViewController {
     
@@ -37,6 +38,11 @@ class MyPageViewController: UIViewController {
     func updateToken() {
         viewModel.updateName()
         performSnapshot()
+    }
+
+    @objc
+    func didTapProfileCell() {
+        self.navigationController?.pushViewController(UIHostingController(rootView: CertificationView()), animated: true)
     }
 }
 

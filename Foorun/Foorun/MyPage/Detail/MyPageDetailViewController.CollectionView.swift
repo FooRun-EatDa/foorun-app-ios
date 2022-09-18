@@ -26,7 +26,7 @@ extension MyPageDetailViewController {
     func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
             let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.14)))
-            item.contentInsets = .init(top: 16.5, leading: 21, bottom: 16.5, trailing: 22)
+            item.contentInsets = .init(top: 4.5, leading: 21, bottom: 4.5, trailing: 21)
             let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1)), subitems: [item])
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none

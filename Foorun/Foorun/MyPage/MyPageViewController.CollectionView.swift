@@ -34,7 +34,7 @@ extension MyPageViewController {
                 return section
             } else {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.14)))
-                item.contentInsets = .init(top: 16.5, leading: 21, bottom: 16.5, trailing: 22)
+                item.contentInsets = .init(top: 4.5, leading: 21, bottom: 4.5, trailing: 21)
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1)), subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .none
@@ -60,12 +60,19 @@ extension MyPageViewController {
         let profileRegistration = UICollectionView.CellRegistration<MyPageProfileCell, MyPageItem> { _, _, _ in }
         let menuRegistration = UICollectionView.CellRegistration<MyPageMenuCell, MyPageItem> { _, _, _ in }
         
-        dataSource = UICollectionViewDiffableDataSource(collectionView: myPageCollectionVeiw, cellProvider: { collectionView, indexPath, itemIdentifier in
+        dataSource = UICollectionViewDiffableDataSource(
+            collectionView: myPageCollectionVeiw,
+            cellProvider: { [weak self] collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .profile(let item):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: profileRegistration, for: indexPath, item: itemIdentifier)
                 cell.configureCell(with: item)
-                cell.delegate = self
+                cell.contentView.addGestureRecognizer(
+                    UITapGestureRecognizer(
+                        target: self,
+                        action: #selector(self?.didTapProfileCell))
+                )
+
                 return cell
             case .menu(let item):
                 let cell = collectionView.dequeueConfiguredReusableCell(using: menuRegistration, for: indexPath, item: itemIdentifier)
@@ -86,13 +93,4 @@ extension MyPageViewController {
         snapshot.appendItems(viewModel.menus.map { .menu($0) })
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
-    
 }
-
-extension MyPageViewController: MyPageProfileCellDelegate {
-    func showCertificationView() {
-        self.navigationController?.pushViewController(UIHostingController(rootView: CertificationView()), animated: true)
-    }
-}
-
-
