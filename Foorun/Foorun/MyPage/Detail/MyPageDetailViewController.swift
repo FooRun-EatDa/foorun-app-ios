@@ -34,12 +34,19 @@ class MyPageDetailViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = viewModel.title
         view.backgroundColor = .systemBackground
-        
+
+        setupNavigationBar()
         setupMyPageCollectionView()
     }
     
     // MARK: - Methods
-    func setupMyPageCollectionView() {
+
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.topItem?.backButtonDisplayMode = .minimal
+        navigationController?.navigationBar.tintColor = .black
+    }
+
+    private func setupMyPageCollectionView() {
         view.addSubview(myPageDetailCollectionView)
         
         myPageDetailCollectionView.collectionViewLayout = createLayout()
@@ -51,7 +58,6 @@ class MyPageDetailViewController: UIViewController {
         }
         configurationDataSource()
     }
-    
 }
 
 

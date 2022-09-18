@@ -18,7 +18,7 @@ struct MyPageViewModel: Hashable {
         "서비스 소개",
         "개인정보 처리방침",
         "약관 및 정책",
-        "신고 / 문의하기"
+        "문의 / 소통하기"
     ]
     
     let linkStrings: [String: String]  = [
@@ -50,7 +50,7 @@ struct MyPageViewModel: Hashable {
             "사용한 오픈소스",
             "iOS 개발자들"
         ],
-        "신고 / 문의하기": [
+        "문의 / 소통하기": [
             "인스타그램",
             "카카오톡 채널"
         ],

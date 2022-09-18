@@ -10,7 +10,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             tag: 0
         )
         viewController.tabBarItem.selectedImage = UIImage(named: AssetSet.TabBarItem.homeFill)
-       
+
         return viewController
     }()
     
@@ -22,6 +22,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             image: UIImage(named: AssetSet.TabBarItem.bookmark),
             tag: 1
         )
+        viewController.setupLargetTitle()
         
         return viewController
     }()
@@ -30,13 +31,15 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let viewController = UINavigationController(rootViewController: EventViewController())
 
         viewController.tabBarItem = UITabBarItem(
-            title: "이벤트", 
+            title: "이벤트",
             image: UIImage(named: AssetSet.TabBarItem.event),
             tag: 2
         )
+        viewController.setupLargetTitle()
         
         return viewController
     }()
+
     private lazy var myPageViewController: UIViewController = {
         let viewController = UINavigationController(rootViewController: MyPageViewController())
         
@@ -45,6 +48,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             image: UIImage(named: AssetSet.TabBarItem.my),
             tag: 3
         )
+        viewController.setupLargetTitle()
         
         return viewController
     }()
@@ -58,7 +62,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController]
     }
 
-    func setupTabBar() {
+    private func setupTabBar() {
         tabBar.backgroundColor = .white
         tabBar.tintColor = .black
 
@@ -66,5 +70,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.layer.shadowRadius = 9
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.1
+    }
+}
+
+private extension UINavigationController {
+    func setupLargetTitle() {
+        self.navigationBar.largeTitleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
     }
 }
