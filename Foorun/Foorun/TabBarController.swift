@@ -53,13 +53,18 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setupTabBar()
+        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController]
+    }
+
+    func setupTabBar() {
         tabBar.backgroundColor = .white
         tabBar.tintColor = .black
-        
-        viewControllers = [mapViewContoller, bookmarkViewController, eventViewController, myPageViewController]
-        
 
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowRadius = 9
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.shadowOpacity = 0.1
     }
-    
 }
