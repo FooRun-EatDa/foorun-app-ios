@@ -34,7 +34,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             image: UIImage(named: AssetSet.TabBarItem.event),
             tag: 2
         )
-        viewController.tabBarItem.selectedImage = UIImage(named: AssetSet.TabBarItem.eventFill)
+        
         return viewController
     }()
     private lazy var myPageViewController: UIViewController = {
