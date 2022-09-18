@@ -21,6 +21,7 @@ extension MyPageDetailViewController: UICollectionViewDelegate {
 
 // 레아이웃
 extension MyPageDetailViewController {
+
     /// 컴포지셔널 레이아웃 그려주는 함수
     func createLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in

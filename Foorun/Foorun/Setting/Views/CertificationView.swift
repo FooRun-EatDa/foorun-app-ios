@@ -12,7 +12,7 @@ enum ErrorMessage: String {
     case none = "인증 성공 !"
     case empty = "이메일을 입력해주세요"
     case incorrectCode = "인증번호가 올바르지 않아요"
-    case invalidEmail = "이메일이 올바르지 않아요"
+    case invalidEmail = "학교 이메일을 입력해주세요"
 }
 
 struct CertificationView: View {

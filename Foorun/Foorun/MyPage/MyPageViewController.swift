@@ -10,8 +10,11 @@ import UIKit
 class MyPageViewController: UIViewController {
     
     // MARK: - Properties
-    var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageItem>! = nil
+    
     var viewModel: MyPageViewModel = MyPageViewModel()
+    
+    var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageItem>! = nil
+
     
     // MARK: - IBOutlets
     var myPageCollectionVeiw = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
