@@ -12,7 +12,7 @@ final class MyPageProfileCell: UICollectionViewCell {
     // MARK: - IBOutlets
     let profileImageView = UIImageView()
     let nameLabel = UILabel()
-    let certificationButton = UIButton()
+    let certificationLabel = UILabel()
     let logoImageView = UIImageView()
 
     
@@ -34,8 +34,7 @@ final class MyPageProfileCell: UICollectionViewCell {
         
         logoImageView.image = UIImage(named: item.logoImageName)
 
-        certificationButton.setTitle( item.name == "" ? "인증 하기" : "인증완료", for: .normal)
-        certificationButton.isEnabled = item.name == ""
+        certificationLabel.text = item.name == "" ? "인증 하기" : "인증완료"
     }
 }
 extension MyPageProfileCell {
@@ -72,11 +71,12 @@ extension MyPageProfileCell {
     }
     
     private func setupCertificationButton() {
-        contentView.addSubview(certificationButton)
+        contentView.addSubview(certificationLabel)
 
-        certificationButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        certificationLabel.font = UIFont.systemFont(ofSize: 13)
+        certificationLabel.textColor = .white
         
-        certificationButton.snp.makeConstraints {
+        certificationLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview().offset(14.5)
             $0.leading.equalTo(nameLabel)
         }
