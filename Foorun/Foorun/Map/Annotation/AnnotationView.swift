@@ -25,10 +25,9 @@ class AnnotationView: MKAnnotationView {
 
 extension AnnotationView {
     func updateAnnotation() {
-        guard let annotation = annotation as? Annotation else { return }
+        guard let annotation = annotation as? DisplayedAnnotation else { return }
         annotation.isSelected = !annotation.isSelected
         self.canShowCallout = false
-        self.displayPriority = .defaultHigh
     
         switch annotation.type {
         case .red:
