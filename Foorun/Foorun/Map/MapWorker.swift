@@ -20,8 +20,7 @@ final class MapWorker {
                           longitude: Double,
                           completion: @escaping ([Annotation]) -> Void) {
         
-        let body: Parameters = ["latitude": latitude,
-                                "longitude": longitude]
+        let body: Parameters = ["latitude": latitude, "longitude": longitude]
         
         API<[Annotation]>(requestString: FoorunRequest.Restaurant.top,
                           method: .post,

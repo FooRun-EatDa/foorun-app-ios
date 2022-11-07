@@ -69,8 +69,9 @@
 		FD5A0E8928E411A800A0BC59 /* MapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5A0E8328E411A800A0BC59 /* MapModels.swift */; };
 		FD5A0E8A28E411A800A0BC59 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5A0E8428E411A800A0BC59 /* MapViewController.swift */; };
 		FD5A0E8B28E411A800A0BC59 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5A0E8528E411A800A0BC59 /* MapInteractor.swift */; };
-		FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* AnnotationView.swift */; };
+		FD7E2549287BB842008E9E24 /* RestaurantAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E2548287BB842008E9E24 /* RestaurantAnnotationView.swift */; };
 		FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E254B287BBA14008E9E24 /* NSObject+.swift */; };
+		FDB8AD6F29177E37001B9DB7 /* CusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8AD6E29177E37001B9DB7 /* CusterAnnotationView.swift */; };
 		FDFF861028B120620012EF71 /* DisplayedAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF860F28B120620012EF71 /* DisplayedAnnotation.swift */; };
 		FDFF861228B120700012EF71 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF861128B120700012EF71 /* Annotation.swift */; };
 		FDFF861728B120E50012EF71 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF861628B120E50012EF71 /* RxCocoa */; };
@@ -184,8 +185,9 @@
 		FD5A0E8328E411A800A0BC59 /* MapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModels.swift; sourceTree = "<group>"; };
 		FD5A0E8428E411A800A0BC59 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD5A0E8528E411A800A0BC59 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
-		FD7E2548287BB842008E9E24 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		FD7E2548287BB842008E9E24 /* RestaurantAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantAnnotationView.swift; sourceTree = "<group>"; };
 		FD7E254B287BBA14008E9E24 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		FDB8AD6E29177E37001B9DB7 /* CusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusterAnnotationView.swift; sourceTree = "<group>"; };
 		FDFF860F28B120620012EF71 /* DisplayedAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedAnnotation.swift; sourceTree = "<group>"; };
 		FDFF861128B120700012EF71 /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,8 +375,8 @@
 				B1A36AB8287AA26A00DE64C8 /* AppDelegate.swift */,
 				B1A36ABA287AA26A00DE64C8 /* SceneDelegate.swift */,
 				7822EF4C28AF6367000D405B /* TabBarController.swift */,
-				F0724D8128B47C550005C688 /* Detail */,
 				FD7E2533287AB363008E9E24 /* Map */,
+				F0724D8128B47C550005C688 /* Detail */,
 				786E52AD2896488A00B876E5 /* Bookmark */,
 				8ED9D79E28AF2672006A7F94 /* Event */,
 				B1A410762896650000B9306A /* Setting */,
@@ -488,7 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				FDFF860F28B120620012EF71 /* DisplayedAnnotation.swift */,
-				FD7E2548287BB842008E9E24 /* AnnotationView.swift */,
+				FD7E2548287BB842008E9E24 /* RestaurantAnnotationView.swift */,
+				FDB8AD6E29177E37001B9DB7 /* CusterAnnotationView.swift */,
 			);
 			path = Annotation;
 			sourceTree = "<group>";
@@ -688,10 +691,11 @@
 				8ED9D7A328AF2672006A7F94 /* EventViewController.UICollectionView.swift in Sources */,
 				B1A410802896650000B9306A /* MyPageView.swift in Sources */,
 				B1A41085289669D600B9306A /* CertificationView.swift in Sources */,
+				FDB8AD6F29177E37001B9DB7 /* CusterAnnotationView.swift in Sources */,
 				F0724D8A28B47CE30005C688 /* RestaurantMenuCollectionViewCell.swift in Sources */,
 				FDFF861028B120620012EF71 /* DisplayedAnnotation.swift in Sources */,
 				FDFF861228B120700012EF71 /* Annotation.swift in Sources */,
-				FD7E2549287BB842008E9E24 /* AnnotationView.swift in Sources */,
+				FD7E2549287BB842008E9E24 /* RestaurantAnnotationView.swift in Sources */,
 				FD7E254C287BBA14008E9E24 /* NSObject+.swift in Sources */,
 				FD5A0E8628E411A800A0BC59 /* MapPresenter.swift in Sources */,
 				7822EF4D28AF6368000D405B /* TabBarController.swift in Sources */,

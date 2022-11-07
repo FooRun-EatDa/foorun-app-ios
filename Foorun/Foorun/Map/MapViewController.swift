@@ -21,24 +21,23 @@ protocol MapDisplayLogic: AnyObject {
 }
 
 final class MapViewController: UIViewController, MapDisplayLogic {
-    let disposeBag = DisposeBag() // 삭제 예정
     let locationManager = CLLocationManager()
-
+    
     private var displayedAnntoations: [DisplayedAnnotation] = []
     var interactor: MapBusinessLogic?
-
-    // MARK: UI Component
+    
+    // MARK: - UI Component
     let mapView = MKMapView().then {
         $0.showsUserLocation = true
         $0.setUserTrackingMode(.followWithHeading, animated: true)
         $0.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.restaurant, MKPointOfInterestCategory.university]))
     }
-
+    
     let currentLocationButton = UIButton().then {
         $0.setImage(UIImage(named: AssetSet.Map.current), for: .normal)
     }
     
-    // MARK: Object lifecycle
+    // MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setupVIP()
@@ -49,7 +48,7 @@ final class MapViewController: UIViewController, MapDisplayLogic {
         setupVIP()
     }
     
-    // MARK: Setup
+    // MARK: - Setup VIP
     private func setupVIP() {
         let viewController = self
         let interactor = MapInteractor()
@@ -73,7 +72,7 @@ final class MapViewController: UIViewController, MapDisplayLogic {
         setupUI()
     }
     
-    // MARK: MapDisplayLogic
+    // MARK: - MapDisplayLogic
     func displayAnnotations(viewModel: Map.FetchAnnotations.ViewModel) {
         mapView.addAnnotations(viewModel.displayedAnnotations)
     }
@@ -87,7 +86,7 @@ final class MapViewController: UIViewController, MapDisplayLogic {
     }
 }
 
-// MARK: UI 관련 함수
+// MARK: - Setup UI
 private extension MapViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
@@ -96,27 +95,24 @@ private extension MapViewController {
     }
     
     func setupMapView() {
-        let initialCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.2487996,
-                                                                               longitude: 127.0777229)
-        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.007,
-                                                       longitudeDelta: 0.007)
+        let initialCoordinate = CLLocationCoordinate2D(latitude: 37.2487996, longitude: 127.0777229)
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.007, longitudeDelta: 0.007)
         
         view.addSubview(mapView)
-        
         mapView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         mapView.setRegion(MKCoordinateRegion(center: initialCoordinate, span: span), animated: true)
-        mapView.register(AnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationView.identifier)
+        mapView.register(RestaurantAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(ClusterAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         
         setupCurrentButton()
     }
     
     func setupCurrentButton() {
         mapView.addSubview(currentLocationButton)
-
         currentLocationButton.snp.makeConstraints {
             $0.trailing.bottom.equalToSuperview().inset(20)
             $0.width.height.equalTo(60)
@@ -124,10 +120,16 @@ private extension MapViewController {
         
         currentLocationButton.addTarget(self, action: #selector(moveToCurrentLocation), for: .touchUpInside)
     }
+    
+    func updateAnnotation(_ view: MKAnnotationView, _ annotation: DisplayedAnnotation) {
+        if let view = view as? RestaurantAnnotationView {
+            view.updateAnnotation()
+        }
+    }
 }
 
 
-// MARK: CLLocationManager Delegate + 관련 함수
+// MARK: - CLLocationManager
 extension MapViewController: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkCurrentLocationAuthorization(authorizationStatus: manager.authorizationStatus)
@@ -140,7 +142,6 @@ extension MapViewController: CLLocationManagerDelegate {
             locationManager.requestWhenInUseAuthorization()
             locationManager.startUpdatingLocation()
         case .restricted, .denied:
-            // router
             break
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
@@ -151,37 +152,40 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 
-// MARK: MKMapView Delegate
+// MARK: - MapView Delegate
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? DisplayedAnnotation else { return nil }
         
-        guard let annotationView = mapView.dequeueReusableAnnotationView(
-            withIdentifier: AnnotationView.identifier,
-            for: annotation
-        ) as? AnnotationView else { return nil }
-              
-        return annotationView
+        return RestaurantAnnotationView(annotation: annotation, reuseIdentifier: RestaurantAnnotationView.identifier)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if view.annotation is MKUserLocation {
             mapView.deselectAnnotation(view.annotation, animated: false)
-        } else if let view = view as? AnnotationView,
-                  let annotation = view.annotation as? DisplayedAnnotation {
-            view.updateAnnotation()
+        } else if let annotation = view.annotation as? DisplayedAnnotation {
+            updateAnnotation(view, annotation)
             presentBottomSheet(restaurantID: annotation.restaurantID)
+        } else { // cluster
+            let currentSpan = mapView.region.span
+            print(currentSpan.latitudeDelta, currentSpan.longitudeDelta)
+            let zoomSpan = MKCoordinateSpan(latitudeDelta: currentSpan.latitudeDelta / 2.0, longitudeDelta: currentSpan.longitudeDelta / 2.0)
+            let zoomCoordinate = view.annotation?.coordinate ?? mapView.region.center
+            let zoomed = MKCoordinateRegion(center: zoomCoordinate, span: zoomSpan)
+            mapView.setRegion(zoomed, animated: true)
         }
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        guard let view = view as? AnnotationView else { return }
-        view.updateAnnotation()
+        if let annotation = view.annotation as? DisplayedAnnotation {
+            updateAnnotation(view, annotation)
+        }
     }
 }
 
-// MARK: 화면전환관련, router or coordinator 로 로직 변경 예정 & rx 삭제
-extension MapViewController {
+
+// MARK: - 화면전환
+private extension MapViewController {
     func presentBottomSheet(restaurantID: Int) {
         let detailViewController = DetailViewController(vm: DetailViewModel(id: restaurantID))
         
@@ -192,7 +196,7 @@ extension MapViewController {
                    onNext: { this, isDismiss in
                 this.mapView.deselectAnnotation(this.mapView.selectedAnnotations.first, animated: true)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: DisposeBag())
         
         if let sheet = detailViewController.sheetPresentationController {
             sheet.detents = [.medium(), .large()]

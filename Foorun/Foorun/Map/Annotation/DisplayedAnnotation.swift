@@ -9,9 +9,14 @@ import MapKit
 import UIKit
 
 class DisplayedAnnotation: NSObject, MKAnnotation {
+    enum AnnotationType {
+        case yellow
+        case red
+    }
+    
     /// 식당 ID
     var restaurantID: Int
-    /// AnotationType
+    /// 핀 타입
     var type: AnnotationType
     /// 좌표
     var coordinate: CLLocationCoordinate2D
@@ -30,7 +35,3 @@ class DisplayedAnnotation: NSObject, MKAnnotation {
     }
 }
 
-enum AnnotationType {
-    case yellow
-    case red
-}
